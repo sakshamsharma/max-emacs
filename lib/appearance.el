@@ -7,8 +7,8 @@
 ;; Set up theme
 (setq custom-safe-themes t)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/elpa/")
-;(load-theme 'spacemacs-dark t)
-(load-theme 'wombat t)
+(load-theme 'spacemacs-dark t)
+;(load-theme 'wombat t)
 
 ;; Ensure you don't get to see the buttons at the top in window mode
 (when window-system
