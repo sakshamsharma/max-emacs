@@ -7,10 +7,6 @@
 (setq main-src-path (concat user-emacs-directory "lib"))
 (add-to-list 'load-path main-src-path)
 
-;; Add custom plugings path to load path
-(setq custom-plugins-path (concat user-emacs-directory "custom-packages/"))
-(add-to-list 'load-path custom-plugins-path)
-
 ;; Load basic tweaks file
 (require 'settings.el)
 
