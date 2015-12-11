@@ -65,6 +65,13 @@
 
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
+(global-set-key (kbd "C-x b") 'helm-mini)
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)
+
+(setq helm-semantic-fuzzy-match t
+      helm-imenu-fuzzy-match    t)
+
 (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
       helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
       helm-ff-file-name-history-use-recentf t ; should show recent files at the top
@@ -122,8 +129,9 @@
 (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
 
 ;; For ghc plugin (emacs with ghc-mod)
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
+(require 'ghc)
+(autoload 'ghc-init "/usr/bin/ghc" nil t)
+(autoload 'ghc-debug "/usr/bin/ghc" nil t)
 (add-hook 'haskell-mode-hook 'ghc-init)
 (define-key haskell-mode-map (kbd "C-c t") 'ghc-show-type)
 

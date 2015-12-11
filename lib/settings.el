@@ -19,6 +19,11 @@
 
 (electric-pair-mode 1)
 
+(semantic-mode 1)
+
+(scroll-bar-mode -1)
+(scroll-bar-mode -1)
+
 ;; Fix font size
 (set-face-attribute 'default nil :height 120)
 
@@ -61,6 +66,8 @@
 
 ; Indent with return
 (define-key global-map (kbd "RET") 'newline-and-indent)
+
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 (provide 'settings.el)
 ;;; settings.el ends here

@@ -28,8 +28,30 @@
 ;; Other-window is M-o
 (global-set-key "\M-o" 'other-window)
 
+;; The awesome imenu, backed by semantic mode and helm
+(global-set-key (kbd "C-c i") 'imenu)
+
 ;; Open newlines above current position
 (global-set-key (kbd "C-S-o") 'open-line-above)
+
+;; From vikraman's .emacs.d
+;; These depend on functions defined in functions.el
+(global-set-key (kbd "M-0")
+                '(lambda () (interactive)
+                   (global-text-scale-adjust (- text-scale-mode-amount))
+                   (global-text-scale-mode -1)))
+(global-set-key (kbd "M-+")
+                '(lambda () (interactive) (global-text-scale-adjust 1)))
+(global-set-key (kbd "M--")
+                '(lambda () (interactive) (global-text-scale-adjust -1)))
+
+;; Misc keybindings
+(global-set-key (kbd "M-j")
+                (lambda ()
+                  (interactive)
+                  (join-line -1)))
+
+(global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
 
 (provide 'keybindings.el)
 ;;; keybindings.el ends here

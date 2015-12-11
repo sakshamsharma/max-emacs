@@ -10,11 +10,11 @@
 ;; Load basic tweaks file
 (require 'settings.el)
 
-;; Load keybindings
-(require 'keybindings.el)
-
 ;; Load custom functions
 (require 'functions.el)
+
+;; Load keybindings
+(require 'keybindings.el)
 
 ;; Load settings for package manager and package list
 (require 'package-management.el)
@@ -66,3 +66,21 @@
 (xterm-mouse-mode t)
 
 (tool-bar-mode -1)
+
+(setq default-frame-alist '((font . "Source Code Pro for Powerline-12")))
+
+;; Welcome message
+;(setq initial-major-mode 'lisp-interaction-mode)
+;(setq initial-scratch-message "\
+;;      ___           ___           ___           ___           ___     
+;;     /  /\         /__/\         /  /\         /  /\         /  /\    
+;;    /  /:/_       |  |::\       /  /::\       /  /:/        /  /:/_   
+;;   /  /:/ /\      |  |:|:\     /  /:/\:\     /  /:/        /  /:/ /\  
+;;  /  /:/ /:/_   __|__|:|\:\   /  /:/~/::\   /  /:/  ___   /  /:/ /::\ 
+;; /__/:/ /:/ /\ /__/::::| \:\ /__/:/ /:/\:\ /__/:/  /  /\ /__/:/ /:/\:\
+;; \  \:\/:/ /:/ \  \:\~~\__\/ \  \:\/:/__\/ \  \:\ /  /:/ \  \:\/:/~/:/
+;;  \  \::/ /:/   \  \:\        \  \::/       \  \:\  /:/   \  \::/ /:/ 
+;;   \  \:\/:/     \  \:\        \  \:\        \  \:\/:/     \__\/ /:/  
+;;    \  \::/       \  \:\        \  \:\        \  \::/        /__/:/   
+;;     \__\/         \__\/         \__\/         \__\/         \__\/    
+;")
