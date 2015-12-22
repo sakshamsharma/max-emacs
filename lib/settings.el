@@ -21,8 +21,7 @@
 
 (semantic-mode 1)
 
-(scroll-bar-mode -1)
-(scroll-bar-mode -1)
+(toggle-scroll-bar -1)
 
 ;; Fix font size
 (set-face-attribute 'default nil :height 120)
