@@ -25,6 +25,20 @@
 ;; Load appearance file
 (require 'appearance.el)
 
+;; Set up use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(eval-when-compile
+  (require 'use-package))
+(require 'bind-key)
+(setq inhibit-default-init t)
+
+;; Language specific files
+(use-package haskell-init :load-path "langs/")
+(use-package tex-init     :load-path "langs/")
+
 ;; =========================
 ;; =========================
 ;; Package specific settings

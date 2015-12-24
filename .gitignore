@@ -2,5 +2,7 @@
 !init.el
 !lib/
 !lib/*
+!langs
+!langs/*
 !.gitignore
 !README.md

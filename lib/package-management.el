@@ -55,6 +55,10 @@
     diminish
     ghc
     haskell-mode
+    auctex
+    auto-complete-auctex
+    latex-preview-pane
+    use-package
    ) "a list of packages to ensure are installed at launch.")
 
 ; method to check if all packages are installed

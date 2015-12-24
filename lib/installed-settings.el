@@ -82,60 +82,8 @@
 (define-key helm-map (kbd "C-z")  'helm-select-action) ; list actions using C-z
 ;;============================================================
 
-
 (require 'tabbar)
 (tabbar-mode 1)
-
-;; ======= Haskell ========
-
-(require 'haskell-mode)
-(require 'haskell-interactive-mode)
-(require 'haskell-process)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-
-(custom-set-variables
-  '(haskell-process-suggest-remove-import-lines t)
-  '(haskell-process-auto-import-loaded-modules t)
-  '(haskell-process-log t)
-	'(haskell-tags-on-save))
-
-; Add F8 key combination for going to imports block
-(eval-after-load 'haskell-mode
-  '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
-
-(require 'speedbar)
-(speedbar-add-supported-extension ".hs")
-
-(custom-set-variables
-  '(haskell-process-suggest-remove-import-lines t)
-  '(haskell-process-auto-import-loaded-modules t)
-  '(haskell-process-log t))
-(eval-after-load 'haskell-mode '(progn
-  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-  (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-  (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-  (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)
-  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)))
-(eval-after-load 'haskell-cabal '(progn
-  (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-  (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
-
-;; To jump to the location of the top-level identifier at point, run
-(define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)
-
-;; For ghc plugin (emacs with ghc-mod)
-(require 'ghc)
-(autoload 'ghc-init "/usr/bin/ghc" nil t)
-(autoload 'ghc-debug "/usr/bin/ghc" nil t)
-(add-hook 'haskell-mode-hook 'ghc-init)
-(define-key haskell-mode-map (kbd "C-c t") 'ghc-show-type)
-
-;; ====== Haskell finished =====
 
 (require 'yasnippet)
 
@@ -181,6 +129,35 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
+
+;; AucTeX
+;; (setq TeX-auto-save t)
+;; (setq TeX-parse-self t)
+;; (setq-default TeX-master nil)
+;; (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;; (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+;; (setq reftex-plug-into-AUCTeX t)
+;; (setq TeX-PDF-mode t)
+
+;; ;; Use Skim as viewer, enable source <-> PDF sync
+;; ;; make latexmk available via C-c C-c
+;; (add-hook 'LaTeX-mode-hook (lambda ()
+;;   (push
+;;     '("onepage" "pdflatex \'\\def\\onep{1} \\input{dual.tex}\' " TeX-run-TeX nil t
+;;       :help "Run pdflatex with onepage on file")
+;;     TeX-command-list)))
+
+;; (add-hook 'LaTeX-mode-hook (lambda ()
+;;   (push
+;;     '("twopage" "pdflatex \'\\def\\twop{1} \\input{dual.tex}\' " TeX-run-TeX nil t
+;;       :help "Run pdflatex with twopage on file")
+;;     TeX-command-list)))
+
+;; (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "onepage")))
+
+
 
 (provide 'installed-settings.el)
 ;;; installed-settings.el ends here
