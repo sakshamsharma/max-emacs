@@ -10,16 +10,18 @@
   :config
   (use-package spaceline-config
     :config
-    (spaceline-toggle-buffer-encoding-off)
-    (spaceline-toggle-buffer-encoding-abbrev-off)
     (setq powerline-default-separator 'wave)
     (spaceline-define-segment line-column
       "The current line and column numbers."
       "l:%l c:%2c")
 
+    (spaceline-helm-mode)
     (spaceline-toggle-battery-on)
     (spaceline-toggle-minor-modes-on)
     (spaceline-toggle-flycheck-info-on)
+    (spaceline-toggle-buffer-encoding-off)
+    (spaceline-toggle-buffer-encoding-abbrev-off)
+    (spaceline-toggle-buffer-size-off)
 
     (spaceline-define-segment time
       "The current time."

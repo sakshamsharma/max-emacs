@@ -39,6 +39,7 @@
 (use-package haskell-init :load-path "langs/")
 (use-package tex-init     :load-path "langs/")
 (use-package mode-line    :load-path "lib/")
+(use-package helm-init    :load-path "lib/")
 
 ;; =========================
 ;; =========================
@@ -97,3 +98,19 @@
     \\  \\::/       \\  \\:\\        \\  \\:\\        \\  \\::/        /__/:/
      \\__\\/         \\__\\/         \\__\\/         \\__\\/         \\__\\/
 ")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "667e296942c561382fe0a8584c26be0fe7a80416270c3beede8c6d69f2f77ccc" "04d735f8b10046cbfc7a002f199cac24e3db78b2d19a5f6c8ea182493f3c0655" default)))
+ '(helm-quick-update nil)
+ '(send-mail-function nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

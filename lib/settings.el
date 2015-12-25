@@ -18,6 +18,9 @@
 
 (semantic-mode 1)
 
+(recentf-mode 1)
+ (setq-default recent-save-file "~/.emacs.d/recentf")
+
 ;; Fix font size
 (set-face-attribute 'default nil :height 120)
 
