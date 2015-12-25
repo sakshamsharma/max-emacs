@@ -7,28 +7,7 @@
 (require 'magit)
 (define-key global-map (kbd "C-c m") 'magit-status)
 
-(require 'powerline)
-(require 'powerline-separators)
-(powerline-default-theme)
-;(setq powerline-default-separator wave)
-
 (require 'markdown-mode)
-
-(require 'spaceline-config)
-(require 'spaceline-segments)
-(require 'spaceline)
-;(spaceline-workspace-numbers-unicode 1)
-;(spaceline-window-numbers-unicode 1)
-
-(spaceline-spacemacs-theme)
-(spaceline-toggle-workspace-number)
-(spaceline-toggle-battery-on)
-(spaceline-toggle-flycheck-info-on)
-(display-battery-mode 1)
-(nyan-mode 1)
-(anzu-mode 1)
-(eyebrowse-mode 1)
-(window-numbering-mode 1)
 
 (require 'unicode-fonts)
 (unicode-fonts-setup)
@@ -129,35 +108,6 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
-
-;; AucTeX
-;; (setq TeX-auto-save t)
-;; (setq TeX-parse-self t)
-;; (setq-default TeX-master nil)
-;; (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-;; (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
-;; (setq reftex-plug-into-AUCTeX t)
-;; (setq TeX-PDF-mode t)
-
-;; ;; Use Skim as viewer, enable source <-> PDF sync
-;; ;; make latexmk available via C-c C-c
-;; (add-hook 'LaTeX-mode-hook (lambda ()
-;;   (push
-;;     '("onepage" "pdflatex \'\\def\\onep{1} \\input{dual.tex}\' " TeX-run-TeX nil t
-;;       :help "Run pdflatex with onepage on file")
-;;     TeX-command-list)))
-
-;; (add-hook 'LaTeX-mode-hook (lambda ()
-;;   (push
-;;     '("twopage" "pdflatex \'\\def\\twop{1} \\input{dual.tex}\' " TeX-run-TeX nil t
-;;       :help "Run pdflatex with twopage on file")
-;;     TeX-command-list)))
-
-;; (add-hook 'TeX-mode-hook '(lambda () (setq TeX-command-default "onepage")))
-
-
 
 (provide 'installed-settings.el)
 ;;; installed-settings.el ends here

@@ -10,9 +10,6 @@
 (setq-default scroll-step 2)
 (setq-default visible-bell 1)
 
-(display-time)    ;; Show time in modeline
-(column-number-mode 1) ;; Show column number in modeline
-
 (setq-default kill-whole-line 1)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
@@ -20,8 +17,6 @@
 (electric-pair-mode 1)
 
 (semantic-mode 1)
-
-(toggle-scroll-bar -1)
 
 ;; Fix font size
 (set-face-attribute 'default nil :height 120)

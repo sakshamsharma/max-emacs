@@ -38,6 +38,7 @@
 ;; Language specific files
 (use-package haskell-init :load-path "langs/")
 (use-package tex-init     :load-path "langs/")
+(use-package mode-line    :load-path "lib/")
 
 ;; =========================
 ;; =========================
@@ -78,10 +79,6 @@
 ;; =====
 (require 'mouse)
 (xterm-mouse-mode t)
-
-(tool-bar-mode -1)
-
-(scroll-bar-mode -1)
 
 (setq default-frame-alist '((font . "Source Code Pro for Powerline-12")))
 
