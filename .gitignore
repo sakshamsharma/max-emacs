@@ -4,5 +4,7 @@
 !lib/*
 !langs
 !langs/*
+!elisp/
+!elisp/*
 !.gitignore
 !README.md

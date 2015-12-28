@@ -4,6 +4,8 @@
 
 ;;; Code:
 
+(require 'use-package)
+
 ;; To ensure theme etc are completely implemented
 ;; When running in daemon mode (which is, all the time)
 (if (daemonp)

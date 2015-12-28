@@ -28,7 +28,8 @@
         haskell-process-use-presentation-mode t
         haskell-process-suggest-haskell-docs-imports t
         haskell-interactive-mode-eval-mode 'haskell-mode)
-  :bind (("M-." . haskell-mode-jump-to-def-or-tag)))
+  :bind (("M-." . haskell-mode-jump-to-def-or-tag)
+         ("C-c C-t" . nil)))
   
 (use-package flycheck-haskell
   :ensure t
@@ -39,7 +40,8 @@
   :ensure t
   :config
   (add-hook 'haskell-mode-hook 'ghc-init)
-  :bind (("C-c C-t" . ghc-show-type)))
+  :bind (("C-c C-t" . ghc-show-type)
+         ("C-c t"   . ghc-show-type)))
 
 (use-package shm
   :ensure t

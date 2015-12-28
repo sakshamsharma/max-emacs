@@ -36,10 +36,17 @@
 (setq inhibit-default-init t)
 
 ;; Language specific files
-(use-package haskell-init :load-path "langs/")
-(use-package tex-init     :load-path "langs/")
-(use-package mode-line    :load-path "lib/")
-(use-package helm-init    :load-path "lib/")
+(use-package haskell-init    :load-path "elisp/")
+(use-package tex-init        :load-path "elisp/")
+
+;; Settings specific files
+(use-package mode-line       :load-path "elisp/")
+
+;; Package specific configurations
+(use-package sp-init         :load-path "elisp/")
+(use-package helm-init       :load-path "elisp/")
+(use-package company-init    :load-path "elisp/")
+(use-package projectile-init :load-path "elisp/")
 
 ;; =========================
 ;; =========================
