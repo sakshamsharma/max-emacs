@@ -38,12 +38,14 @@
 ;; Language specific files
 (use-package haskell-init    :load-path "elisp/")
 (use-package tex-init        :load-path "elisp/")
+(use-package ts-init         :load-path "elisp/")
 
 ;; Settings specific files
 (use-package mode-line       :load-path "elisp/")
 
 ;; Package specific configurations
-(use-package sp-init         :load-path "elisp/")
+;(use-package sp-init         :load-path "elisp/")
+(use-package neotree-init    :load-path "elisp/")
 (use-package helm-init       :load-path "elisp/")
 (use-package company-init    :load-path "elisp/")
 (use-package projectile-init :load-path "elisp/")
@@ -53,6 +55,10 @@
 ;; Package specific settings
 ;; =========================
 ;; =========================
+
+(add-to-list 'load-path "/home/saksham/.emacs.d/emacs-gulpjs")
+(autoload 'gulpjs-start-task "gulpjs" "Start a gulp task." t)
+
 
 ;; ========
 ;; doc-view

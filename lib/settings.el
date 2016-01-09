@@ -14,6 +14,10 @@
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
 
+(setq tramp-default-method "ssh")
+(eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+
+
 (electric-pair-mode 1)
 
 (semantic-mode 1)
