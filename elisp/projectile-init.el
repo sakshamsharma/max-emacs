@@ -13,7 +13,10 @@
   (setq projectile-completion-system 'helm
         projectile-enable-caching t
         projectile-switch-project-action 'helm-projectile)
-  (helm-projectile-on))
+  (helm-projectile-on)
+  :bind  (("C-c C-p" . projectile-recentf)
+          ("C-c C-f" . projectile-find-file)
+          ("C-c f"   . helm-projectile-ag )))
 
 (provide 'projectile-init)
 ;;; projectile-init.el ends here
