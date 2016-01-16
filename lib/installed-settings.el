@@ -58,5 +58,7 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(global-undo-tree-mode)
+
 (provide 'installed-settings.el)
 ;;; installed-settings.el ends here

@@ -17,6 +17,11 @@
 (setq tramp-default-method "ssh")
 (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
 
+(autoload 'zap-up-to-char "misc"
+  "Kill up to, but not including ARGth occurrence of CHAR.
+  \(fn arg char)"
+  'interactive)
+(global-set-key "\M-z" 'zap-up-to-char)
 
 (electric-pair-mode 1)
 
@@ -42,12 +47,6 @@
       `((".*" . , "~/.saves")))
 (setq auto-save-file-name-transforms
       `((".*" , "~/.saves" t)))
-
-(autoload 'zap-up-to-char "misc"
-  "Kill up to, but not including ARGth occurrence of CHAR.
-  
-  \(fn arg char)"
-  'interactive)
 
 (setq cua-enable-cua-keys nil)
 (cua-mode)
