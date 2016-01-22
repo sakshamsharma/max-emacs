@@ -13,8 +13,8 @@
   :config
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
-  (setq-default TeX-view-program-list '(("Zathura" "zathura %o")))
-  (setq-default TeX-view-program-selection '((output-pdf "Zathura")))
+  ;(setq-default TeX-view-program-list '(("Zathura" "zathura %o")))
+  ;(setq-default TeX-view-program-selection '((output-pdf "Zathura")))
   (setq-default TeX-master nil)
   (add-hook 'LaTeX-mode-hook
             (lambda ()
@@ -25,6 +25,7 @@
               (turn-on-reftex)
               (setq reftex-plug-into-AUCTeX t)
               (setq TeX-PDF-mode t)
+              (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t))
               (push
                '("onepage" "pdflatex \'\\def\\onep{1} \\input{dual.tex}\'" TeX-run-TeX nil t
                  :help "Run pdflatex with onepage on file")
