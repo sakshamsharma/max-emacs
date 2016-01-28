@@ -13,7 +13,7 @@ A modular and awesome emacs configuration.
 
 # Installation
 
-Why? That's a perfectly sane question. Ideally, you should be cloning this repo, and then pulling necessary things into your vimrc.
+Why? That's a perfectly sane question. Ideally, you should be cloning this repo, and then pulling necessary things into your Emacs config.
 
 Still, if you want the easy way, here's it:
 Simple, backup your ```.emacs.d``` folder, pull this repo in there. Done.
