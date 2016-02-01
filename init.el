@@ -49,6 +49,7 @@
 (use-package helm-init       :load-path "elisp/")
 (use-package company-init    :load-path "elisp/")
 (use-package projectile-init :load-path "elisp/")
+(use-package avy-ace-init    :load-path "elisp/")
 
 ;; =========================
 ;; =========================
