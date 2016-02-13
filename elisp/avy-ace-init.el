@@ -8,14 +8,14 @@
 (use-package avy
   :ensure t
   :bind
-  (("C-."     . avy-goto-char))
+  (("C-;"     . avy-goto-char))
   :config
   (avy-setup-default))
 
 (use-package ace-window
   :ensure t
   :bind
-  (("M-p"     . ace-window))
+  (("C-."     . ace-window))
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
