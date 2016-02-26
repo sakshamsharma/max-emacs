@@ -1,7 +1,7 @@
 max-emacs
 =========
 
-A modular and awesome emacs configuration.
+A modular and awesome emacs configuration, featuring the cast of Fast and Furious (READ: Blazing fast startup speeds)
 
 ```
   _____  _____   ___  ___           ____    _____  _____     ____    ______
@@ -28,10 +28,10 @@ git clone https://github.com/sakshamsharma/max-emacs
 For some reason, the package `neotree` doesn't get loaded automatically. You'd need to do `M-x package-install [Ret] neotree` to install it.
 
 # Highlights
-+ Tailor-configured for Haskell. Works great with Javascript, Dart and C++. Other languages would be added as and when needed :)
++ Blazing fast! Despite having dozens of packages, Emacs starts up in less than 1.5 seconds.
++ Tailor-configured for Haskell, JavaScript, Scala and others. Works great with many other languages.
 + Modular. All elisp code is split into files named according to what the code does.
-+ [Helm](https://github.com/emacs-helm/helm) and [Ace-jump](https://github.com/winterTTr/ace-jump-mode) make life so much easier!
++ [Helm](https://github.com/emacs-helm/helm) and [Avy](https://github.com/abo-abo/avy) make life so much easier!
 + An awesome powerline modeline, with many packages to improve it's look.
 + Package management as a simple list of packages.
-+ The awesome spacemacs theme!
-+ The fact that this all was written by a person one month into EMacs, and thus is simple to read :smile:
++ The awesome spacemacs theme! (Not to forget, the spaceline theme to go with it)
