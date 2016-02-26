@@ -34,8 +34,30 @@
                 '("twopage" "pdflatex \'\\def\\twop{1} \\input{dual.tex}\'" TeX-run-TeX nil t
                   :help "Run pdflatex with twopage on file")
                 TeX-command-list)
-              ))
+               ))
+  (use-package auto-complete-auctex
+    :ensure t)
+  (use-package latex-preview-pane
+    :ensure t)
   :bind (("C-<tab>" . TeX-complete-symbol)))
+
+;; ========
+;; doc-view
+;; ========
+(require 'doc-view)
+
+;; Continous scrolling in doc view
+(setq doc-view-continuous t)
+
+;; view docs and scroll the page while in another buffer
+(fset 'doc-prev "\C-xo\C-x[\C-xo")
+(fset 'doc-next "\C-xo\C-x]\C-xo")
+(global-set-key (kbd "M-[") 'doc-prev)
+(global-set-key (kbd "M-]") 'doc-next)
+
+;; Zooming in doc view with control+mouse
+(global-set-key [C-mouse-4] 'text-scale-increase)
+(global-set-key [C-wheel-up] 'text-scale-decrease)
 
 (provide 'tex-init)
 ;;; tex-init.el ends here

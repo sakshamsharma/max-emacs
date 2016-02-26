@@ -69,5 +69,5 @@ With arg N, insert N newlines."
       (concat "/Last UPdated/: "
               (format-time-string "%d %b %Y" mtime)))))
 
-(provide 'functions.el)
+(provide 'functions)
 ;;; functions.el ends here

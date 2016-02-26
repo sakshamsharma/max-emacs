@@ -25,6 +25,8 @@ cp .emacs .emacs.oldcfg
 git clone https://github.com/sakshamsharma/max-emacs
 ```
 
+For some reason, the package `neotree` doesn't get loaded automatically. You'd need to do `M-x package-install [Ret] neotree` to install it.
+
 # Highlights
 + Tailor-configured for Haskell. Works great with Javascript, Dart and C++. Other languages would be added as and when needed :)
 + Modular. All elisp code is split into files named according to what the code does.

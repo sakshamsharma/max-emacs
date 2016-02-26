@@ -18,10 +18,14 @@
         haskell-tags-on-save nil
         haskell-notify-p t
         haskell-literate-default 'tex
-        haskell-process-type 'cabal-repl
-        haskell-process-args-cabal-repl '("--ghc-options=-ferror-spans" "--with-ghc=ghci")
-        haskell-process-path-ghci "ghci"
-        haskell-process-args-ghci '("-ferror-spans")
+;        haskell-process-type 'cabal-repl
+;        haskell-process-args-cabal-repl '("--ghc-options=-ferror-spans" "--with-ghc=ghci")
+;        haskell-process-path-ghci "/usr/bin/ghci"
+;        haskell-process-args-ghci '("-ferror-spans")
+        haskell-process-type 'stack-ghci
+        haskell-process-path-ghci "stack"
+        haskell-process-args-ghci "ghci"
+
         haskell-process-suggest-remove-import-lines t
         haskell-process-auto-import-loaded-modules t
         haskell-process-log t
@@ -30,7 +34,9 @@
         haskell-interactive-mode-eval-mode 'haskell-mode)
   :bind (("M-." . haskell-mode-jump-to-def-or-tag)
          ("C-c C-t" . nil)))
-  
+
+(custom-set-variables '(haskell-process-type 'cabal-repl))
+
 (use-package flycheck-haskell
   :ensure t
   :config

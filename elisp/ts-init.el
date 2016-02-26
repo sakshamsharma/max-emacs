@@ -32,6 +32,8 @@
   (setq typescript-indent-level 2)
   (setq company-tooltip-align-annotations t))
 
+(add-to-list 'load-path "/home/saksham/.emacs.d/emacs-gulpjs")
+(autoload 'gulpjs-start-task "gulpjs" "Start a gulp task." t)
 
 (provide 'ts-init)
 ;;; ts-init.el ends here

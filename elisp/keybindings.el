@@ -1,4 +1,4 @@
-;;; keybindgins.el --- the name is enough
+;;; keybindings.el --- the name is enough
 ;;; Commentary:
 ;;; Contains key bindings
 
@@ -53,6 +53,6 @@
 
 (global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
 
-(provide 'keybindings.el)
+(provide 'keybindings)
 ;;; keybindings.el ends here
 

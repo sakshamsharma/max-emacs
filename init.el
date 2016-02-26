@@ -3,99 +3,40 @@
 
 ;;; Code:
 
-;; Add Emacs subdirectories to load path
-(setq main-src-path (concat user-emacs-directory "lib"))
+;; Add .emacs.d/elisp/ subdirectory to load path
+(setq main-src-path (concat user-emacs-directory "elisp"))
 (add-to-list 'load-path main-src-path)
 
-;; Load basic tweaks file
-(require 'settings.el)
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
 
-;; Load custom functions
-(require 'functions.el)
+(require 'use-package-conf)
 
-;; Load keybindings
-(require 'keybindings.el)
-
-;; Load settings for package manager and package list
-(require 'package-management.el)
-
-;; Installed packages settings
-(require 'installed-settings.el)
-
-;; Load appearance file
-(require 'appearance.el)
-
-;; Set up use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(eval-when-compile
-  (require 'use-package))
-(require 'bind-key)
-(setq inhibit-default-init t)
+;; Settings specific files
+(use-package functions       :load-path "elisp/")
+(use-package appearance      :load-path "elisp/")
+(use-package keybindings     :load-path "elisp/")
+(use-package settings        :load-path "elisp/")
+(use-package mode-line       :load-path "elisp/")
+(use-package misc-init       :load-path "elisp/")
 
 ;; Language specific files
 (use-package haskell-init    :load-path "elisp/")
 (use-package tex-init        :load-path "elisp/")
 (use-package ts-init         :load-path "elisp/")
-
-;; Settings specific files
-(use-package mode-line       :load-path "elisp/")
+(use-package scala-init      :load-path "elisp/")
 
 ;; Package specific configurations
-;(use-package sp-init         :load-path "elisp/")
 (use-package neotree-init    :load-path "elisp/")
 (use-package helm-init       :load-path "elisp/")
 (use-package company-init    :load-path "elisp/")
 (use-package projectile-init :load-path "elisp/")
 (use-package avy-ace-init    :load-path "elisp/")
-
-;; =========================
-;; =========================
-;; Package specific settings
-;; =========================
-;; =========================
-
-(add-to-list 'load-path "/home/saksham/.emacs.d/emacs-gulpjs")
-(autoload 'gulpjs-start-task "gulpjs" "Start a gulp task." t)
-
-
-;; ========
-;; doc-view
-;; ========
-(require 'doc-view)
-
-;; Continous scrolling in doc view
-(setq doc-view-continuous t)
-
-;; view docs and scroll the page while in another buffer
-(fset 'doc-prev "\C-xo\C-x[\C-xo")
-(fset 'doc-next "\C-xo\C-x]\C-xo")
-(global-set-key (kbd "M-[") 'doc-prev)
-(global-set-key (kbd "M-]") 'doc-next)
-
-;; Zooming in doc view with control+mouse
-(global-set-key [C-mouse-4] 'text-scale-increase)
-(global-set-key [C-wheel-up] 'text-scale-decrease)
-
-;; =========
-;; save-hist
-;; =========
-(require 'savehist)
-
-;; Saving emacs history
-(savehist-mode 1)
-(setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
-(setq savehist-file "~/.emacs.d/savehist")
-
-;; =====
-;; mouse
-;; =====
-(require 'mouse)
-(xterm-mouse-mode t)
-
-(setq default-frame-alist '((font . "Source Code Pro for Powerline-12")))
+(use-package sudo-save       :load-path "elisp/")
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)
@@ -112,19 +53,3 @@
     \\  \\::/       \\  \\:\\        \\  \\:\\        \\  \\::/        /__/:/
      \\__\\/         \\__\\/         \\__\\/         \\__\\/         \\__\\/
 ")
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" "667e296942c561382fe0a8584c26be0fe7a80416270c3beede8c6d69f2f77ccc" "04d735f8b10046cbfc7a002f199cac24e3db78b2d19a5f6c8ea182493f3c0655" default)))
- '(helm-quick-update nil)
- '(send-mail-function nil))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

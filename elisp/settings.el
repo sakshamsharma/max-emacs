@@ -69,5 +69,21 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(provide 'settings.el)
+;; =========
+;; save-hist
+;; =========
+(require 'savehist)
+
+;; Saving emacs history
+(savehist-mode 1)
+(setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
+(setq savehist-file "~/.emacs.d/savehist")
+
+;; =====
+;; mouse
+;; =====
+(require 'mouse)
+(xterm-mouse-mode t)
+
+(provide 'settings)
 ;;; settings.el ends here

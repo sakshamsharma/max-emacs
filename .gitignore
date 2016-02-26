@@ -1,9 +1,5 @@
 *
 !init.el
-!lib/
-!lib/*
-!langs
-!langs/*
 !elisp/
 !elisp/*
 !.gitignore

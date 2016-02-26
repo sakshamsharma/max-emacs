@@ -22,12 +22,12 @@
 
   (setq company-backends (delete 'company-semantic company-backends))
 
-  (add-to-list 'company-backends 'company-c-headers)
-  (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include/g++-v")
-  (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include/g++-v4/x86_64-pc-linux-gnu")
-  (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include/g++-v4/backward")
-  (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include")
-  (add-to-list 'company-c-headers-path-system "/usr/local/include")
+  ;; (add-to-list 'company-backends 'company-c-headers)
+  ;; (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include/g++-v")
+  ;; (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include/g++-v4/x86_64-pc-linux-gnu")
+  ;; (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include/g++-v4/backward")
+  ;; (add-to-list 'company-c-headers-path-system "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include")
+  ;; (add-to-list 'company-c-headers-path-system "/usr/local/include")
 
   (add-to-list 'company-backends 'company-tern)
   (add-to-list 'company-backends 'company-ghc))
