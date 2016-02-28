@@ -24,6 +24,8 @@
 (use-package mode-line       :load-path "elisp/")
 (use-package misc-init       :load-path "elisp/")
 
+
+(use-package aggress-indent  :load-path "elisp/")
 ;; Language specific files
 (use-package haskell-init    :load-path "elisp/")
 (use-package tex-init        :load-path "elisp/")
@@ -53,3 +55,4 @@
     \\  \\::/       \\  \\:\\        \\  \\:\\        \\  \\::/        /__/:/
      \\__\\/         \\__\\/         \\__\\/         \\__\\/         \\__\\/
 ")
+
