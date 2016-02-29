@@ -23,14 +23,7 @@
 (use-package settings        :load-path "elisp/")
 (use-package mode-line       :load-path "elisp/")
 (use-package misc-init       :load-path "elisp/")
-
-
 (use-package aggress-indent  :load-path "elisp/")
-;; Language specific files
-(use-package haskell-init    :load-path "elisp/")
-(use-package tex-init        :load-path "elisp/")
-(use-package ts-init         :load-path "elisp/")
-(use-package scala-init      :load-path "elisp/")
 
 ;; Package specific configurations
 (use-package neotree-init    :load-path "elisp/")
@@ -39,6 +32,15 @@
 (use-package projectile-init :load-path "elisp/")
 (use-package avy-ace-init    :load-path "elisp/")
 (use-package sudo-save       :load-path "elisp/")
+
+;; Language specific files
+;;(use-package haskell-init    :load-path "elisp/")
+(use-package hs-init         :load-path "elisp/")
+(use-package tex-init        :load-path "elisp/")
+(use-package ts-init         :load-path "elisp/")
+(use-package py-init         :load-path "elisp/")
+;;(use-package scala-init      :load-path "elisp/")
+
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)
