@@ -34,6 +34,7 @@
 (tabbar-mode 1)
 (unicode-fonts-setup)
 (global-undo-tree-mode)
+(setq undo-tree-auto-save-history -1)
 
 ;; Multi-term settings
 (setq multi-term-program "/bin/zsh")

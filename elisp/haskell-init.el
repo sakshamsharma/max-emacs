@@ -30,6 +30,11 @@
   :bind (("M-." . haskell-mode-jump-to-def-or-tag)
          ("C-c C-t" . nil)))
 
+<<<<<<< 1d6e86606005284b681b81183e5d9453136f92d0
+=======
+(custom-set-variables '(haskell-process-type 'stack-ghci))
+
+>>>>>>> Minor fixes and web mode.
 (use-package flycheck-haskell
   :ensure t
   :config
