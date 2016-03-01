@@ -24,6 +24,8 @@
 (use-package mode-line       :load-path "elisp/")
 (use-package misc-init       :load-path "elisp/")
 (use-package aggress-indent  :load-path "elisp/")
+(use-package erc-init        :load-path "elisp/")
+(use-package erc-nick-colors :load-path "elisp/")
 
 ;; Package specific configurations
 (use-package neotree-init    :load-path "elisp/")
