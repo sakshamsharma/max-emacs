@@ -21,7 +21,7 @@ Simple, backup your ```.emacs.d``` folder, pull this repo in there. Done.
 ```
 cd ~
 cp -r .emacs.d .emacs.old
-cp .emacs .emacs.oldcfg
+mv .emacs .emacs.oldcfg
 git clone https://github.com/sakshamsharma/max-emacs
 ```
 

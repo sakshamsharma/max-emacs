@@ -54,5 +54,28 @@
   (add-to-list 'exec-path my-stack-path))
 
 
+;; To let emacs know how to align haskell comments
+(eval-after-load "align"
+  '(add-to-list 'align-rules-list
+                '(haskell-types
+                  (regexp . "\\(\\s-+\\)\\(::\\|∷\\)\\s-+")
+                  (modes quote (haskell-mode literate-haskell-mode)))))
+(eval-after-load "align"
+  '(add-to-list 'align-rules-list
+                '(haskell-assignment
+                  (regexp . "\\(\\s-+\\)=\\s-+")
+                  (modes quote (haskell-mode literate-haskell-mode)))))
+(eval-after-load "align"
+  '(add-to-list 'align-rules-list
+                '(haskell-arrows
+                  (regexp . "\\(\\s-+\\)\\(->\\|→\\)\\s-+")
+                  (modes quote (haskell-mode literate-haskell-mode)))))
+(eval-after-load "align"
+  '(add-to-list 'align-rules-list
+                '(haskell-left-arrows
+                  (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
+                  (modes quote (haskell-mode literate-haskell-mode)))))
+
+
 (provide 'hs-init)
 ;;; hs-init.el ends here
