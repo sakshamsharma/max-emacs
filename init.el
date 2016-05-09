@@ -34,6 +34,7 @@
 (use-package projectile-init :load-path "elisp/")
 (use-package avy-ace-init    :load-path "elisp/")
 (use-package sudo-save       :load-path "elisp/")
+(use-package gtc-init        :load-path "elisp/")
 
 ;; Language specific files
 ;;(use-package haskell-init    :load-path "elisp/")
