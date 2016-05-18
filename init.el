@@ -44,6 +44,7 @@
 (use-package py-init         :load-path "elisp/")
 (use-package scala-init      :load-path "elisp/")
 (use-package web-init        :load-path "elisp/")
+(use-package scheme-init     :load-path "elisp/")
 
 
 ;; Welcome message
