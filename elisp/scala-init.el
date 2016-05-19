@@ -29,10 +29,8 @@
   (newline-and-indent)
   (scala-indent:insert-asterisk-on-multiline-comment))
 
-(bind-key "RET" 'scala-mode-newline-comments scala-mode-map)
-
-(sp-local-pair 'scala-mode "(" nil :post-handlers '(("||\n[i]" "RET")))
-(sp-local-pair 'scala-mode "{" nil :post-handlers '(("||\n[i]" "RET") ("| " "SPC")))
+;; (sp-local-pair 'scala-mode "(" nil :post-handlers '(("||\n[i]" "RET")))
+;; (sp-local-pair 'scala-mode "{" nil :post-handlers '(("||\n[i]" "RET") ("| " "SPC")))
 
 (provide 'scala-init)
 ;;; scala-init.el ends here
