@@ -29,9 +29,12 @@
   (blink-cursor-mode -1)
   (tool-bar-mode -1)
   (load-theme 'spacemacs-dark t)
+  ;; To enable transparency
+  (set-frame-parameter (selected-frame) 'alpha '(90 50))
+  (add-to-list 'default-frame-alist '(alpha 90 50))
   (scroll-bar-mode -1))
 
-(setq default-frame-alist '((font . "Source Code Pro for Powerline-12")))
+(setq default-frame-alist '((font . "Source Code Pro for Powerline-13")))
 
 (provide 'appearance)
 ;;; appearance.el ends here
