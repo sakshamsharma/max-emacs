@@ -37,7 +37,6 @@
 (use-package gtc-init        :load-path "elisp/")
 
 ;; Language specific files
-;;(use-package haskell-init    :load-path "elisp/")
 (use-package hs-init         :load-path "elisp/")
 (use-package tex-init        :load-path "elisp/")
 (use-package ts-init         :load-path "elisp/")
@@ -62,4 +61,3 @@
     \\  \\::/       \\  \\:\\        \\  \\:\\        \\  \\::/        /__/:/
      \\__\\/         \\__\\/         \\__\\/         \\__\\/         \\__\\/
 ")
-

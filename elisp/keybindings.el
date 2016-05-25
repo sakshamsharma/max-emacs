@@ -31,6 +31,10 @@
 ;; The awesome imenu, backed by semantic mode and helm
 (global-set-key (kbd "C-c i") 'imenu)
 
+;; Move to next and previous error/match with grep or compile
+(global-set-key "\C-cn" 'next-error)
+(global-set-key "\C-cp" 'previous-error)
+
 ;; Open newlines above current position
 (global-set-key (kbd "C-S-o") 'open-line-above)
 

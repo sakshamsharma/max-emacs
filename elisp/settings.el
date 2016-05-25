@@ -4,7 +4,7 @@
 
 ;;; Code:
 
-; Stop startup message
+;; Stop startup message
 (setq inhibit-startup-message 1)
 
 (setq-default scroll-step 2)
@@ -28,20 +28,20 @@
 (semantic-mode 1)
 
 (recentf-mode 1)
- (setq-default recent-save-file "~/.emacs.d/recentf")
+(setq-default recent-save-file "~/.emacs.d/recentf")
 
 ;; Fix font size
 (set-face-attribute 'default nil :height 120)
 
 ;; Avoid cluttering folders with temporary files
 (setq
-   backup-by-copying t      ; don't clobber symlinks
-   backup-directory-alist
-    '(("." . "~/.saves"))    ; don't litter my fs tree
-   delete-old-versions t
-   kept-new-versions 6
-   kept-old-versions 2
-   version-control t)       ; use versioned backups
+ backup-by-copying t      ; don't clobber symlinks
+ backup-directory-alist
+ '(("." . "~/.saves"))    ; don't litter my fs tree
+ delete-old-versions t
+ kept-new-versions 6
+ kept-old-versions 2
+ version-control t)       ; use versioned backups
 
 (setq backup-directory-alist
       `((".*" . , "~/.saves")))
@@ -51,20 +51,27 @@
 (setq cua-enable-cua-keys nil)
 (cua-mode)
 
-; Vim style non-jumpy scrolling
+;; Vim style non-jumpy scrolling
 (setq scroll-margin 5
       scroll-conservatively 9999
       scroll-step 1)
 
-; Save last location in file
+;; Save last location in file
 (setq save-place-file "~/.emacs.d/saveplace")
 (setq-default save-place t)
 (require 'saveplace)
 
-; Show matching parenthesis
+;; Show matching parenthesis
 (show-paren-mode t)
 
-; Indent with return
+;; Set the frame title
+(setq frame-title-format '(buffer-file-name "%f - Emacs" ("%b - Emacs")))
+
+;; System file settings
+(setq backup-by-copying-when-linked t)   ; Preserve hardlink
+(setq backup-by-copying-when-mismatch t) ; Preserve owner and group of file
+
+;; Indent with return
 (define-key global-map (kbd "RET") 'newline-and-indent)
 
 (defalias 'yes-or-no-p 'y-or-n-p)
