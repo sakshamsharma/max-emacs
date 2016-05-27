@@ -8,7 +8,9 @@
 (use-package avy
   :ensure t
   :bind
-  (("C-;"     . avy-goto-char))
+  (("C-;"     . avy-goto-char)
+   ("C-'"     . avy-goto-char-timer)
+   ("C-c SPC" . avy-goto-word-or-subword-1))
   :config
   (avy-setup-default))
 
