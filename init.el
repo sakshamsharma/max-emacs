@@ -1,5 +1,6 @@
 ;;; init.el --- Main load file for emacs
-;;; Commentary: No longer do I keep a ~/.emacs file.
+;;; Commentary:
+;;; No longer do I keep a ~/.emacs file.
 
 ;;; Code:
 
@@ -29,6 +30,7 @@
 
 ;; Package specific configurations
 (use-package neotree-init    :load-path "elisp/")
+(use-package flycheck-init   :load-path "elisp/")
 (use-package helm-init       :load-path "elisp/")
 (use-package company-init    :load-path "elisp/")
 (use-package projectile-init :load-path "elisp/")
@@ -61,3 +63,5 @@
     \\  \\::/       \\  \\:\\        \\  \\:\\        \\  \\::/        /__/:/
      \\__\\/         \\__\\/         \\__\\/         \\__\\/         \\__\\/
 ")
+(provide 'init)
+;;; init.el ends here
