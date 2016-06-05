@@ -38,6 +38,9 @@
 ;; Open newlines above current position
 (global-set-key (kbd "C-S-o") 'open-line-above)
 
+;; Make switching buffers easier
+(global-set-key (kbd "M-s") 'helm-mini)
+
 ;; From vikraman's .emacs.d
 ;; These depend on functions defined in functions.el
 (global-set-key (kbd "M-0")

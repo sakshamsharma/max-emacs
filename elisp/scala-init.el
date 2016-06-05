@@ -22,8 +22,20 @@
                        company-yasnippet)))))
 
   :bind (("C-c C-v C-e" . ensime-print-errors-at-point)
-         ("C-c C-v C-t" . ensime-print-type-at-point))
+         ("C-c C-v C-t" . ensime-print-type-at-point)
+         ("C-c C-e" . ensime-print-errors-at-point)
+         ("C-c C-t" . ensime-print-type-at-point))
   )
+
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map))
 
 (defun scala-mode-newline-comments ()
   "Custom newline appropriate for `scala-mode'."
