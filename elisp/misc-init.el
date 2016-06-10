@@ -27,8 +27,11 @@
                 nyan-mode
                 unicode-fonts
                 auctex
-                ;undo-tree
+                smbc
                 ))
+
+(use-package smbc
+  :ensure t)
 
 ;; Misc
 (tabbar-mode 1)
