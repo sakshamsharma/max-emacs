@@ -21,6 +21,9 @@
                 (tool-bar-mode -1)
                 (scroll-bar-mode -1)
                 (blink-cursor-mode -1)
+                (menu-bar-mode -1)
+                (setq default-frame-alist '((font . "Literation Mono Powerline-13")))
+                (set-frame-font "Literation Mono Powerline-13" nil t)
                 (set-frame-parameter (selected-frame) 'alpha '(90 90))
                 (add-to-list 'default-frame-alist '(alpha 90 90)))))
 
@@ -29,13 +32,14 @@
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
   (blink-cursor-mode -1)
   (tool-bar-mode -1)
+  (menu-bar-mode -1)
+  (scroll-bar-mode -1)
   (load-theme 'spacemacs-dark t)
   (set-frame-parameter (selected-frame) 'alpha '(90 90))
   (add-to-list 'default-frame-alist '(alpha 90 90))
+  (setq default-frame-alist '((font . "Literation Mono Powerline-13")))
+  (set-frame-font "Literation Mono Powerline-13" nil t)
   (scroll-bar-mode -1))
-
-(setq default-frame-alist '((font . "Literation Mono Powerline-13")))
-(set-frame-font "Literation Mono Powerline-13" nil t)
 
 (provide 'appearance)
 ;;; appearance.el ends here

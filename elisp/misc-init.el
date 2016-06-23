@@ -17,7 +17,6 @@
 
 (use-packages '(magit
                 on-screen
-                tabbar
                 powerline
                 auto-complete
                 markdown-mode
@@ -27,17 +26,14 @@
                 nyan-mode
                 unicode-fonts
                 auctex
-                smbc
-                ))
+                smbc))
 
 (use-package smbc
   :ensure t)
 
 ;; Misc
-(tabbar-mode 1)
+(tabbar-mode 0)
 (unicode-fonts-setup)
-;(global-undo-tree-mode)
-;(setq undo-tree-auto-save-history -1)
 
 ;; Multi-term settings
 (setq multi-term-program "/bin/zsh")
@@ -53,6 +49,12 @@
 (setq js-indent-level 2)
 (add-hook 'js2-mode-hook 'flycheck-mode)
 
+;; Kill backup files!
+(setq make-backup-files nil
+      backup-directory-alist `((".*" . ,temporary-file-directory))
+      auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
+      echo-keystrokes 0.1
+      visible-bell t)
 
 (provide 'misc-init)
 ;;; misc-init.el ends here
