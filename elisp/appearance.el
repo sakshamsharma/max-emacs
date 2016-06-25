@@ -21,8 +21,8 @@
                 (tool-bar-mode -1)
                 (scroll-bar-mode -1)
                 (blink-cursor-mode -1)
-                (set-frame-parameter (selected-frame) 'alpha '(90 50))
-                (add-to-list 'default-frame-alist '(alpha 90 50)))))
+                (set-frame-parameter (selected-frame) 'alpha '(90 90))
+                (add-to-list 'default-frame-alist '(alpha 90 90)))))
 
 ;; Again, to fix some stuff which doesn't work in non-daemon mode
 (when window-system
@@ -30,11 +30,12 @@
   (blink-cursor-mode -1)
   (tool-bar-mode -1)
   (load-theme 'spacemacs-dark t)
-  (set-frame-parameter (selected-frame) 'alpha '(90 50))
-  (add-to-list 'default-frame-alist '(alpha 90 50))
+  (set-frame-parameter (selected-frame) 'alpha '(90 90))
+  (add-to-list 'default-frame-alist '(alpha 90 90))
   (scroll-bar-mode -1))
 
-(setq default-frame-alist '((font . "Source Code Pro for Powerline-13")))
+(setq default-frame-alist '((font . "Literation Mono Powerline-13")))
+(set-frame-font "Literation Mono Powerline-13" nil t)
 
 (provide 'appearance)
 ;;; appearance.el ends here
