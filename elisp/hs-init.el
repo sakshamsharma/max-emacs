@@ -10,27 +10,36 @@
   :config
   (add-hook 'haskell-mode-hook 'company-mode)
   (setq haskell-process-type 'stack-ghci)
-  (setq haskell-process-path-ghci "stack")
-  (setq haskell-process-args-ghci "ghci")
+  (setq haskell-process-path-ghci "stack ghci")
+  (setq haskell-process-args-stack-ghci '())
 
   ;; Jump to imports with F8
   (eval-after-load 'haskell-mode
     '(define-key haskell-mode-map [f8] 'haskell-navigate-imports))
   (eval-after-load
       'haskell-mode '(progn
-                       (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
-                       (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-                       (define-key haskell-mode-map (kbd "C-c C-n C-t") 'haskell-process-do-type)
-                       (define-key haskell-mode-map (kbd "C-c C-n C-i") 'haskell-process-do-info)
-                       (define-key haskell-mode-map (kbd "C-c C-n C-c") 'haskell-process-cabal-build)
-                       (define-key haskell-mode-map (kbd "C-c C-n c") 'haskell-process-cabal)))
+                       (define-key haskell-mode-map (kbd "C-c C-l")
+                         'haskell-process-load-or-reload)
+                       (define-key haskell-mode-map (kbd "C-c C-z")
+                         'haskell-interactive-switch)
+                       (define-key haskell-mode-map (kbd "C-c C-n C-t")
+                         'haskell-process-do-type)
+                       (define-key haskell-mode-map (kbd "C-c C-n C-i")
+                         'haskell-process-do-info)
+                       (define-key haskell-mode-map (kbd "C-c C-n C-c")
+                         'haskell-process-cabal-build)
+                       (define-key haskell-mode-map (kbd "C-c C-n c")
+                         'haskell-process-cabal)))
   (eval-after-load
       'haskell-cabal '(progn
-                        (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-                        (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-                        (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-                        (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)))
-  )
+                        (define-key haskell-cabal-mode-map (kbd "C-c C-z")
+                          'haskell-interactive-switch)
+                        (define-key haskell-cabal-mode-map (kbd "C-c C-k")
+                          'haskell-interactive-mode-clear)
+                        (define-key haskell-cabal-mode-map (kbd "C-c C-c")
+                          'haskell-process-cabal-build)
+                        (define-key haskell-cabal-mode-map (kbd "C-c c")
+                          'haskell-process-cabal))))
 
 (use-package ghc
   :config
@@ -38,8 +47,7 @@
   (autoload 'ghc-debug "stack ghc" nil t)
   (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
   (add-to-list 'company-backends 'company-ghc)
-  (custom-set-variables '(company-ghc-show-info t))
-  )
+  (custom-set-variables '(company-ghc-show-info t)))
 
 ;; Jump to definition with M-.
 (custom-set-variables
@@ -49,12 +57,9 @@
  '(haskell-tags-on-save t)
  '(haskell-process-type 'stack-ghci))
 
-
-
 (let ((my-stack-path (expand-file-name "~/.local/bin")))
   (setenv "PATH" (concat my-stack-path path-separator (getenv "PATH")))
   (add-to-list 'exec-path my-stack-path))
-
 
 ;; To let emacs know how to align haskell comments
 (eval-after-load "align"
@@ -77,7 +82,6 @@
                 '(haskell-left-arrows
                   (regexp . "\\(\\s-+\\)\\(<-\\|←\\)\\s-+")
                   (modes quote (haskell-mode literate-haskell-mode)))))
-
 
 (provide 'hs-init)
 ;;; hs-init.el ends here
