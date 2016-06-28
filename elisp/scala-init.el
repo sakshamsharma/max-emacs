@@ -14,12 +14,12 @@
               (ensime-scala-mode-hook)
               (make-local-variable 'company-backends)
               (projectile-visit-project-tags-table)
-              (setq company-backends
-                    '(ensime-company
-                      (company-keywords
-                       company-dabbrev-code
-                       company-etags
-                       company-yasnippet)))))
+              (add-to-list 'company-backends
+                           '(ensime-company
+                             (company-keywords
+                              company-dabbrev-code
+                              company-etags
+                              company-yasnippet)))))
 
   :bind (("C-c C-v C-e" . ensime-print-errors-at-point)
          ("C-c C-v C-t" . ensime-print-type-at-point)

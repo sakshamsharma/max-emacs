@@ -17,19 +17,21 @@
 
 (use-packages '(magit
                 on-screen
-                powerline
                 auto-complete
                 markdown-mode
                 multi-term
-                dart-mode
                 js2-mode
-                nyan-mode
                 unicode-fonts
-                auctex
-                smbc))
+                auctex))
 
 (use-package smbc
   :ensure t)
+
+(use-package diminish
+  :ensure t
+  :config
+  (diminish 'auto-revert-mode)
+  (diminish 'yas-minor-mode))
 
 ;; Misc
 (tabbar-mode 0)

@@ -14,6 +14,7 @@
 ;; company-mode
 (use-package company
   :ensure t
+  :diminish company-mode
   :config
   (setq company-idle-delay 0.2)
   (setq company-minimum-prefix-length 2)
@@ -32,8 +33,7 @@
      (progn
        (eval `(use-package ,p :ensure t :defer t))
        (use-packages ps)))
-    (_ t)
-    ))
+    (_ t)))
 
 (use-packages '(company-auctex
                 company-cabal
@@ -41,15 +41,12 @@
                 company-ghc
                 company-ghci
                 company-go
-                company-inf-ruby
                 company-irony
                 company-math
-                company-coq
                 company-restclient
                 company-quickhelp
                 slime-company
-                company-tern
-                ))
+                company-tern))
 
 (provide 'company-init)
 ;;; company-init.el ends here

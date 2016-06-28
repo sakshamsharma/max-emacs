@@ -8,6 +8,7 @@
 ;; projectile
 (use-package projectile
   :ensure t
+  :diminish projectile-mode
   :config
   (projectile-global-mode)
   (setq projectile-completion-system 'helm
