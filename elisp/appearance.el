@@ -6,10 +6,15 @@
 
 (require 'use-package)
 
-(use-package spaceline
-  :ensure t)
-(use-package spacemacs-theme
-  :ensure t)
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-default-theme)
+  (custom-set-faces
+   '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264"))))))
+
+;; Highlight the current line
+(global-hl-line-mode)
 
 ;; To ensure theme etc are completely implemented
 ;; When running in daemon mode (which is, all the time)
@@ -17,13 +22,15 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (select-frame frame)
-                (load-theme 'spacemacs-dark t)
+                ;;(load-theme 'spacemacs-dark t)
+                (load-theme 'sanityinc-solarized-dark t)
                 (tool-bar-mode -1)
                 (scroll-bar-mode -1)
                 (blink-cursor-mode -1)
                 (menu-bar-mode -1)
-                (setq default-frame-alist '((font . "Literation Mono Powerline-13")))
-                (set-frame-font "Literation Mono Powerline-13" nil t)
+                (setq default-frame-alist '((font . "Literation Mono Powerline-14")))
+                (set-frame-font "Literation Mono Powerline-14" nil t)
+                (set-face-attribute 'default nil :height 140)
                 (set-frame-parameter (selected-frame) 'alpha '(90 90))
                 (add-to-list 'default-frame-alist '(alpha 90 90)))))
 
@@ -34,11 +41,13 @@
   (tool-bar-mode -1)
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
-  (load-theme 'spacemacs-dark t)
+  ;;(load-theme 'spacemacs-dark t)
+  (load-theme 'sanityinc-solarized-dark t)
   (set-frame-parameter (selected-frame) 'alpha '(90 90))
   (add-to-list 'default-frame-alist '(alpha 90 90))
-  (setq default-frame-alist '((font . "Literation Mono Powerline-13")))
-  (set-frame-font "Literation Mono Powerline-13" nil t)
+  (setq default-frame-alist '((font . "Literation Mono Powerline-14")))
+  (set-frame-font "Literation Mono Powerline-14" nil t)
+  (set-face-attribute 'default nil :height 140)
   (scroll-bar-mode -1))
 
 (provide 'appearance)
