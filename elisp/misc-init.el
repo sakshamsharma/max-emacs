@@ -22,10 +22,16 @@
                 multi-term
                 js2-mode
                 unicode-fonts
+                rainbow-delimiters
                 auctex))
 
 (use-package smbc
   :ensure t)
+
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 (use-package diminish
   :ensure t
