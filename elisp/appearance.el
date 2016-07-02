@@ -16,6 +16,14 @@
 ;; Highlight the current line
 (global-hl-line-mode)
 
+(use-package cursor-chg
+  :ensure t
+  :config
+  ;; Turn on cursor change when Emacs is idle
+  (toggle-cursor-type-when-idle 1)
+  ;; Turn on change for overwrite, read-only, and input mode
+  (change-cursor-mode 1))
+
 ;; To ensure theme etc are completely implemented
 ;; When running in daemon mode (which is, all the time)
 (if (daemonp)
