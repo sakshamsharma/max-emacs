@@ -47,7 +47,7 @@
 (use-package scala-init      :load-path "elisp/")
 (use-package web-init        :load-path "elisp/")
 (use-package scheme-init     :load-path "elisp/")
-
+(use-package slime-init      :load-path "elisp/")
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)
