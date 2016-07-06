@@ -6,26 +6,19 @@
 (require 'use-package)
 
 (use-package ensime
-  :commands ensime ensime-mode
-  :ensure t
+  :pin melpa-stable
   :config
   (add-hook 'scala-mode-hook
             (lambda ()
               (ensime-scala-mode-hook)
               (make-local-variable 'company-backends)
               (projectile-visit-project-tags-table)
-              (add-to-list 'company-backends
-                           '(ensime-company
-                             (company-keywords
-                              company-dabbrev-code
-                              company-etags
-                              company-yasnippet)))))
+              (ensime-company-enable)))
 
   :bind (("C-c C-v C-e" . ensime-print-errors-at-point)
          ("C-c C-v C-t" . ensime-print-type-at-point)
          ("C-c C-e" . ensime-print-errors-at-point)
-         ("C-c C-t" . ensime-print-type-at-point))
-  )
+         ("C-c C-t" . ensime-print-type-at-point)))
 
 (use-package sbt-mode
   :commands sbt-start sbt-command

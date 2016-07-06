@@ -9,10 +9,20 @@
 (add-to-list 'load-path main-src-path)
 
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+(if (fboundp 'gnutls-available-p)
+    (fmakunbound 'gnutls-available-p))
+(setq tls-program '("gnutls-cli --tofu -p %p %h")
+      imap-ssl-program '("gnutls-cli --tofu -p %p %s")
+      smtpmail-stream-type 'starttls
+      starttls-extra-arguments '("--tofu"))
+
+(setq
+  package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                     ("org" . "http://orgmode.org/elpa/")
+                     ("melpa-stable" . "http://stable.melpa.org/packages/")
+                     ("melpa" . "http://melpa.org/packages/")
+                     ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 
 (require 'use-package-conf)
@@ -66,3 +76,17 @@
 ")
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-ghc-show-info t)
+ '(custom-safe-themes
+   (quote
+    ("a802c77b818597cc90e10d56e5b66945c57776f036482a033866f5f506257bca" "40f6a7af0dfad67c0d4df2a1dd86175436d79fc69ea61614d668a635c2cd94ab" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "f34b107e8c8443fe22f189816c134a2cc3b1452c8874d2a4b2e7bb5fe681a10b" default)))
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(haskell-process-type (quote stack-ghci))
+ '(haskell-tags-on-save t))

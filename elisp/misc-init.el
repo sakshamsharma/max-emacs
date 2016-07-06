@@ -28,6 +28,16 @@
 (use-package smbc
   :ensure t)
 
+;; Use C-c right or left to get back previous buffer states
+(use-package winner
+  :ensure t
+  :defer t)
+
+(use-package switch-window
+  :ensure t
+  :bind (("M-o" . switch-window)
+         ("C-x o" . other-window)))
+
 (use-package rainbow-delimiters
   :ensure t
   :config
@@ -40,8 +50,7 @@
   (diminish 'yas-minor-mode))
 
 ;; Misc
-(tabbar-mode 0)
-(unicode-fonts-setup)
+;;(unicode-fonts-setup)
 
 ;; Multi-term settings
 (setq multi-term-program "/bin/zsh")
@@ -53,7 +62,6 @@
             (define-key term-raw-map (kbd "C-y") 'term-paste)))
 
 ;; JS2 mode
-(flycheck-mode t)
 (setq js-indent-level 2)
 (add-hook 'js2-mode-hook 'flycheck-mode)
 

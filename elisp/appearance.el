@@ -24,6 +24,9 @@
   ;; Turn on change for overwrite, read-only, and input mode
   (change-cursor-mode 1))
 
+(use-package color-theme-sanityinc-solarized
+  :ensure t)
+
 ;; To ensure theme etc are completely implemented
 ;; When running in daemon mode (which is, all the time)
 (if (daemonp)
