@@ -5,11 +5,12 @@
 
 (require 'use-package)
 
-(use-package diff-hl
+(use-package magit
   :ensure t
-  :config
-  
-  )
-  
+  :bind (("C-c C-g" . magit-status)))
+
+(use-package diff-hl
+  :ensure t)
+
 (provide 'git-init)
 ;;; git-init.el ends here

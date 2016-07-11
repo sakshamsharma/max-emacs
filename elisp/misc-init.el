@@ -15,8 +15,7 @@
     (_ t)
     ))
 
-(use-packages '(magit
-                on-screen
+(use-packages '(on-screen
                 auto-complete
                 markdown-mode
                 multi-term
