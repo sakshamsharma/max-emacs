@@ -47,7 +47,9 @@
   (autoload 'ghc-debug "stack ghc" nil t)
   (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
   (add-to-list 'company-backends 'company-ghc)
-  (custom-set-variables '(company-ghc-show-info t)))
+  (custom-set-variables '(company-ghc-show-info t))
+
+  :bind (("M-s" . helm-mini)))
 
 ;; Jump to definition with M-.
 (custom-set-variables

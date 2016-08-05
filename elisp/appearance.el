@@ -57,7 +57,7 @@
   (load-theme 'monokai)
   (setq default-frame-alist '((font . "Literation Mono Powerline-14")
                               (alpha 90 90)))
-  (set-face-attribute 'default nil :height 140)
+  (set-face-attribute 'default nil :height 160)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
   (blink-cursor-mode -1)

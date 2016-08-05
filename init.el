@@ -59,6 +59,15 @@
 (use-package web-init        :load-path "elisp/")
 (use-package scheme-init     :load-path "elisp/")
 (use-package slime-init      :load-path "elisp/")
+(use-package cc-init         :load-path "elisp/")
+(use-package rust-init       :load-path "elisp/")
+
+;; Since proof-general doesn't have a package on melpa
+(load "~/.emacs.d/lisp/PG/generic/proof-site")
+(use-package company-coq
+  :ensure t
+  :config
+  (add-hook 'coq-mode-hook #'company-coq-mode))
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)

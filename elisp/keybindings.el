@@ -58,6 +58,13 @@
                   (interactive)
                   (join-line -1)))
 
+(defun my-eval()
+  (interactive)
+  (if (region-active-p)
+      (eval-region (region-beginning) (region-end) t)
+    (call-interactively #'eval-last-sexp)))
+(global-set-key (kbd "C-x C-e") #'my-eval)
+
 (global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
 
 (provide 'keybindings)
