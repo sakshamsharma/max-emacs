@@ -50,6 +50,9 @@
                 (menu-bar-mode -1))))
 
 
+(setq default-frame-alist '((font . "Literation Mono Powerline-14")
+                            (alpha 90 90)))
+
 ;; ;; Again, to fix some stuff which doesn't work in non-daemon mode
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
