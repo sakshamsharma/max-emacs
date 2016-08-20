@@ -67,6 +67,10 @@
 
 (global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
 
+;; Helpful org mode
+;; Use f7 to remember, c-f7 to go back
+(global-set-key (kbd "<f7>") 'org-mark-ring-push)
+(global-set-key (kbd "C-<f7>") 'org-mark-ring-goto)
+
 (provide 'keybindings)
 ;;; keybindings.el ends here
-

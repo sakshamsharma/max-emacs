@@ -7,11 +7,11 @@
 ;; Stop startup message
 (setq inhibit-startup-message 1)
 
-(setq-default scroll-step 2)
+(setq-default scroll-step 4)
 (setq-default visible-bell 1)
 
 (setq-default kill-whole-line 1)
-(setq-default tab-width 2)
+(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 
 (setq tramp-default-method "ssh")
@@ -91,6 +91,9 @@
 ;; =====
 (require 'mouse)
 (xterm-mouse-mode t)
+
+;; Awesome package for proper pdf support
+(add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
 (provide 'settings)
 ;;; settings.el ends here

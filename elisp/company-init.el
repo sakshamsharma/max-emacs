@@ -23,7 +23,8 @@
 
   (setq company-backends (delete 'company-semantic company-backends))
   (add-to-list 'company-backends 'company-tern)
-  (add-to-list 'company-backends 'company-ghc))
+  (add-to-list 'company-backends 'company-ghc)
+  (add-to-list 'company-backends 'company-irony))
 
 
 (defun use-packages (names)

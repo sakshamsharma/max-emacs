@@ -10,19 +10,19 @@
 
 (require 'package)
 
-(if (fboundp 'gnutls-available-p)
-    (fmakunbound 'gnutls-available-p))
-(setq tls-program '("gnutls-cli --tofu -p %p %h")
-      imap-ssl-program '("gnutls-cli --tofu -p %p %s")
-      smtpmail-stream-type 'starttls
-      starttls-extra-arguments '("--tofu"))
+;; (if (fboundp 'gnutls-available-p)
+;;     (fmakunbound 'gnutls-available-p))
+;; (setq tls-program '("gnutls-cli --tofu -p %p %h")
+;;       imap-ssl-program '("gnutls-cli --tofu -p %p %s")
+;;       smtpmail-stream-type 'starttls
+;;       starttls-extra-arguments '("--tofu"))
 
 (setq
-  package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                     ("org" . "http://orgmode.org/elpa/")
-                     ("melpa-stable" . "http://stable.melpa.org/packages/")
-                     ("melpa" . "http://melpa.org/packages/")
-                     ("marmalade" . "http://marmalade-repo.org/packages/")))
+ package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                    ("org" . "http://orgmode.org/elpa/")
+                    ("melpa-stable" . "http://stable.melpa.org/packages/")
+                    ("melpa" . "http://melpa.org/packages/")
+                    ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 
 (require 'use-package-conf)
@@ -32,7 +32,7 @@
 (use-package appearance      :load-path "elisp/")
 (use-package keybindings     :load-path "elisp/")
 (use-package settings        :load-path "elisp/")
-;;(use-package mode-line       :load-path "elisp/")
+(use-package whitespace      :load-path "elisp/")
 (use-package misc-init       :load-path "elisp/")
 (use-package aggress-indent  :load-path "elisp/")
 (use-package erc-init        :load-path "elisp/")
@@ -67,7 +67,9 @@
 (use-package company-coq
   :ensure t
   :config
-  (add-hook 'coq-mode-hook #'company-coq-mode))
+  (add-hook 'coq-mode-hook #'company-coq-mode)
+  (custom-set-variables
+   '(coq-prog-args '("-I" "SRC"))))
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)

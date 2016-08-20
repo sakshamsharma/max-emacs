@@ -40,7 +40,7 @@
 
                 ;; Font settings
                 (setq default-frame-alist '((font . "Literation Mono Powerline-14")
-                                            (alpha 90 90)))
+                                            (alpha 95 95)))
                 (set-face-attribute 'default nil :height 140)
 
                 ;; Disable extra bells and whisles
@@ -51,7 +51,7 @@
 
 
 (setq default-frame-alist '((font . "Literation Mono Powerline-14")
-                            (alpha 90 90)))
+                            (alpha 95 95)))
 
 ;; ;; Again, to fix some stuff which doesn't work in non-daemon mode
 (when window-system
@@ -59,7 +59,7 @@
 
   (load-theme 'monokai)
   (setq default-frame-alist '((font . "Literation Mono Powerline-14")
-                              (alpha 90 90)))
+                              (alpha 95 95)))
   (set-face-attribute 'default nil :height 160)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)

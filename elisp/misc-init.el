@@ -30,7 +30,9 @@
 ;; Use C-c right or left to get back previous buffer states
 (use-package winner
   :ensure t
-  :defer t)
+  :defer t
+  :config
+  (winner-mode 1))
 
 (use-package switch-window
   :ensure t
@@ -70,6 +72,11 @@
       auto-save-file-name-transforms `((".*" ,temporary-file-directory t))
       echo-keystrokes 0.1
       visible-bell t)
+
+;; Dired fun
+(eval-after-load "dired-aux"
+  '(add-to-list 'dired-compress-file-suffixes 
+                '("\\.zip\\'" ".zip" "unzip")))
 
 (provide 'misc-init)
 ;;; misc-init.el ends here
