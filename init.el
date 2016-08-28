@@ -32,6 +32,7 @@
 (use-package appearance      :load-path "elisp/")
 (use-package keybindings     :load-path "elisp/")
 (use-package settings        :load-path "elisp/")
+(use-package skeletons       :load-path "elisp/")
 (use-package whitespace      :load-path "elisp/")
 (use-package misc-init       :load-path "elisp/")
 (use-package aggress-indent  :load-path "elisp/")
