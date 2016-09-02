@@ -57,10 +57,12 @@
 (use-package ts-init         :load-path "elisp/")
 (use-package py-init         :load-path "elisp/")
 (use-package scala-init      :load-path "elisp/")
-(use-package web-init        :load-path "elisp/")
+;;(use-package web-init        :load-path "elisp/")
 (use-package scheme-init     :load-path "elisp/")
 (use-package slime-init      :load-path "elisp/")
-(use-package cc-init         :load-path "elisp/")
+;;(use-package cc-init         :load-path "elisp/")
+;;(use-package cpp-init        :load-path "elisp/")
+(use-package irony-init      :load-path "elisp/")
 (use-package rust-init       :load-path "elisp/")
 
 ;; Since proof-general doesn't have a package on melpa
@@ -75,17 +77,17 @@
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)
 (setq initial-scratch-message "\
-      ___           ___           ___           ___           ___
-     /  /\\         /__/\\         /  /\\         /  /\\         /  /\\
-    /  /:/_       |  |::\\       /  /::\\       /  /:/        /  /:/_
-   /  /:/ /\\      |  |:|:\\     /  /:/\\:\\     /  /:/        /  /:/ /\\
-  /  /:/ /:/_   __|__|:|\\:\\   /  /:/~/::\\   /  /:/  ___   /  /:/ /::\\
- /__/:/ /:/ /\\ /__/::::| \\:\\ /__/:/ /:/\\:\\ /__/:/  /  /\\ /__/:/ /:/\\:\\
- \\  \\:\\/:/ /:/ \\  \\:\\~~\\__\\/ \\  \\:\\/:/__\\/ \\  \\:\\ /  /:/ \\  \\:\\/:/~/:/
-  \\  \\::/ /:/   \\  \\:\\        \\  \\::/       \\  \\:\\  /:/   \\  \\::/ /:/
-   \\  \\:\\/:/     \\  \\:\\        \\  \\:\\        \\  \\:\\/:/     \\__\\/ /:/
-    \\  \\::/       \\  \\:\\        \\  \\:\\        \\  \\::/        /__/:/
-     \\__\\/         \\__\\/         \\__\\/         \\__\\/         \\__\\/
+;;      ___           ___           ___           ___           ___
+;;     /  /\\         /__/\\         /  /\\         /  /\\         /  /\\
+;;    /  /:/_       |  |::\\       /  /::\\       /  /:/        /  /:/_
+;;   /  /:/ /\\      |  |:|:\\     /  /:/\\:\\     /  /:/        /  /:/ /\\
+;;  /  /:/ /:/_   __|__|:|\\:\\   /  /:/~/::\\   /  /:/  ___   /  /:/ /::\\
+;; /__/:/ /:/ /\\ /__/::::| \\:\\ /__/:/ /:/\\:\\ /__/:/  /  /\\ /__/:/ /:/\\:\\
+;; \\  \\:\\/:/ /:/ \\  \\:\\~~\\__\\/ \\  \\:\\/:/__\\/ \\  \\:\\ /  /:/ \\  \\:\\/:/~/:/
+;;  \\  \\::/ /:/   \\  \\:\\        \\  \\::/       \\  \\:\\  /:/   \\  \\::/ /:/
+;;   \\  \\:\\/:/     \\  \\:\\        \\  \\:\\        \\  \\:\\/:/     \\__\\/ /:/
+;;    \\  \\::/       \\  \\:\\        \\  \\:\\        \\  \\::/        /__/:/
+;;     \\__\\/         \\__\\/         \\__\\/         \\__\\/         \\__\\/
 ")
 (provide 'init)
 ;;; init.el ends here

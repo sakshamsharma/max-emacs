@@ -43,10 +43,18 @@
  kept-old-versions 2
  version-control t)       ; use versioned backups
 
-(setq backup-directory-alist
-      `((".*" . , "~/.saves")))
 (setq auto-save-file-name-transforms
       `((".*" , "~/.saves" t)))
+
+(message "Deleting old backup files...")
+(let ((week (* 60 60 24 7))
+      (current (float-time (current-time))))
+  (dolist (file (directory-files temporary-file-directory t))
+    (when (and (backup-file-name-p file)
+               (> (- current (float-time (fifth (file-attributes file))))
+                  week))
+      (message "%s" file)
+      (delete-file file))))
 
 (setq cua-enable-cua-keys nil)
 (cua-mode)
@@ -85,6 +93,9 @@
 (savehist-mode 1)
 (setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
 (setq savehist-file "~/.emacs.d/savehist")
+
+;; Save cursor position
+(save-place-mode 1)
 
 ;; =====
 ;; mouse

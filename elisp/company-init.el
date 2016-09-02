@@ -21,7 +21,8 @@
   (setq company-dabbrev-downcase nil)
   (add-hook 'after-init-hook 'global-company-mode)
 
-  (setq company-backends (delete 'company-semantic company-backends))
+  ;;(setq company-backends (delete 'company-semantic company-backends))
+  (add-to-list 'company-backends 'company-semantic)
   (add-to-list 'company-backends 'company-tern)
   (add-to-list 'company-backends 'company-ghc)
   (add-to-list 'company-backends 'company-irony))

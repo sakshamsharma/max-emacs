@@ -12,6 +12,7 @@
        "#define ll long long int" \n \n
        "using namespace std;" \n \n
        "int main() {" \n
+       "std::ios::sync_with_stdio(false);" \n
        > _ \n
        "}" > \n)))
 
