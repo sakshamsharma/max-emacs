@@ -34,6 +34,33 @@
   :config
   (winner-mode 1))
 
+(use-package dot-mode
+  :ensure t
+  :config
+  (global-set-key [(control ?.)] (lambda () (interactive) (dot-mode 1)
+                                   (message "Dot mode activated."))))
+
+(use-package smartparens-config
+  :ensure smartparens
+  :config
+  (progn
+    (show-smartparens-global-mode t))
+  (smartparens-global-mode t))
+
+(use-package nlinum-relative
+  :ensure t
+  :config
+  ;; something else you want
+  (nlinum-relative-on)
+  (add-hook 'prog-mode-hook 'nlinum-relative-mode)
+  (setq nlinum-relative-redisplay-delay 0)      ;; delay
+  (setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
+  (setq nlinum-relative-offset 1)                 ;; 1 if you want 0, 2, 3...
+  )
+
+(add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
+(add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
+
 (use-package switch-window
   :ensure t
   :bind (("M-o" . switch-window)
