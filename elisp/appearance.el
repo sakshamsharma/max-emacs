@@ -21,6 +21,9 @@
 (use-package monokai-theme
   :ensure t)
 
+(use-package jbeans-theme
+  :ensure t)
+
 (use-package cursor-chg
   :ensure t
   :config
@@ -36,7 +39,7 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (select-frame frame)
-                (load-theme 'monokai)
+                (load-theme 'jbeans)
 
                 ;; Font settings
                 (setq default-frame-alist '((font . "Literation Mono Powerline-14")
@@ -57,7 +60,7 @@
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-  (load-theme 'monokai)
+  (load-theme 'jbeans)
   (setq default-frame-alist '((font . "Literation Mono Powerline-14")
                               (alpha 95 95)))
   (set-face-attribute 'default nil :height 160)
