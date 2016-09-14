@@ -67,6 +67,36 @@
 
 (global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
 
+(defun forward-or-backward-sexp (&optional arg)
+  "Go to the matching parenthesis character if one is adjacent to point."
+  (interactive "^p")
+  (cond ((looking-at "\\s(") (forward-sexp arg))
+        ((looking-back "\\s)" 1) (backward-sexp arg))
+        ;; Now, try to succeed from inside of a bracket
+        ((looking-at "\\s)") (forward-char) (backward-sexp arg))
+        ((looking-back "\\s(" 1) (backward-char) (forward-sexp arg))))
+
+(defun goto-match-paren (arg)
+  "Go to the matching parenthesis if on parenthesis. Else go to the
+   opening parenthesis one level up."
+  (interactive "p")
+  (cond ((looking-at "\\s\(") (forward-list 1))
+        (t
+         (backward-char 1)
+         (cond ((looking-at "\\s\)")
+                (forward-char 1) (backward-list 1))
+               (t
+                (while (not (looking-at "\\s("))
+                  (backward-char 1)
+                  (cond ((looking-at "\\s\)")
+                         (message "->> )")
+                         (forward-char 1)
+                         (backward-list 1)
+                         (backward-char 1)))
+                  ))))))
+
+(global-set-key (kbd "C-%") 'goto-match-paren)
+
 ;; Helpful org mode
 ;; Use f7 to remember, c-f7 to go back
 (global-set-key (kbd "<f7>") 'org-mark-ring-push)
