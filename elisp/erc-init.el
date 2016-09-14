@@ -11,7 +11,7 @@
 
 (erc-autojoin-mode t)
 (setq erc-autojoin-channels-alist
-      '((".*\\.freenode.net" "#gentoo-soc" "#navya")))
+      '((".*\\.freenode.net")))
 (erc-notify-mode 1)
 (erc-spelling-mode 1)
 
@@ -33,6 +33,12 @@
 
 ;; switch to ERC with Ctrl+c e
 (global-set-key (kbd "C-c C-e") 'djcb-erc-start-or-switch) ;; ERC
+
+(setq erc-log-channels-directory "~/.erclogs/"
+      erc-save-buffer-on-part t
+      erc-save-queries-on-quit t
+      erc-log-write-after-send t
+      erc-log-write-after-insert t)
 
 (define-minor-mode ncm-mode "" nil
   (:eval
@@ -59,6 +65,12 @@
           (t 'erc-header-line-disconnected))))
 
 (setq erc-header-line-face-method 'erc-update-header-line-show-disconnected)
+
+(require 'erc-image)
+(add-to-list 'erc-modules 'image)
+(erc-update-modules)
+
+(require 'znc)
 
 (provide 'erc-init)
 ;;; erc-init.el ends here
