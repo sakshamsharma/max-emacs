@@ -12,6 +12,14 @@
   (add-hook 'c-mode-hook 'irony-mode)
   (add-hook 'objc-mode-hook 'irony-mode)
 
+  (c-add-style "my-style"
+               '("linux"
+                 (indent-tabs-mode . nil)        ; use spaces rather than tabs
+                 (c-basic-offset . 4)            ; indent by four spaces
+                 (c-offsets-alist . ((inline-open . 0)  ; custom indentation rules
+                                     (brace-list-open . 0)
+                                     (statement-case-open . +)))))
+
   (defun my-c++-mode-hook ()
     (c-set-style "my-style")
     (auto-fill-mode)
