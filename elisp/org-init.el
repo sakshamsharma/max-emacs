@@ -11,7 +11,9 @@
   (define-key global-map "\C-cl" 'org-store-link)
   (define-key global-map "\C-ca" 'org-agenda)
   (define-key global-map "\C-cg" 'org-show-subtree)
-  (setq org-log-done t))
+  (setq org-log-done t)
+  (eval-after-load "org"
+    '(require 'ox-md nil t)))
 
 (provide 'org-init)
 ;;; org-init.el ends here
