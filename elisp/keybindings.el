@@ -102,5 +102,13 @@
 (global-set-key (kbd "<f7>") 'org-mark-ring-push)
 (global-set-key (kbd "C-<f7>") 'org-mark-ring-goto)
 
+;; Cool keybinding
+;; Back from my vim days
+;; Ctrl+Mod+h/l to enlarge contract
+(global-set-key (kbd "C-s-l") (lambda ()
+                                (interactive) (enlarge-window-horizontally 10)))
+(global-set-key (kbd "C-s-h") (lambda ()
+                                (interactive) (shrink-window-horizontally 10)))
+
 (provide 'keybindings)
 ;;; keybindings.el ends here

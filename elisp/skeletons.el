@@ -9,10 +9,12 @@
      '(nil
        "// " (file-name-nondirectory (buffer-file-name)) > \n \n
        "#include <bits/stdc++.h>" \n
-       "#define ll long long int" \n \n
+       "#define endl '\n'" \n
+       "typedef long long int ll;" \n \n
        "using namespace std;" \n \n
        "int main() {" \n
        "std::ios::sync_with_stdio(false);" \n
+       "// cin.tie(NULL);" \n
        > _ \n
        "}" > \n)))
 

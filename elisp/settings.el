@@ -103,6 +103,9 @@
 (require 'mouse)
 (xterm-mouse-mode t)
 
+(desktop-save-mode 1)
+(visual-line-mode 1)                    ; Line wrap on word endings
+
 ;; Awesome package for proper pdf support
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
