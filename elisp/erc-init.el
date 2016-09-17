@@ -54,6 +54,27 @@
               erc-channel-users)
      (format " %S/%S/%S" ops voices members))))
 
+(setq erc-button-url-regexp
+      "\\([-a-zA-Z0-9_=!?#$@~`%&*+\\/:;,]+\\.\\)+[-a-zA-Z0-9_=!?#$@~`%&*+\\/:;,]*[-a-zA-Z0-9\\/]")
+
+(require 'notify)
+(defun ysph-erc-privmsg-notify (proc res)
+  (cl-flet ((rtrim-string (s) (replace-regexp-in-string "\\([[:space:]\n]*$\\)" "" s)))
+    (let ((channel-buffers     (erc-channel-list proc))
+          (sender              (or (car (split-string (erc-response.sender res) "!"))
+                                   (erc-response.sender res)))
+          (target-channel-name (car (erc-response.command-args res)))
+          (xwindow-class       (rtrim-string (shell-command-to-string "stumpish current-window-class"))))
+      (unless (or (string= xwindow-class "Emacs") ; we are in an emacs frame
+                  (member (get-buffer target-channel-name) channel-buffers)) ; this is a channel message
+        (progn (notify "Instant message!"
+                       (format "Direct message from %s" sender)
+                       :timeout  120000
+                       :app "ERC")
+               nil        ; we never want this to interrupt processing
+               )))))
+(add-hook 'erc-server-PRIVMSG-functions 'ysph-erc-privmsg-notify)
+
 (defface erc-header-line-disconnected
   '((t (:foreground "black" :background "indianred")))
   "Face to use when ERC has been disconnected.")
