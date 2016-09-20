@@ -94,9 +94,6 @@
 (setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
 (setq savehist-file "~/.emacs.d/savehist")
 
-;; Save cursor position
-(save-place-mode 1)
-
 ;; =====
 ;; mouse
 ;; =====
@@ -104,7 +101,7 @@
 (xterm-mouse-mode t)
 
 (desktop-save-mode 1)
-(visual-line-mode 1)                    ; Line wrap on word endings
+(setq line-move-visual 1) ; Line wrap on word endings
 
 ;; Awesome package for proper pdf support
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))

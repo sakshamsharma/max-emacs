@@ -77,6 +77,9 @@
   (diminish 'auto-revert-mode)
   (diminish 'yas-minor-mode))
 
+(use-package saveplace
+  :init (save-place-mode))
+
 ;; Misc
 ;;(unicode-fonts-setup)
 
