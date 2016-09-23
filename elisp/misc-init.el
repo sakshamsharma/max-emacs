@@ -18,8 +18,6 @@
 (use-packages '(on-screen
                 auto-complete
                 markdown-mode
-                multi-term
-                js2-mode
                 unicode-fonts
                 rainbow-delimiters
                 auctex))
@@ -34,36 +32,19 @@
   :config
   (winner-mode 1))
 
-(use-package dot-mode
-  :ensure t
-  :config
-  (global-set-key [(control ?.)] (lambda () (interactive) (dot-mode 1)
-                                   (message "Dot mode activated."))))
-
-(use-package smartparens-config
-  :ensure smartparens
-  :config
-  (progn
-    (show-smartparens-global-mode t))
-  (smartparens-global-mode t))
-
+;; Sweet relative numbering
 (use-package nlinum-relative
   :ensure t
   :config
-  ;; something else you want
   (nlinum-relative-on)
   (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-  (setq nlinum-relative-redisplay-delay 0)      ;; delay
-  (setq nlinum-relative-current-symbol "->")      ;; or "" for display current line number
-  (setq nlinum-relative-offset 1)                 ;; 1 if you want 0, 2, 3...
-  )
-
-(add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
-(add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
+  (setq nlinum-relative-redisplay-delay 1)   ;; delay
+  (setq nlinum-relative-current-symbol "->") ;; or "" for current line
+  (setq nlinum-relative-offset 1))
 
 (use-package switch-window
   :ensure t
-  :bind (("M-o" . switch-window)
+  :bind (("M-o"   . switch-window)
          ("C-x o" . other-window)))
 
 (use-package rainbow-delimiters
@@ -80,21 +61,22 @@
 (use-package saveplace
   :init (save-place-mode))
 
-;; Misc
-;;(unicode-fonts-setup)
+(use-package multi-term
+  :ensure t
+  :config
+  (setq multi-term-program "/bin/zsh")
+  (add-hook 'term-mode-hook
+            (lambda ()
+              (setq term-buffer-maximum-size 10000)))
+  (add-hook 'term-mode-hook
+            (lambda ()
+              (define-key term-raw-map (kbd "C-y") 'term-paste))))
 
-;; Multi-term settings
-(setq multi-term-program "/bin/zsh")
-(add-hook 'term-mode-hook
-          (lambda ()
-            (setq term-buffer-maximum-size 10000)))
-(add-hook 'term-mode-hook
-          (lambda ()
-            (define-key term-raw-map (kbd "C-y") 'term-paste)))
-
-;; JS2 mode
-(setq js-indent-level 2)
-(add-hook 'js2-mode-hook 'flycheck-mode)
+(use-package js2-mode
+  :ensure t
+  :config
+  (setq js-indent-level 2)
+  (add-hook 'js2-mode-hook 'flycheck-mode))
 
 ;; Kill backup files!
 (setq make-backup-files nil
@@ -105,8 +87,11 @@
 
 ;; Dired fun
 (eval-after-load "dired-aux"
-  '(add-to-list 'dired-compress-file-suffixes 
+  '(add-to-list 'dired-compress-file-suffixes
                 '("\\.zip\\'" ".zip" "unzip")))
+
+(use-package exec-path-from-shell
+  :ensure t)
 
 (provide 'misc-init)
 ;;; misc-init.el ends here

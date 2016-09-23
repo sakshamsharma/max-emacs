@@ -10,8 +10,6 @@
   :ensure t)
 
 (erc-autojoin-mode t)
-(setq erc-autojoin-channels-alist
-      '((".*\\.freenode.net")))
 (erc-notify-mode 1)
 (erc-spelling-mode 1)
 

@@ -50,6 +50,7 @@
 (use-package gtc-init        :load-path "elisp/")
 (use-package git-init        :load-path "elisp/")
 (use-package org-init        :load-path "elisp/")
+(use-package sp-init         :load-path "elisp/")
 
 ;; Language specific files
 (use-package hs-init         :load-path "elisp/")
@@ -57,22 +58,21 @@
 (use-package ts-init         :load-path "elisp/")
 (use-package py-init         :load-path "elisp/")
 (use-package scala-init      :load-path "elisp/")
-;;(use-package web-init        :load-path "elisp/")
+(use-package java-init       :load-path "elisp/")
 (use-package scheme-init     :load-path "elisp/")
 (use-package slime-init      :load-path "elisp/")
-;;(use-package cc-init         :load-path "elisp/")
-;;(use-package cpp-init        :load-path "elisp/")
 (use-package irony-init      :load-path "elisp/")
-(use-package rust-init       :load-path "elisp/")
+;; (use-package rust-init       :load-path "elisp/")
+;; (use-package web-init        :load-path "elisp/")
 
 ;; Since proof-general doesn't have a package on melpa
-(load "~/.emacs.d/lisp/PG/generic/proof-site")
-(use-package company-coq
-  :ensure t
-  :config
-  (add-hook 'coq-mode-hook #'company-coq-mode)
-  (custom-set-variables
-   '(coq-prog-args '("-I" "SRC"))))
+;; (load "~/.emacs.d/lisp/PG/generic/proof-site")
+;; (use-package company-coq
+;;   :ensure t
+;;   :config
+;;   (add-hook 'coq-mode-hook #'company-coq-mode)
+;;   (custom-set-variables
+;;    '(coq-prog-args '("-I" "SRC"))))
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)
@@ -89,8 +89,10 @@
 ;;    \\  \\::/       \\  \\:\\        \\  \\:\\        \\  \\::/        /__/:/
 ;;     \\__\\/         \\__\\/         \\__\\/         \\__\\/         \\__\\/
 ")
+
 (provide 'init)
 ;;; init.el ends here
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -99,9 +101,23 @@
  '(company-ghc-show-info t)
  '(custom-safe-themes
    (quote
-    ("a802c77b818597cc90e10d56e5b66945c57776f036482a033866f5f506257bca" "40f6a7af0dfad67c0d4df2a1dd86175436d79fc69ea61614d668a635c2cd94ab" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "f34b107e8c8443fe22f189816c134a2cc3b1452c8874d2a4b2e7bb5fe681a10b" default)))
+    ("45712b65018922c9173439d9b1b193cb406f725f14d02c8c33e0d2cdad844613" default)))
  '(haskell-process-auto-import-loaded-modules t)
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
  '(haskell-process-type (quote stack-ghci))
- '(haskell-tags-on-save t))
+ '(haskell-tags-on-save t)
+ '(safe-local-variable-values
+   (quote
+    ((flycheck-gcc-language-standard . c++11)
+     (flycheck-clang-language-standard . c++11))))
+ '(znc-servers
+   (quote
+    (("irc.varstack.com" 9002 t
+      ((irc\.varstack\.com "saksham" "saksham")))))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

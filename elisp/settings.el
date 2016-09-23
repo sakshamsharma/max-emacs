@@ -23,10 +23,6 @@
   'interactive)
 (global-set-key "\M-z" 'zap-up-to-char)
 
-(electric-pair-mode 1)
-
-(semantic-mode 1)
-
 (recentf-mode 1)
 (setq-default recent-save-file "~/.emacs.d/recentf")
 

@@ -18,9 +18,7 @@
 ;; Highlight the current line
 (global-hl-line-mode)
 
-(use-package monokai-theme
-  :ensure t)
-
+;; Pretty dark theme :)
 (use-package jbeans-theme
   :ensure t)
 
@@ -34,7 +32,6 @@
 
 ;; To ensure theme etc are completely implemented
 ;; When running in daemon mode (which is, all the time)
-
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)

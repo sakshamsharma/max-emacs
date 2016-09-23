@@ -1,5 +1,7 @@
 ;;; cpp-init.el -- C/C++
 ;;; Commentary:
+;;; CPP init file
+;;; DEPRECATED
 
 ;;; Code:
 
@@ -24,7 +26,7 @@
       (add-to-list 'company-c-headers-path-system "$ROOTSYS/include")
       )
     ;; Now call this function so it add your path to company-c-header-path-system
-    (company-c-headers-includes)
+    ;; (company-c-headers-includes)
     ;; Irony-mode configuration
     (add-hook 'c++-mode-hook 'irony-mode)
     (add-hook 'c-mode-hook 'irony-mode)
@@ -57,7 +59,7 @@
     (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
     )
   ;; Now call this function to active it
-  (irony-comp-setup-basic)
+  ;; (irony-comp-setup-basic)
 
   (setq company-idle-delay              nil
         company-minimum-prefix-length   2
