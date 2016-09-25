@@ -99,6 +99,9 @@
 (desktop-save-mode 1)
 (setq line-move-visual 1) ; Line wrap on word endings
 
+(setq scroll-preserve-screen-position t)
+;;(setq scroll-preserve-screen-position 'always)
+
 ;; Awesome package for proper pdf support
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 

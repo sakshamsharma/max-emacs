@@ -1,11 +1,12 @@
 ;;; gtc-init.el -- go to change-class
 ;;; Commentary:
 
-;;; Code;
+;;; Code:
 
 (require 'use-package)
 
 (use-package goto-chg
+  :ensure t
   :commands goto-last-change
   ;; complementary to
   ;; C-x r m / C-x r l
