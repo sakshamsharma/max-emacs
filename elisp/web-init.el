@@ -18,12 +18,12 @@
   (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
   (defun my-web-mode-hook ()
     "Hooks for Web mode."
-    (setq web-mode-markup-indent-offset 2)
-    )
+    (setq web-mode-markup-indent-offset 4))
   (add-hook 'web-mode-hook  'my-web-mode-hook)
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2))
+  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-css-indent-offset 4)
+  (setq web-mode-code-indent-offset 4)
+  (setq web-mode-js-indent-offset 4))
 
 (use-package php-mode
   :ensure t)
@@ -34,6 +34,28 @@
   (autoload 'scss-mode "scss-mode")
   (setq scss-compile-at-save nil)
   (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode)))
+
+
+(use-package js-mode
+  :mode ("\\.json$" . js-mode)
+  :init
+  (progn
+    (add-hook 'js-mode-hook (lambda () (setq js-indent-level 4)))))
+
+(use-package js2-mode
+  :ensure t
+  :mode (("\\.js$" . js2-mode)
+         ("Jakefile$" . js2-mode))
+  :interpreter ("node" . js2-mode)
+  :config
+  (use-package company-tern
+    :ensure t
+    :config
+    (add-to-list 'company-backends 'company-tern))
+  (progn
+    (add-hook 'js2-mode-hook (lambda () (setq js2-basic-offset 4))))
+  :bind (("C-j" . join-line)
+         ("C-c C-f" . projectile-find-file)))
 
 (use-package helm-css-scss
   :ensure t)
