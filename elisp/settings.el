@@ -80,24 +80,22 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; =========
 ;; save-hist
-;; =========
-(require 'savehist)
-
 ;; Saving emacs history
+(require 'savehist)
 (savehist-mode 1)
 (setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
 (setq savehist-file "~/.emacs.d/savehist")
 
-;; =====
 ;; mouse
-;; =====
 (require 'mouse)
-(xterm-mouse-mode t)
+(xterm-mouse-mode)
 
 (desktop-save-mode 1)
 (setq line-move-visual 1) ; Line wrap on word endings
+
+;; Why did I not know of this earlier? This is for CamelCase
+(subword-mode)
 
 (setq scroll-preserve-screen-position t)
 ;;(setq scroll-preserve-screen-position 'always)

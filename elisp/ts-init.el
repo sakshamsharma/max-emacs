@@ -29,7 +29,7 @@
               (eldoc-mode +1)
               (company-mode-on)))
   ;; aligns annotation to the right hand side
-  (setq typescript-indent-level 2)
+  (setq typescript-indent-level 4)
   (setq company-tooltip-align-annotations t))
 
 (add-to-list 'load-path "/home/saksham/.emacs.d/emacs-gulpjs")
