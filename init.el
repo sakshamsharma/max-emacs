@@ -17,6 +17,8 @@
 ;;(load-file "$HOME/.emacs.d/holy.el")
 (load-file "$HOME/.emacs.d/evil.el")
 
+(use-package exwm-init :load-path "elisp/")
+
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)
 (setq initial-scratch-message "\
