@@ -18,24 +18,25 @@
     (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
     (setq company-echo-delay 0)                          ; remove annoying blinking
     (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
-    )
-  )
+    (defun makefile-tabs-are-less-evil ()
+      (interactive)
+      (setq ethan-wspace-errors (remove 'tabs ethan-wspace-errors)))
+    (add-hook 'go-mode-hook 'makefile-tabs-are-less-evil)
 
-;; (custom-set-faces
-;;  '(company-preview
-;;    ((t (:foreground "darkgray" :underline t))))
-;;  '(company-preview-common
-;;    ((t (:inherit company-preview))))
-;;  '(company-tooltip
-;;    ((t (:background "lightgray" :foreground "black"))))
-;;  '(company-tooltip-selection
-;;    ((t (:background "steelblue" :foreground "white"))))
-;;  '(company-tooltip-common
-;;    ((((type x)) (:inherit company-tooltip :weight bold))
-;;     (t (:inherit company-tooltip))))
-;;  '(company-tooltip-common-selection
-;;    ((((type x)) (:inherit company-tooltip-selection :weight bold))
-;;     (t (:inherit company-tooltip-selection)))))
+    (defun my-go-mode-hook ()
+      ;; Call Gofmt before saving
+      (add-hook 'before-save-hook 'gofmt-before-save)
+      ;; Godef jump key binding
+      (keymapper "M-." 'godef-jump)
+      (keymapper "M-," 'pop-tag-mark)
+      )
+    (add-hook 'go-mode-hook 'my-go-mode-hook)
+    )
+
+  (use-package go-eldoc
+    :ensure t
+    :config
+    (add-hook 'go-mode-hook 'go-eldoc-setup)))
 
 (provide 'go-init)
 ;;; go-init.el ends here

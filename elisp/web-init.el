@@ -40,7 +40,7 @@
   :mode ("\\.json$" . js-mode)
   :init
   (progn
-    (add-hook 'js-mode-hook (lambda () (setq js-indent-level 4)))))
+    (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))))
 
 (use-package js2-mode
   :ensure t
@@ -58,6 +58,9 @@
          ("C-c C-f" . projectile-find-file)))
 
 (use-package helm-css-scss
+  :ensure t)
+
+(use-package pug-mode
   :ensure t)
 
 (provide 'web-init)

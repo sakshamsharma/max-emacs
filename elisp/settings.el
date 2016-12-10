@@ -93,6 +93,9 @@
 
 (desktop-save-mode 1)
 (setq line-move-visual 1) ; Line wrap on word endings
+(visual-line-mode 1)
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+
 
 ;; Why did I not know of this earlier? This is for CamelCase
 (subword-mode)

@@ -36,7 +36,7 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (select-frame frame)
-                (load-theme 'jbeans)
+                (load-theme 'jbeans t)
 
                 ;; Font settings
                 (setq default-frame-alist '((font . "Literation Mono Powerline-14")
@@ -57,7 +57,7 @@
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-  (load-theme 'jbeans)
+  (load-theme 'jbeans t)
   (setq default-frame-alist '((font . "Literation Mono Powerline-14")
                               (alpha 95 95)))
   (set-face-attribute 'default nil :height 160)

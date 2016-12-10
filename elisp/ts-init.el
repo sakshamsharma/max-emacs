@@ -29,11 +29,13 @@
               (eldoc-mode +1)
               (company-mode-on)))
   ;; aligns annotation to the right hand side
-  (setq typescript-indent-level 4)
-  (setq company-tooltip-align-annotations t))
+  (setq company-tooltip-align-annotations t)
+  (setq typescript-indent-level 2)
+  :bind (("M-." . tide-jump-to-definition-reuse-window)))
 
 (add-to-list 'load-path "/home/saksham/.emacs.d/emacs-gulpjs")
 (autoload 'gulpjs-start-task "gulpjs" "Start a gulp task." t)
+(setq typescript-indent-level 2)
 
 (provide 'ts-init)
 ;;; ts-init.el ends here

@@ -21,10 +21,15 @@
               (setq prettify-symbols-alist scala-prettify-symbols-alist)
               (prettify-symbols-mode)))
 
+  (keymapper "M-." 'ensime-edit-definition)
+  (keymapper "M-," 'ensime-pop-find-definition-stack)
+
   :bind (("C-c C-v C-e" . ensime-print-errors-at-point)
          ("C-c C-v C-t" . ensime-print-type-at-point)
          ("C-c C-e" . ensime-print-errors-at-point)
-         ("C-c C-t" . ensime-print-type-at-point)))
+         ("C-c C-t" . ensime-print-type-at-point)
+         ("M-." . ensime-edit-definition)
+         ("M-," . ensime-pop-find-definition-stack)))
 
 (use-package scala-mode
   :interpreter
