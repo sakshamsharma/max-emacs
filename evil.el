@@ -6,9 +6,9 @@
 (defun keymapper (key func)
   "Bind KEY to FUNC."
   (local-set-key (kbd key) func)
-  (define-key evil-normal-state-map (kbd key) func)
-  (define-key evil-insert-state-map (kbd key) func)
-  (define-key evil-visual-state-map (kbd key) func)
+  ;; (define-key evil-normal-state-map (kbd key) func)
+  ;; (define-key evil-insert-state-map (kbd key) func)
+  ;; (define-key evil-visual-state-map (kbd key) func)
   )
 
 (use-package evil-init        :load-path "elisp/")

@@ -35,8 +35,7 @@
                     (current-buffer))))
     (with-current-buffer buffer
       (if (eq major-mode 'exwm-mode)
-          (progn (kill-buffer buffer)
-                 (exwm-x--next-exwm-buffer))
+          (progn (kill-buffer buffer))
         (message "This buffer is not a exwm buffer!")))))
 
 (use-package xelb
@@ -99,6 +98,10 @@
                         (lambda () (interactive)
                           (launch "google-chrome-beta")))
 
+    (exwm-input-set-key (kbd "<s-f3>")
+                        (lambda () (interactive)
+                          (launch "pcmanfm")))
+
     (exwm-input-set-key (kbd "s-s") 'exwm-input-release-keyboard)
     (exwm-input-set-key (kbd "s-q") 'kill-exwm-buffer)
     (exwm-input-set-key (kbd "C-x m") 'exwm-workspace-move-window)
@@ -116,16 +119,12 @@
               (lambda ()
                 (when (and exwm-class-name
                            (string= exwm-class-name "URxvt"))
-                  (setq-local exwm-input-prefix-keys '(?\C-x)))))
-
-    (add-hook 'exwm-manage-finish-hook
-              (lambda ()
+                  (setq-local exwm-input-prefix-keys '(?\C-x ?\C-a)))
                 (when (and exwm-class-name
                            (string= exwm-class-name "Google-chrome-beta"))
-                  (setq-local exwm-input-prefix-keys '(?\C-x)))))
+                  (setq-local exwm-input-prefix-keys '(?\C-x ?\C-a)))))
 
-    ;; (require 'exwm-systemtray)
-    ;; (exwm-systemtray-enable)
+    (display-battery-mode 1)
     ))
 
 (provide 'exwm-init)

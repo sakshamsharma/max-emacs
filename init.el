@@ -14,10 +14,12 @@
                     ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 
+(add-to-list 'load-path "elisp/")
+
 ;;(load-file "$HOME/.emacs.d/holy.el")
 (load-file "$HOME/.emacs.d/evil.el")
 
-(use-package exwm-init :load-path "elisp/")
+(use-package exwm-init)
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)

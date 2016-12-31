@@ -29,6 +29,7 @@
       ;; Godef jump key binding
       (keymapper "M-." 'godef-jump)
       (keymapper "M-," 'pop-tag-mark)
+      (keymapper "C-c C-f C-f" 'helm-projectile-find-file)
       )
     (add-hook 'go-mode-hook 'my-go-mode-hook)
     )
