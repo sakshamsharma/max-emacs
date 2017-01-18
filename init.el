@@ -16,10 +16,10 @@
 
 (add-to-list 'load-path "elisp/")
 
-;;(load-file "$HOME/.emacs.d/holy.el")
-(load-file "$HOME/.emacs.d/evil.el")
+(load-file "$HOME/.emacs.d/holy.el")
+;;(load-file "$HOME/.emacs.d/evil.el")
 
-(use-package exwm-init)
+;;(use-package exwm-init)
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)

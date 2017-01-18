@@ -188,6 +188,7 @@
 (use-package irony-init)
 (use-package web-init)
 (use-package go-init)
+;; (use-package rust-init)
 
 (provide 'evil-init)
 

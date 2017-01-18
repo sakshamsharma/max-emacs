@@ -60,6 +60,12 @@
 (use-package saveplace
   :init (save-place-mode))
 
+(use-package change-inner
+  :ensure t
+  :config
+  (global-set-key (kbd "M-S-i") 'change-inner)
+  (global-set-key (kbd "M-S-o") 'change-outer))
+
 (use-package multi-term
   :ensure t
   :config
