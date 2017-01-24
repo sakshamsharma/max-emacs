@@ -6,7 +6,7 @@
 (require 'use-package)
 
 (defun makefile-tabs-are-less-evil ()
-  "Removes warnings for makefiles"
+  "Remove warnings for makefiles."
   (interactive)
   (setq ethan-wspace-errors (remove 'tabs ethan-wspace-errors)))
 

@@ -8,8 +8,7 @@
 (use-package elpy
   :ensure t
   :config
-  ;; (elpy-enable)
-  (iedit-quit))
+  (elpy-enable))
 
 (provide 'py-init)
 ;;; py-init.el ends here

@@ -16,6 +16,9 @@
 
 (add-to-list 'load-path "elisp/")
 
+(eval-when-compile
+  (require 'use-package))
+
 (load-file "$HOME/.emacs.d/holy.el")
 ;;(load-file "$HOME/.emacs.d/evil.el")
 

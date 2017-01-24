@@ -6,7 +6,7 @@
 (require 'use-package)
 
 (use-package ensime
-  :pin melpa-stable
+  :ensure t
   :config
   ;; For complex scala files
   (setq max-lisp-eval-depth 50000)
@@ -20,9 +20,6 @@
               (ensime-company-enable)
               (setq prettify-symbols-alist scala-prettify-symbols-alist)
               (prettify-symbols-mode)))
-
-  (keymapper "M-." 'ensime-edit-definition)
-  (keymapper "M-," 'ensime-pop-find-definition-stack)
 
   :bind (("C-c C-v C-e" . ensime-print-errors-at-point)
          ("C-c C-v C-t" . ensime-print-type-at-point)

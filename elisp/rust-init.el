@@ -16,7 +16,7 @@
   (add-hook 'rust-mode-hook  #'company-mode)
   (add-hook 'rust-mode-hook  #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode)
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+  ;;(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
   (add-hook 'rust-mode-hook
             '(lambda ()
                (setq racer-cmd "/usr/local/bin/racer")
