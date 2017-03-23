@@ -6,21 +6,22 @@
 
 (require 'use-package)
 
-;; Optional
-;; Looks awesome, but I've moved on from this
-;; (use-package powerline
-;;   :ensure t
-;;   :config
-;;   (powerline-default-theme)
-;;   (custom-set-faces
-;;    '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264"))))))
+;; Optional. Works nicely without this too.
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-default-theme)
+  (custom-set-faces
+   '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264"))))))
 
 ;; Highlight the current line
 (global-hl-line-mode)
 
 ;; Pretty dark theme :)
-(use-package jbeans-theme
-  :ensure t)
+;; (use-package jbeans-theme
+;;   :ensure t)
+
+(load "../lisp/ujelly-theme.el")
 
 (use-package cursor-chg
   :ensure t
@@ -36,7 +37,10 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (select-frame frame)
-                (load-theme 'jbeans t)
+                ;; (load-theme 'jbeans t)
+                (load-theme 'ujelly t)
+                (custom-set-faces
+                 '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
 
                 ;; Font settings
                 (setq default-frame-alist '((font . "Literation Mono Powerline-14")
@@ -57,7 +61,10 @@
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-  (load-theme 'jbeans t)
+  ;; (load-theme 'jbeans t)
+  (load-theme 'ujelly t)
+  (custom-set-faces
+   '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
   (setq default-frame-alist '((font . "Literation Mono Powerline-14")
                               (alpha 95 95)))
   (set-face-attribute 'default nil :height 160)

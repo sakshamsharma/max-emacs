@@ -60,6 +60,10 @@
 (use-package saveplace
   :init (save-place-mode))
 
+;; Indents the file according to current settings
+(use-package dtrt-indent
+  :ensure t)
+
 (use-package change-inner
   :ensure t
   :config
@@ -110,6 +114,9 @@
   :ensure t
   :config
   (pdf-tools-install))
+
+(use-package bison-mode
+  :ensure t)
 
 (provide 'misc-init)
 ;;; misc-init.el ends here

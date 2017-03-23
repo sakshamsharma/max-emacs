@@ -98,7 +98,7 @@
 
 
 ;; Why did I not know of this earlier? This is for CamelCase
-(subword-mode)
+(global-subword-mode)
 
 (setq scroll-preserve-screen-position t)
 ;;(setq scroll-preserve-screen-position 'always)

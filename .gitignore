@@ -6,3 +6,5 @@
 !elisp/*
 !.gitignore
 !README.md
+!lisp/
+!lisp/*

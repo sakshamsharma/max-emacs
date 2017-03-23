@@ -14,6 +14,7 @@
               (flycheck-mode +1)
               (setq flycheck-check-syntax-automatically '(save mode-enabled))
               (eldoc-mode +1)
+              (tide-mode +1)
               (company-mode-on)))
   ;; aligns annotation to the right hand side
   (setq typescript-indent-level 2)

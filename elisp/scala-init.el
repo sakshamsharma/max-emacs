@@ -7,10 +7,11 @@
 
 (use-package ensime
   :ensure t
+  :pin melpa-stable
   :config
   ;; For complex scala files
-  (setq max-lisp-eval-depth 50000)
-  (setq max-specpdl-size 5000)
+  (setq max-lisp-eval-depth 100000)
+  (setq max-specpdl-size 10000)
 
   (add-hook 'scala-mode-hook
             (lambda ()
@@ -29,10 +30,12 @@
          ("M-," . ensime-pop-find-definition-stack)))
 
 (use-package scala-mode
+  :ensure t
   :interpreter
   ("scala" . scala-mode))
 
 (use-package sbt-mode
+  :ensure t
   :commands sbt-start sbt-command
   :config
   ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31

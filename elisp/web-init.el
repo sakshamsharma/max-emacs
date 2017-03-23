@@ -36,15 +36,10 @@
   (add-to-list 'auto-mode-alist '("\\.scss\\'" . scss-mode)))
 
 
-(use-package js-mode
-  :mode ("\\.json$" . js-mode)
-  :init
-  (progn
-    (add-hook 'js-mode-hook (lambda () (setq js-indent-level 2)))))
-
 (use-package js2-mode
   :ensure t
   :mode (("\\.js$" . js2-mode)
+         ("\\.json$" . js2-mode)
          ("Jakefile$" . js2-mode))
   :interpreter ("node" . js2-mode)
   :config

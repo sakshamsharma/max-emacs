@@ -15,6 +15,7 @@
 (package-initialize)
 
 (add-to-list 'load-path "elisp/")
+(add-to-list 'load-path "lisp/")
 
 (eval-when-compile
   (require 'use-package))
