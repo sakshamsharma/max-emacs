@@ -20,8 +20,8 @@
 (eval-when-compile
   (require 'use-package))
 
-(load-file "$HOME/.emacs.d/holy.el")
-;;(load-file "$HOME/.emacs.d/evil.el")
+;;(load-file "$HOME/.emacs.d/holy.el")
+(load-file "$HOME/.emacs.d/evil.el")
 
 ;;(use-package exwm-init)
 

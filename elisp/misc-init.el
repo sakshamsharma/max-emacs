@@ -37,9 +37,14 @@
   :config
   (nlinum-relative-on)
   (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-  (setq nlinum-relative-redisplay-delay 1)   ;; delay
+  (setq nlinum-relative-redisplay-delay 0.5)   ;; delay
   (setq nlinum-relative-current-symbol "->") ;; or "" for current line
-  (setq nlinum-relative-offset 1))
+  (setq nlinum-relative-offset 0))
+
+(use-package eyebrowse
+  :ensure t
+  :config
+  (eyebrowse-mode t))
 
 (use-package switch-window
   :ensure t
@@ -116,6 +121,9 @@
   (pdf-tools-install))
 
 (use-package bison-mode
+  :ensure t)
+
+(use-package undo-tree
   :ensure t)
 
 (provide 'misc-init)

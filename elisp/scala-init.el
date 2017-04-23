@@ -10,8 +10,8 @@
   :pin melpa-stable
   :config
   ;; For complex scala files
-  (setq max-lisp-eval-depth 100000)
-  (setq max-specpdl-size 10000)
+  (setq max-lisp-eval-depth 500000)
+  (setq max-specpdl-size 100000)
 
   (add-hook 'scala-mode-hook
             (lambda ()
@@ -26,8 +26,9 @@
          ("C-c C-v C-t" . ensime-print-type-at-point)
          ("C-c C-e" . ensime-print-errors-at-point)
          ("C-c C-t" . ensime-print-type-at-point)
-         ("M-." . ensime-edit-definition)
-         ("M-," . ensime-pop-find-definition-stack)))
+         ;; ("M-." . ensime-edit-definition)
+         ;; ("M-," . ensime-pop-find-definition-stack)
+         ))
 
 (use-package scala-mode
   :ensure t

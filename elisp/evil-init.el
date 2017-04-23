@@ -23,12 +23,17 @@
 (use-package helm-init)
 (use-package company-init)
 (use-package projectile-init)
-(use-package avy-ace-init)
+;; (use-package avy-ace-init)
 (use-package sudo-save)
 (use-package gtc-init)
 (use-package git-init)
 (use-package org-init)
 (use-package sp-init)
+
+(defun kill-cur-buf ()
+  "Calls kill on current buffer."
+  (interactive)
+  (kill-buffer (current-buffer)))
 
 (use-package evil
   :ensure t
@@ -62,7 +67,8 @@
 
   ;; Swap ; with :
   (nmap ";" 'evil-ex)
-  (nmap ":" 'evil-repeat-find-char)
+  (vmap ";" 'evil-ex)
+  ;; (nmap ":" 'evil-repeat-find-char)
 
   ;; Fix the ctrl-u scroll issue
   (nmap "C-u" 'evil-scroll-up)
@@ -80,6 +86,8 @@
   (nmap "C-p" 'helm-projectile)
   (nmap "C-S-p" 'helm-projectile-recentf)
 
+  (evil-ex-define-cmd "q[uit]" 'kill-cur-buf)
+
   ;; Make movement keys work like they should
   (nmap "<remap> <evil-next-line>" 'evil-next-visual-line)
   (nmap "<remap> <evil-previous-line>" 'evil-previous-visual-line)
@@ -93,7 +101,32 @@
 
   ;; Evil packages
   (use-package evil-nerd-commenter
-    :ensure t)
+    :ensure t
+    :config
+    ;; Emacs key bindings
+    (global-set-key (kbd "M-;") 'evilnc-comment-or-uncomment-lines))
+
+  (use-package evil-leader
+    :ensure t
+    :config
+    (global-evil-leader-mode)
+    (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-key
+      "<SPC>" 'helm-M-x
+      "f" 'helm-find-files
+      "b" 'helm-mini
+      "g" 'magit-status
+      "s" 'helm-swoop
+      "ci" 'evilnc-commenct-or-uncomment-lines
+      "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
+      "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
+      "cc" 'evilnc-copy-and-comment-lines
+      "cp" 'evilnc-comment-or-uncomment-paragraphs
+      "cr" 'comment-or-uncomment-region
+      "cv" 'evilnc-toggle-invert-comment-line-by-line
+      "."  'evilnc-copy-and-comment-operator
+      "\\" 'evilnc-comment-operator
+      ))
 
   (use-package key-chord
     :ensure t
@@ -164,17 +197,22 @@
     (nmap "C-a" 'evil-numbers/inc-at-pt)
     (nmap "C-z" 'evil-numbers/dec-at-pt))
 
-  ;; Newer magit bindings
-  (use-package evil-magit
-    :ensure t)
+  (defun my-jump-to-tag ()
+    (interactive)
+    (evil-emacs-state)
+    (call-interactively (key-binding (kbd "M-.")))
+    (evil-change-to-previous-state (other-buffer))
+    (evil-change-to-previous-state (current-buffer)))
 
-  (use-package ranger
-    :ensure t
-    :config
-    (ranger-override-dired-mode t)
-    (setq ranger-cleanup-eagerly t)
-    (setq ranger-dont-show-binary t))
-  )
+  (define-key evil-normal-state-map (kbd "C-]") 'my-jump-to-tag)
+
+
+
+  (eval-after-load 'evil-core
+    '(evil-set-initial-state 'magit-popup-mode 'emacs))
+
+  (eval-after-load 'evil-core
+    '(evil-set-initial-state 'dired-mode 'emacs)))
 
 ;; Language specific files
 (use-package hs-init)
@@ -188,7 +226,7 @@
 (use-package irony-init)
 (use-package web-init)
 (use-package go-init)
-;; (use-package rust-init)
+(use-package rust-init)
 
 (provide 'evil-init)
 
