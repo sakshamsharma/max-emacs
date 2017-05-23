@@ -18,8 +18,8 @@
 (global-hl-line-mode)
 
 ;; Pretty dark theme :)
-;; (use-package jbeans-theme
-;;   :ensure t)
+(use-package jbeans-theme
+  :ensure t)
 (use-package color-theme-sanityinc-tomorrow
   :ensure t)
 
@@ -46,8 +46,8 @@
                 ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
 
                 ;; Font settings
-                (setq default-frame-alist '((font . "Literation Mono Powerline-14")
-                                            (alpha 95 95)))
+                ;(setq default-frame-alist '((font . "Literation Mono Powerline-14")
+                                            ;(alpha 95 95)))
                 (set-face-attribute 'default nil :height 140)
 
                 ;; Disable extra bells and whisles
@@ -57,8 +57,8 @@
                 (menu-bar-mode -1))))
 
 
-(setq default-frame-alist '((font . "Literation Mono Powerline-14")
-                            (alpha 95 95)))
+;(setq default-frame-alist '((font . "Literation Mono Powerline-14")
+                            ;(alpha 95 95)))
 
 ;; ;; Again, to fix some stuff which doesn't work in non-daemon mode
 (when window-system
@@ -70,8 +70,8 @@
 
   ;; (custom-set-faces
   ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
-  (setq default-frame-alist '((font . "Literation Mono Powerline-14")
-                              (alpha 95 95)))
+  ;(setq default-frame-alist '((font . "Literation Mono Powerline-14")
+                              ;(alpha 95 95)))
   (set-face-attribute 'default nil :height 160)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)

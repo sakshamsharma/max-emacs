@@ -26,10 +26,12 @@
 (global-set-key (kbd "C-x <right>") 'enlarge-window-horizontally)
 
 ;; Other-window is M-o
+;; Also declared in misc-init.el inside switch-window plugin's settings
+;; Also defined inside settings of multi-term in misc-init.el
 (global-set-key "\M-o" 'other-window)
 
-;; The awesome imenu, backed by semantic mode and helm
-;; (global-set-key (kbd "C-c i") 'imenu)
+(add-hook 'term-mode-hook (lambda ()
+                            ()))
 
 ;; Move to next and previous error/match with grep or compile
 (global-set-key "\C-cn" 'next-error)

@@ -18,11 +18,7 @@
 (use-packages '(on-screen
                 markdown-mode
                 unicode-fonts
-                rainbow-delimiters
-                auctex))
-
-(use-package smbc
-  :ensure t)
+                rainbow-delimiters))
 
 ;; Use C-c right or left to get back previous buffer states
 (use-package winner
@@ -39,7 +35,7 @@
   (add-hook 'prog-mode-hook 'nlinum-relative-mode)
   (setq nlinum-relative-redisplay-delay 0.5)   ;; delay
   (setq nlinum-relative-current-symbol "->") ;; or "" for current line
-  (setq nlinum-relative-offset 0))
+  (setq nlinum-relative-offset 1))
 
 (use-package eyebrowse
   :ensure t
@@ -48,7 +44,10 @@
 
 (use-package switch-window
   :ensure t
-  :bind (("M-o"   . switch-window)
+  :bind (
+         ;; other-window shows a number when switching
+         ;; ("M-o"   . switch-window)
+         ("M-o"   . other-window)
          ("C-x o" . other-window)))
 
 (use-package rainbow-delimiters
@@ -84,7 +83,9 @@
               (setq term-buffer-maximum-size 10000)))
   (add-hook 'term-mode-hook
             (lambda ()
-              (define-key term-raw-map (kbd "C-y") 'term-paste))))
+              (define-key term-raw-map (kbd "C-y") 'term-paste)
+              (define-key term-raw-map (kbd "M-o") 'other-window)
+              )))
 
 (use-package js2-mode
   :ensure t
@@ -115,10 +116,9 @@
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 
-(use-package pdf-tools
-  :ensure t
-  :config
-  (pdf-tools-install))
+;(use-package pdf-tools
+  ;:config
+  ;(pdf-tools-install))
 
 (use-package bison-mode
   :ensure t)

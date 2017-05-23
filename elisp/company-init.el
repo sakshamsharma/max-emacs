@@ -24,7 +24,9 @@
     (interactive)
     (if (company-manual-begin)
         (company-complete-common)
-      (indent-according-to-mode))))
+      (indent-according-to-mode)))
+
+  (setq-default company-dabbrev-downcase nil))
 
 
 (defun use-packages (names)
@@ -48,6 +50,7 @@
                 company-quickhelp
                 slime-company
                 company-tern))
+
 
 (provide 'company-init)
 ;;; company-init.el ends here

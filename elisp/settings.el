@@ -106,5 +106,8 @@
 ;; Awesome package for proper pdf support
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode))
 
+(setq-default truncate-lines t)
+(setq-default global-visual-line-mode t)
+
 (provide 'settings)
 ;;; settings.el ends here

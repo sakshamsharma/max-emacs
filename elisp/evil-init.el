@@ -10,12 +10,8 @@
 (use-package appearance)
 (use-package keybindings)
 (use-package settings)
-(use-package skeletons)
 (use-package whitespace)
 (use-package misc-init)
-(use-package aggress-indent)
-(use-package erc-init)
-(use-package erc-nick-colors)
 
 ;; Package specific configurations
 (use-package neotree-init)
@@ -23,9 +19,6 @@
 (use-package helm-init)
 (use-package company-init)
 (use-package projectile-init)
-;; (use-package avy-ace-init)
-(use-package sudo-save)
-(use-package gtc-init)
 (use-package git-init)
 (use-package org-init)
 (use-package sp-init)
@@ -70,6 +63,8 @@
   (vmap ";" 'evil-ex)
   ;; (nmap ":" 'evil-repeat-find-char)
 
+  (nmap "M-." 'nil)
+
   ;; Fix the ctrl-u scroll issue
   (nmap "C-u" 'evil-scroll-up)
   (vmap "C-u" 'evil-scroll-up)
@@ -94,7 +89,7 @@
   (mmap "<remap> <evil-next-line>" 'evil-next-visual-line)
   (mmap "<remap> <evil-previous-line>" 'evil-previous-visual-line)
 
-  (find-function-on-key (kbd "M-."))
+  ;; (find-function-on-key (kbd "M-."))
 
   ;; Make horizontal movement cross lines
   (setq-default evil-cross-lines t)
@@ -132,6 +127,7 @@
     :ensure t
     :config
     (key-chord-mode 1)
+    (setq key-chord-one-key-delay 0.5) ; default 0.2
     (key-chord-define evil-normal-state-map "//"
                       #'evilnc-comment-or-uncomment-lines))
 
@@ -185,17 +181,22 @@
 
     )
 
-  (use-package evil-snipe
-    :ensure t
-    :config
-    (evil-snipe-mode 1)
-    (setq evil-snipe-scope 'whole-visible))
+  ;; (use-package evil-snipe
+  ;;   :ensure t
+  ;;   :config
+  ;; (evil-snipe-mode 1)
+  ;; (setq evil-snipe-scope 'whole-visible))
 
   (use-package evil-numbers
     :ensure t
     :config
     (nmap "C-a" 'evil-numbers/inc-at-pt)
     (nmap "C-z" 'evil-numbers/dec-at-pt))
+
+  (use-package ranger
+    :ensure t
+    :config
+    (ranger-override-dired-mode t))
 
   (defun my-jump-to-tag ()
     (interactive)
@@ -206,27 +207,24 @@
 
   (define-key evil-normal-state-map (kbd "C-]") 'my-jump-to-tag)
 
-
-
   (eval-after-load 'evil-core
     '(evil-set-initial-state 'magit-popup-mode 'emacs))
+
+  (eval-after-load 'evil-core
+    '(evil-set-initial-state 'neotree-mode 'evil))
+  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-enter)
+  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
+  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
 
   (eval-after-load 'evil-core
     '(evil-set-initial-state 'dired-mode 'emacs)))
 
 ;; Language specific files
-(use-package hs-init)
-(use-package tex-init)
-(use-package ts-init)
-(use-package py-init)
-(use-package scala-init)
-(use-package java-init)
-(use-package scheme-init)
 (use-package slime-init)
-(use-package irony-init)
-(use-package web-init)
+;;(use-package irony-init)
+;;(use-package web-init)
 (use-package go-init)
-(use-package rust-init)
 
 (provide 'evil-init)
 

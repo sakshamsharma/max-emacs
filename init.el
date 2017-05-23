@@ -39,3 +39,36 @@
 
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-dabbrev-downcase nil)
+ '(compilation-error-regexp-alist
+   (quote
+    (google3-build-log-parser-info google3-build-log-parser-warning google3-build-log-parser-error google-blaze-error google-log-error google-log-warning google-log-info google-log-fatal-message google-forge-python gunit-stack-trace absoft ada aix ant bash borland python-tracebacks-and-caml comma cucumber msft edg-1 edg-2 epc ftnchek iar ibm irix java jikes-file maven jikes-line clang-include gcc-include ruby-Test::Unit gnu lcc makepp mips-1 mips-2 msft omake oracle perl php rxp sparc-pascal-file sparc-pascal-line sparc-pascal-example sun sun-ada watcom 4bsd gcov-file gcov-header gcov-nomark gcov-called-line gcov-never-called perl--Pod::Checker perl--Test perl--Test2 perl--Test::Harness weblint guile-file guile-line)))
+ '(evil-overriding-maps
+   (quote
+    ((go-mode)
+     (Buffer-menu-mode-map)
+     (color-theme-mode-map)
+     (comint-mode-map)
+     (compilation-mode-map)
+     (grep-mode-map)
+     (dictionary-mode-map)
+     (ert-results-mode-map . motion)
+     (Info-mode-map . motion)
+     (speedbar-key-map)
+     (speedbar-file-key-map)
+     (speedbar-buffers-key-map))))
+ '(package-selected-packages
+   (quote
+    (buffer-stack neotree ranger go-eldoc pug-mode helm-css-scss scss-mode php-mode web-mode clang-format company-irony-c-headers flycheck-irony elisp-slime-nav evil-numbers evil-snipe evil-multiedit evil-matchit evil-surround key-chord evil-leader evil-nerd-commenter evil smartparens diff-hl magit goto-chg company-tern slime-company company-quickhelp company-restclient company-math company-irony company-go company-ghci company-ghc company-c-headers company-cabal company-auctex company helm-ls-git helm-ag helm-make helm-swoop helm-projectile helm flycheck erc-hl-nicks aggressive-indent undo-tree bison-mode pdf-tools multiple-cursors exec-path-from-shell js2-mode multi-term change-inner dtrt-indent switch-window eyebrowse nlinum-relative smbc auctex rainbow-delimiters unicode-fonts markdown-mode on-screen ethan-wspace jbeans-theme use-package color-theme-sanityinc-tomorrow)))
+ '(term-unbind-key-list (quote ("C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>" (\, "M-o")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

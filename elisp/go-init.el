@@ -31,7 +31,16 @@
   (use-package go-eldoc
     :ensure t
     :config
-    (add-hook 'go-mode-hook 'go-eldoc-setup)))
+    (add-hook 'go-mode-hook 'go-eldoc-setup))
+
+  ;; Call Gofmt before saving
+  (defun my-go-mode-hook ()
+    (add-hook 'before-save-hook 'gofmt-before-save)
+    ;; Godef jump key binding
+    (local-set-key (kbd "C-c C-f C-f") 'helm-projectile-find-file)
+    (local-set-key (kbd "M-.") 'godef-jump)
+    (local-set-key (kbd "M-,") 'pop-tag-mark))
+  (add-hook 'go-mode-hook 'my-go-mode-hook))
 
 (provide 'go-init)
 ;;; go-init.el ends here
