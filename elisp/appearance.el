@@ -46,9 +46,9 @@
                 ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
 
                 ;; Font settings
-                ;(setq default-frame-alist '((font . "Literation Mono Powerline-14")
-                                            ;(alpha 95 95)))
-                (set-face-attribute 'default nil :height 140)
+                (setq default-frame-alist '((font . "Source Code Pro For Powerline-12")
+                                            (alpha 95 95)))
+                (set-face-attribute 'default nil :height 130)
 
                 ;; Disable extra bells and whisles
                 (tool-bar-mode -1)
@@ -57,8 +57,9 @@
                 (menu-bar-mode -1))))
 
 
-;(setq default-frame-alist '((font . "Literation Mono Powerline-14")
-                            ;(alpha 95 95)))
+(setq default-frame-alist '((font . "Source Code Pro For Powerline-12")
+                            (alpha 95 95)))
+(set-face-attribute 'default nil :height 130)
 
 ;; ;; Again, to fix some stuff which doesn't work in non-daemon mode
 (when window-system
@@ -70,9 +71,9 @@
 
   ;; (custom-set-faces
   ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
-  ;(setq default-frame-alist '((font . "Literation Mono Powerline-14")
-                              ;(alpha 95 95)))
-  (set-face-attribute 'default nil :height 160)
+  (setq default-frame-alist '((font . "Source Code Pro For Powerline-12")
+                              (alpha 95 95)))
+  (set-face-attribute 'default nil :height 130)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
   (blink-cursor-mode -1)

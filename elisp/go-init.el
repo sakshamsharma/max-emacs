@@ -40,7 +40,9 @@
     (local-set-key (kbd "C-c C-f C-f") 'helm-projectile-find-file)
     (local-set-key (kbd "M-.") 'godef-jump)
     (local-set-key (kbd "M-,") 'pop-tag-mark))
-  (add-hook 'go-mode-hook 'my-go-mode-hook))
+  (add-hook 'go-mode-hook 'my-go-mode-hook)
+  (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
+  )
 
 (provide 'go-init)
 ;;; go-init.el ends here

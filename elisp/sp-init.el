@@ -115,6 +115,9 @@ This predicate is only tested on \"insert\" action."
   (sp-local-tag '(sgml-mode html-mode) "<" "<_>" "</_>"
                 :transform 'sp-match-sgml-tags)
 
+  ;; Add newline after curly brace and return
+  (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
+
   ;; racket-mode
   ;; (sp-with-modes '(racket-mode)
   ;;   (sp-local-pair "#|" "|#")
