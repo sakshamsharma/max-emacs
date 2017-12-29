@@ -228,6 +228,8 @@
 ;;(use-package irony-init)
 ;;(use-package web-init)
 (use-package go-init)
+(use-package flix-init)
+(use-package ocaml-init)
 
 (provide 'evil-init)
 

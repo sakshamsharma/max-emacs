@@ -43,6 +43,7 @@
 (use-package web-init)
 (use-package go-init)
 (use-package rust-init)
+(use-package ocaml-init)
 
 (provide 'holy-init)
 

@@ -116,9 +116,10 @@
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 
-;(use-package pdf-tools
-  ;:config
-  ;(pdf-tools-install))
+(use-package pdf-tools
+  :ensure t
+  :config
+  (pdf-tools-install))
 
 (use-package bison-mode
   :ensure t)

@@ -18,7 +18,7 @@
               (company-mode-on)))
   ;; aligns annotation to the right hand side
   (setq typescript-indent-level 2)
-  :bind (("M-." . tide-jump-to-definition-reuse-window)))
+  :bind (:map typescript-mode-map (("M-." . tide-jump-to-definition-reuse-window))))
 
 (setq typescript-indent-level 2)
 

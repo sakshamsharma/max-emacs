@@ -21,7 +21,6 @@
               (flyspell-mode)
               (LaTeX-math-mode)
               (turn-on-reftex)
-              (setq reftex-plug-into-AUCTeX t)
               (setq TeX-PDF-mode t)
               (add-to-list 'TeX-command-list '("XeLaTeX" "%`xelatex%(mode)%' %t" TeX-run-TeX nil t))
               (push
@@ -38,7 +37,7 @@
     (company-auctex-init))
   (use-package latex-preview-pane
     :ensure t)
-  :bind (("C-<tab>" . TeX-complete-symbol)))
+  :bind (:map LaTex-mode-map ("C-<tab>" . TeX-complete-symbol)))
 
 ;; ========
 ;; doc-view
