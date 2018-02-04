@@ -32,17 +32,17 @@
 
 (custom-set-variables '(haskell-process-type 'stack-ghci))
 
-;; (use-package flycheck-haskell
-;;   :ensure t
-;;   :config
-;;   (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+(use-package flycheck-haskell
+  :ensure t
+  :config
+  (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
-;; (use-package ghc
-;;   :ensure t
-;;   :config
-;;   (add-hook 'haskell-mode-hook 'ghc-init)
-;;   :bind (("C-c C-t" . ghc-show-type)
-;;          ("C-c t"   . ghc-show-type)))
+(use-package ghc
+  :ensure t
+  :config
+  (add-hook 'haskell-mode-hook 'ghc-init)
+  :bind (("C-c C-t" . ghc-show-type)
+         ("C-c t"   . ghc-show-type)))
 
 ;; (use-package shm
 ;;   :ensure t

@@ -229,7 +229,10 @@
 ;;(use-package web-init)
 (use-package go-init)
 (use-package flix-init)
-(use-package ocaml-init)
+(use-package haskell-init)
+;; (use-package proof)
+;; (use-package ocaml-init)
+(use-package scala-init)
 
 (provide 'evil-init)
 

@@ -27,6 +27,9 @@
   :config
   (winner-mode 1))
 
+(use-package nix-mode
+  :ensure t)
+
 ;; Sweet relative numbering
 (use-package nlinum-relative
   :ensure t

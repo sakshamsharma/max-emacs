@@ -22,15 +22,12 @@
   :ensure t)
 (use-package color-theme-sanityinc-tomorrow
   :ensure t)
-
-;; (load "../lisp/ujelly-theme.el")
-
-;; (use-package cursor-chg
-;;   :ensure t
-;;   :config
-;; Gives a line cursor
-;; ^ The only reason I have it here
-;; (change-cursor-mode 1))
+(use-package doom-themes
+  :ensure t)
+(use-package zerodark
+  :ensure t
+  :config
+  (zerodark-setup-modeline-format))
 
 ;; To ensure theme etc are completely implemented
 ;; When running in daemon mode (which is, all the time)
@@ -38,9 +35,7 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (select-frame frame)
-                (load-theme 'jbeans t)
-                ;; (load-theme 'ujelly t)
-                ;; (load-theme 'sanityinc-tomorrow-night t)
+                (load-theme 'doom-tomorrow-night t)
 
                 ;; (custom-set-faces
                 ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
@@ -65,9 +60,7 @@
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-  (load-theme 'jbeans t)
-  ;; (load-theme 'ujelly t)
-  ;; (load-theme 'sanityinc-tomorrow-night t)
+  (load-theme 'doom-tomorrow-night t)
 
   ;; (custom-set-faces
   ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
