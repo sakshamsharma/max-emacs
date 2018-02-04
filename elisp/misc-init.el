@@ -45,6 +45,9 @@
   :config
   (eyebrowse-mode t))
 
+(use-package smbc
+  :ensure t)
+
 (use-package switch-window
   :ensure t
   :bind (
@@ -71,6 +74,9 @@
 (use-package dtrt-indent
   :ensure t)
 
+(use-package all-the-icons
+  :ensure t)
+
 (use-package change-inner
   :ensure t
   :config
@@ -84,11 +90,13 @@
   (add-hook 'term-mode-hook
             (lambda ()
               (setq term-buffer-maximum-size 10000)))
-  (add-hook 'term-mode-hook
-            (lambda ()
-              (define-key term-raw-map (kbd "C-y") 'term-paste)
-              (define-key term-raw-map (kbd "M-o") 'other-window)
-              )))
+  :bind (:map term-raw-map (("C-y" . term-paste)
+                            ("M-o" . other-window))))
+  ;; (add-hook 'term-mode-hook
+  ;;           (lambda ()
+  ;;             (define-key term-raw-map (kbd "C-y") 'term-paste)
+  ;;             (define-key term-raw-map (kbd "M-o") 'other-window)
+  ;;             )))
 
 (use-package js2-mode
   :ensure t

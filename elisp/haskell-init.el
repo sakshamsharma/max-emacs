@@ -27,8 +27,7 @@
         haskell-process-use-presentation-mode t
         haskell-process-suggest-haskell-docs-imports t
         haskell-interactive-mode-eval-mode 'haskell-mode)
-  :bind (:map haskell-mode-map (("M-." . haskell-mode-jump-to-def-or-tag)
-                                ("C-c C-t" . nil))))
+  :bind (:map haskell-mode-map (("M-." . haskell-mode-jump-to-def-or-tag))))
 
 (custom-set-variables '(haskell-process-type 'stack-ghci))
 
@@ -36,6 +35,11 @@
   :ensure t
   :config
   (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+
+(use-package flymake-hlint
+  :ensure t
+  :config
+  (add-hook 'haskell-mode-hook 'flymake-hlint-load))
 
 (use-package ghc
   :ensure t

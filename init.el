@@ -23,11 +23,7 @@
 ;; (load-file "$HOME/.emacs.d/holy.el")
 (load-file "$HOME/.emacs.d/evil.el")
 
-;; (load-file "$HOME/.emacs.d/elisp/smbc.el")
-
 ;;(use-package exwm-init)
-
-;; (require 'proof-site "~/.emacs.d/lisp/PG/generic/proof-site")
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)

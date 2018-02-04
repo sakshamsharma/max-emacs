@@ -5,22 +5,22 @@
 
 (require 'use-package)
 
-;; (use-package irony
-;;   :ensure t
-;;   :config
-;;   (add-hook 'c++-mode-hook 'irony-mode)
-;;   (add-hook 'c-mode-hook 'irony-mode)
-;;   (add-hook 'objc-mode-hook 'irony-mode)
+(use-package irony
+  :ensure t
+  :config
+  (add-hook 'c++-mode-hook 'irony-mode)
+  (add-hook 'c-mode-hook 'irony-mode)
+  (add-hook 'objc-mode-hook 'irony-mode)
 
-;;   ;; replace the `completion-at-point' and `complete-symbol' bindings in
-;;   ;; irony-mode's buffers by irony-mode's function
-;;   (defun my-irony-mode-hook ()
-;;     (define-key irony-mode-map [remap completion-at-point]
-;;       'irony-completion-at-point-async)
-;;     (define-key irony-mode-map [remap complete-symbol]
-;;       'irony-completion-at-point-async))
-;;   (add-hook 'irony-mode-hook 'my-irony-mode-hook)
-;;   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
+  ;; replace the `completion-at-point' and `complete-symbol' bindings in
+  ;; irony-mode's buffers by irony-mode's function
+  (defun my-irony-mode-hook ()
+    (define-key irony-mode-map [remap completion-at-point]
+      'irony-completion-at-point-async)
+    (define-key irony-mode-map [remap complete-symbol]
+      'irony-completion-at-point-async))
+  (add-hook 'irony-mode-hook 'my-irony-mode-hook)
+  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options))
 
 (use-package cc-mode
   :ensure t
@@ -69,7 +69,7 @@
     ;; (setq company-backends (delete 'company-semantic company-backends))
     (add-to-list 'company-backends 'company-c-headers)
     (add-to-list 'company-c-headers-path-system
-                 "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include/g++-v4")
+                 "/usr/lib/gcc/x86_64-linux-gnu/6/include")
     (define-key c-mode-map  [(tab)] 'company-complete)
     (define-key c++-mode-map  [(tab)] 'company-complete)
 
@@ -77,7 +77,7 @@
     (global-semanticdb-minor-mode 1)
     (global-semantic-idle-scheduler-mode 1)
     (semantic-add-system-include
-     "/usr/lib/gcc/x86_64-pc-linux-gnu/4.9.3/include/g++-v4")
+     "/usr/include/c++/5")
     (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
     (global-semantic-idle-summary-mode 1)
     (semantic-mode 1))
