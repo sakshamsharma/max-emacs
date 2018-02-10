@@ -184,12 +184,6 @@
 
     )
 
-  ;; (use-package evil-snipe
-  ;;   :ensure t
-  ;;   :config
-  ;; (evil-snipe-mode 1)
-  ;; (setq evil-snipe-scope 'whole-visible))
-
   (use-package evil-numbers
     :ensure t
     :config
@@ -213,8 +207,8 @@
   (eval-after-load 'evil-core
     '(evil-set-initial-state 'magit-popup-mode 'emacs))
 
-  (eval-after-load 'evil-core
-    '(evil-set-initial-state 'neotree-mode 'evil))
+  ;; (eval-after-load 'evil-core
+  ;;   '(evil-set-initial-state 'neotree-mode 'evil))
   (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)

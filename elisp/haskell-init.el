@@ -29,8 +29,6 @@
         haskell-interactive-mode-eval-mode 'haskell-mode)
   :bind (:map haskell-mode-map (("M-." . haskell-mode-jump-to-def-or-tag))))
 
-(custom-set-variables '(haskell-process-type 'stack-ghci))
-
 (use-package flycheck-haskell
   :ensure t
   :config
