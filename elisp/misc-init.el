@@ -119,13 +119,13 @@
 (use-package exec-path-from-shell
   :ensure t)
 
-(use-package multiple-cursors
-  :ensure t
-  :config
-  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
+;; (use-package multiple-cursors
+;;   :ensure t
+;;   :config
+;;   (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;;   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;;   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;;   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this))
 
 (use-package pdf-tools
   :ensure t

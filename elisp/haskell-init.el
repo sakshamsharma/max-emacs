@@ -6,45 +6,50 @@
 
 (require 'use-package)
 
-(use-package haskell-mode
+(use-package intero
   :ensure t
   :config
-  (add-hook 'haskell-mode-hook
-            '(lambda ()
-               (haskell-auto-insert-module-template)
-               (interactive-haskell-mode)))
-  (setq haskell-stylish-on-save t
-        haskell-tags-on-save nil
-        haskell-notify-p t
-        haskell-literate-default 'tex
-        haskell-process-type 'stack-ghci
-        haskell-process-path-ghci "stack"
-        haskell-process-args-ghci "ghci"
+  (add-hook 'haskell-mode-hook 'intero-mode))
 
-        haskell-process-suggest-remove-import-lines t
-        haskell-process-auto-import-loaded-modules t
-        haskell-process-log t
-        haskell-process-use-presentation-mode t
-        haskell-process-suggest-haskell-docs-imports t
-        haskell-interactive-mode-eval-mode 'haskell-mode)
-  :bind (:map haskell-mode-map (("M-." . haskell-mode-jump-to-def-or-tag))))
+;; (use-package haskell-mode
+;;   :ensure t
+;;   :config
+;;   (add-hook 'haskell-mode-hook
+;;             '(lambda ()
+;;                (haskell-auto-insert-module-template)
+;;                (interactive-haskell-mode)))
+;;   (setq haskell-stylish-on-save t
+;;         haskell-tags-on-save nil
+;;         haskell-notify-p t
+;;         haskell-literate-default 'tex
+;;         haskell-process-type 'stack-ghci
+;;         haskell-process-path-ghci "stack"
+;;         haskell-process-args-ghci "ghci"
 
-(use-package flycheck-haskell
-  :ensure t
-  :config
-  (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+;;         haskell-process-suggest-remove-import-lines t
+;;         haskell-process-auto-import-loaded-modules t
+;;         haskell-process-log t
+;;         haskell-process-use-presentation-mode t
+;;         haskell-process-suggest-haskell-docs-imports t
+;;         haskell-interactive-mode-eval-mode 'haskell-mode)
+;;   :bind (:map haskell-mode-map (("M-." . haskell-mode-jump-to-def-or-tag))))
 
-(use-package flymake-hlint
-  :ensure t
-  :config
-  (add-hook 'haskell-mode-hook 'flymake-hlint-load))
+;; (use-package flycheck-haskell
+;;   :ensure t
+;;   :config
+;;   (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
-(use-package ghc
-  :ensure t
-  :config
-  (add-hook 'haskell-mode-hook 'ghc-init)
-  :bind (("C-c C-t" . ghc-show-type)
-         ("C-c t"   . ghc-show-type)))
+;; (use-package flymake-hlint
+;;   :ensure t
+;;   :config
+;;   (add-hook 'haskell-mode-hook 'flymake-hlint-load))
+
+;; (use-package ghc
+;;   :ensure t
+;;   :config
+;;   (add-hook 'haskell-mode-hook 'ghc-init)
+;;   :bind (("C-c C-t" . ghc-show-type)
+;;          ("C-c t"   . ghc-show-type)))
 
 ;; (use-package shm
 ;;   :ensure t

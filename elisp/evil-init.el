@@ -184,6 +184,13 @@
 
     )
 
+  (use-package evil-mc
+    :ensure t
+    :config
+    (evil-mc-mode 1)
+    :bind (("C->" . evil-mc-make-and-goto-next-match)
+           ("C-<" . evil-mc-make-and-goto-prev-match)))
+
   (use-package evil-numbers
     :ensure t
     :config
@@ -227,6 +234,8 @@
 ;; (use-package proof)
 ;; (use-package ocaml-init)
 (use-package scala-init)
+
+(evil-mc-mode 1)
 
 (provide 'evil-init)
 

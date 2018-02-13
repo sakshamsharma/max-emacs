@@ -24,7 +24,7 @@
   :ensure t)
 (use-package doom-themes
   :ensure t)
-(use-package zerodark
+(use-package zerodark-theme
   :ensure t
   :config
   (zerodark-setup-modeline-format))
@@ -35,7 +35,7 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (select-frame frame)
-                (load-theme 'doom-tomorrow-night t)
+                (load-theme 'zerodark t)
 
                 ;; (custom-set-faces
                 ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
@@ -60,7 +60,7 @@
 (when window-system
   (setq frame-title-format '(buffer-file-name "%f" ("%b")))
 
-  (load-theme 'doom-tomorrow-night t)
+  (load-theme 'zerodark t)
 
   ;; (custom-set-faces
   ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
