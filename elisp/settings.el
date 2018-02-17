@@ -113,5 +113,10 @@
 (setq-default truncate-lines t)
 (setq-default global-visual-line-mode t)
 
+(setq-default require-final-newline nil)
+(setq-default mode-require-final-newline nil)
+(setq require-final-newline nil)
+(setq mode-require-final-newline nil)
+
 (provide 'settings)
 ;;; settings.el ends here

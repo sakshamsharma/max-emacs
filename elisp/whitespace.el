@@ -7,7 +7,6 @@
 
 (use-package ethan-wspace
   :ensure t
-  :defer 5
   :config
   (global-ethan-wspace-mode 1))
 

@@ -4,11 +4,11 @@
 ;;; Code:
 
 ;; Settings specific files
+(use-package settings)
+(use-package whitespace)
 (use-package functions)
 (use-package appearance)
 (use-package keybindings)
-(use-package settings)
-(use-package whitespace)
 (use-package misc-init)
 
 ;; Package specific configurations
@@ -211,9 +211,10 @@
   (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
 
   (eval-after-load 'evil-core
-    '(evil-set-initial-state 'dired-mode 'emacs)))
+    '(evil-set-initial-state 'dired-mode 'normal)))
 
 ;; Language specific files
+(use-package tex-init)
 (use-package slime-init)
 (use-package irony-init)
 (use-package go-init)

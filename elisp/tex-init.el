@@ -10,6 +10,7 @@
 
 (use-package tex
   :ensure auctex
+  :mode ("\\.tex\\'" . tex-mode)
   :config
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
