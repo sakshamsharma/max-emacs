@@ -23,4 +23,3 @@
 
 (provide 'use-package-conf)
 ;;; use-package-conf.el ends here
-

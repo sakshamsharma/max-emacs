@@ -6,14 +6,13 @@
 
 (require 'use-package)
 
-(use-package intero
-  :defer t
+(use-package haskell-mode
   :ensure t
+  :mode "\\.hs\\'"
   :config
-  (add-hook 'haskell-mode-hook 'intero-mode))
-
-(custom-set-variables
- '(haskell-stylish-on-save t))
+  (use-package intero
+    :ensure t)
+  (setq haskell-stylish-on-save t))
 
 (provide 'haskell-init)
 ;;; haskell-init.el ends here

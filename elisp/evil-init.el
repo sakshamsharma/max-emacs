@@ -12,7 +12,6 @@
 (use-package misc-init)
 
 ;; Package specific configurations
-(use-package neotree-init)
 (use-package flycheck-init)
 (use-package helm-init)
 (use-package company-init)
@@ -182,14 +181,13 @@
 
   (use-package evil-numbers
     :ensure t
-    :defer t
     :config
     (nmap "C-a" 'evil-numbers/inc-at-pt)
     (nmap "C-z" 'evil-numbers/dec-at-pt))
 
   (use-package ranger
     :ensure t
-    :defer t
+    :defer 1
     :config
     (ranger-override-dired-mode t))
 

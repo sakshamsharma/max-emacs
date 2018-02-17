@@ -5,14 +5,9 @@
 
 (require 'use-package)
 
-(defun makefile-tabs-are-less-evil ()
-  "Remove warnings for makefiles."
-  (interactive)
-  (setq ethan-wspace-errors (remove 'tabs ethan-wspace-errors)))
-
 (use-package go-mode
   :ensure t
-  :defer t
+  :mode ("\\.go\\'" . go-mode)
   :config
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
@@ -43,8 +38,7 @@
     (local-set-key (kbd "M-.") 'godef-jump)
     (local-set-key (kbd "M-,") 'pop-tag-mark))
   (add-hook 'go-mode-hook 'my-go-mode-hook)
-  (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET")))
-  )
+  (sp-pair "{" nil :post-handlers '(("||\n[i]" "RET"))))
 
 (provide 'go-init)
 ;;; go-init.el ends here

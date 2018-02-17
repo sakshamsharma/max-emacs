@@ -31,7 +31,6 @@
              ("C-z" . helm-select-action))
 
   (use-package helm-ring
-    :defer t
     :bind (("M-y" . helm-show-kill-ring)))
   (use-package helm-projectile
     :ensure t :defer t)
@@ -61,7 +60,6 @@
 
   (use-package helm-gtags
     :ensure t
-    :defer t
     :config
     (helm-gtags-mode))
 

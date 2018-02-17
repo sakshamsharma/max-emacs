@@ -31,6 +31,6 @@
       (format-time-string "%h %d"))
     (spaceline-toggle-time-on)
     (spaceline-emacs-theme 'date 'time)))
-  
+
 (provide 'mode-line)
 ;;; mode-line.el ends here

@@ -7,7 +7,8 @@
 
 (use-package markdown-mode
   :ensure t
-  :defer t)
+  :mode (("\\.markdown\\'" . markdown-mode)
+         ("\\.md\\'"       . markdown-mode)))
 
 (use-package unicode-fonts
   :ensure t
@@ -15,12 +16,11 @@
 
 (use-package nix-mode
   :ensure t
-  :defer t)
+  :mode "\\.nix\\'")
 
 ;; Sweet relative numbering
 (use-package nlinum-relative
   :ensure t
-  :defer t
   :config
   (nlinum-relative-on)
   (add-hook 'prog-mode-hook 'nlinum-relative-mode)
@@ -29,7 +29,7 @@
   (setq nlinum-relative-offset 1))
 
 (use-package smbc
-  :defer t
+  :defer 10
   :ensure t)
 
 (use-package switch-window
@@ -41,6 +41,7 @@
 
 (use-package rainbow-delimiters
   :ensure t
+  :defer 2
   :config
   (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
@@ -56,7 +57,7 @@
 ;; Indents the file according to current settings
 (use-package dtrt-indent
   :ensure t
-  :defer t
+  :defer 3
   :config
   (setq dtrt-indent-mode 1))
 
@@ -84,7 +85,8 @@
   :ensure t)
 
 (use-package pdf-tools
-  :ensure t)
+  :ensure t
+  :defer 10)
 
 (use-package undo-tree
   :ensure t

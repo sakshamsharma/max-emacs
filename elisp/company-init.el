@@ -10,14 +10,11 @@
 (use-package company
   :ensure t
   :diminish company-mode
+  :functions company-complete-common
   :config
   (setq company-idle-delay 0.2)
   (setq company-minimum-prefix-length 2)
   (add-hook 'after-init-hook 'global-company-mode)
-
-  (add-to-list 'company-backends 'company-tern)
-  (add-to-list 'company-backends 'company-ghc)
-  (add-to-list 'company-backends 'company-irony)
 
   (defun complete-or-indent ()
     "If there is no completion, then ident."
@@ -27,30 +24,6 @@
       (indent-according-to-mode)))
 
   (setq-default company-dabbrev-downcase nil))
-
-
-(defun use-packages (names)
-  "Use-package on list of NAMES."
-  (pcase names
-    (`(,p . ,ps)
-     (progn
-       (eval `(use-package ,p :ensure t :defer t))
-       (use-packages ps)))
-    (_ t)))
-
-(use-packages '(company-auctex
-                company-cabal
-                company-c-headers
-                company-ghc
-                company-ghci
-                company-go
-                company-irony
-                company-math
-                company-restclient
-                company-quickhelp
-                slime-company
-                company-tern))
-
 
 (provide 'company-init)
 ;;; company-init.el ends here

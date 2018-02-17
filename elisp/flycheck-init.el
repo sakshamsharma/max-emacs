@@ -7,7 +7,7 @@
 
 (use-package flycheck
   :ensure t
-  :defer t
+  :defer 5
   :diminish flycheck-mode
   :config (global-flycheck-mode))
 

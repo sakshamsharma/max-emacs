@@ -101,15 +101,13 @@
 
 ;; Helpful org mode
 ;; Use f7 to remember, c-f7 to go back
-(global-set-key (kbd "<f7>") 'org-mark-ring-push)
-(global-set-key (kbd "C-<f7>") 'org-mark-ring-goto)
 
-;; Cool keybinding
+;; cool keybinding
 ;; Back from my vim days
 ;; Ctrl+Mod+h/l to enlarge contract
-(global-set-key (kbd "C-s-l") (lambda ()
+(global-set-key (kbd "C-M-l") (lambda ()
                                 (interactive) (enlarge-window-horizontally 10)))
-(global-set-key (kbd "C-s-h") (lambda ()
+(global-set-key (kbd "C-M-h") (lambda ()
                                 (interactive) (shrink-window-horizontally 10)))
 
 

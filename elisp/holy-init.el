@@ -25,7 +25,6 @@
   (global-set-key (kbd "M-S-o") 'change-outer))
 
 ;; Package specific configurations
-(use-package neotree-init)
 (use-package flycheck-init)
 (use-package helm-init)
 (use-package company-init)

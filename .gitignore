@@ -9,4 +9,5 @@
 opam-user-setup.el
 places
 /irony
+/semanticdb
 *.swp

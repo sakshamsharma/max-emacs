@@ -7,11 +7,14 @@
 
 (use-package irony
   :ensure t
-  :defer t
+  :mode (("\\.cpp\\'" . c++-mode)
+         ("\\.cc\\'"  . c++-mode)
+         ("\\.hpp\\'" . c++-mode)
+         ("\\.hh\\'"  . c++-mode)
+         ("\\.c\\'"   . c-mode)
+         ("\\.h\\'"   . c-mode))
+  :functions global-semantic-stickyfunc-mode
   :config
-  (add-hook 'c++-mode-hook 'irony-mode)
-  (add-hook 'c-mode-hook 'irony-mode)
-  (add-hook 'objc-mode-hook 'irony-mode)
 
   ;; replace the `completion-at-point' and `complete-symbol' bindings in
   ;; irony-mode's buffers by irony-mode's function
@@ -25,14 +28,12 @@
 
   (use-package flycheck-irony
     :ensure t
-    :defer t
     :config
     (eval-after-load 'flycheck
       '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
 
   (use-package company-irony-c-headers
     :ensure t
-    :defer t
     :config
     (eval-after-load 'company
       '(add-to-list
@@ -42,18 +43,20 @@
 
   (use-package semantic
     :ensure t
-    :defer t
     :config
-    (require 'semantic/bovine/gcc)
+    ;; (require 'semantic/bovine/gcc)
     (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
     (global-semantic-idle-summary-mode 1)
-    (semantic-mode 1)))
+    (semantic-mode 1))
 
-(use-package clang-format
-  :ensure t
-  :defer t
-  :config
-  (global-set-key [C-M-tab] 'clang-format-region))
+  (use-package clang-format
+    :ensure t
+    :config
+    (global-set-key [C-M-tab] 'clang-format-region)))
+
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
 
 (provide 'irony-init)
 ;;; irony-init.el ends here
