@@ -12,6 +12,7 @@
 
 (use-package go-mode
   :ensure t
+  :defer t
   :config
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)

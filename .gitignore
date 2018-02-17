@@ -5,4 +5,8 @@
 /projectile*
 /recentf
 /save*
+.mc-lists.el
+opam-user-setup.el
+places
+/irony
 *.swp

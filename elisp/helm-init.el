@@ -6,33 +6,6 @@
 
 (require 'use-package)
 
-;; (use-package swiper
-;;   :ensure t
-;;   :config
-;;   (ivy-mode 1)
-;;   (setq magit-completing-read-function 'ivy-completing-read)
-;;   (setq projectile-completion-system 'ivy)
-;;   (setq ivy-use-virtual-buffers t)
-;;   (setq enable-recursive-minibuffers t)
-;;   (use-package counsel
-;;     :ensure t)
-;;   (global-set-key "\C-s" 'swiper)
-;;   (global-set-key (kbd "C-c C-r") 'ivy-resume)
-;;   (global-set-key (kbd "<f6>") 'ivy-resume)
-;;   (global-set-key (kbd "M-x") 'counsel-M-x)
-;;   (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-;;   (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-;;   (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-;;   (global-set-key (kbd "<f1> l") 'counsel-find-library)
-;;   (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-;;   (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-;;   (global-set-key (kbd "C-c g") 'counsel-git)
-;;   (global-set-key (kbd "C-c j") 'counsel-git-grep)
-;;   (global-set-key (kbd "C-c k") 'counsel-ag)
-;;   (global-set-key (kbd "C-x l") 'counsel-locate)
-;;   (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-;;   (define-key read-expression-map (kbd "C-r") 'counsel-expression-history))
-
 (use-package helm
   :ensure t
   :diminish helm-mode
@@ -52,25 +25,13 @@
   (when (executable-find "curl")
     (setq helm-net-prefer-curl 1))
 
-  (setq helm-buffers-fuzzy-matching 1
-        helm-recentf-fuzzy-match 1
-        helm-split-window-in-side-p 1
-        helm-move-to-line-cycle-in-source 1
-        helm-ff-search-library-in-sexp 1
-        helm-ff-file-name-history-use-recentf 1
-        helm-semantic-fuzzy-match 1
-        helm-M-x-fuzzy-match 1
-        helm-scroll-amount 8)
-
   (bind-keys :map helm-map
              ("<tab>" . helm-execute-persistent-action)
              ("C-i" . helm-execute-persistent-action)
              ("C-z" . helm-select-action))
 
-  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-  (define-key helm-map (kbd "C-z") 'helm-select-action)
-
   (use-package helm-ring
+    :defer t
     :bind (("M-y" . helm-show-kill-ring)))
   (use-package helm-projectile
     :ensure t :defer t)
@@ -90,14 +51,28 @@
                ("C-s" . helm-next-line))
     (bind-keys :map helm-multi-swoop-map
                ("C-r" . helm-previous-line)
-               ("C-s" . helm-next-line))
-    )
+               ("C-s" . helm-next-line)))
   (use-package helm-make
     :ensure t :defer t
     :config
     (setq helm-make-do-save t))
   (use-package helm-ag :ensure t :defer t)
-  (use-package helm-ls-git :ensure t :defer t))
+  (use-package helm-ls-git :ensure t :defer t)
+
+  (use-package helm-gtags
+    :ensure t
+    :defer t
+    :config
+    (helm-gtags-mode))
+
+  (setq helm-buffers-fuzzy-matching 1
+        helm-recentf-fuzzy-match 1
+        helm-split-window-in-side-p 1
+        helm-move-to-line-cycle-in-source 1
+        helm-ff-search-library-in-sexp 1
+        helm-ff-file-name-history-use-recentf 1
+        helm-M-x-fuzzy-match 1
+        helm-scroll-amount 8))
 
 (provide 'helm-init)
 ;;; helm-init.el ends here

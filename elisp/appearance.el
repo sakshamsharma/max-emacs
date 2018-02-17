@@ -6,71 +6,58 @@
 
 (require 'use-package)
 
-;; Optional. Works nicely without this too.
-;; (use-package powerline
-;;   :ensure t
-;;   :config
-;;   (powerline-default-theme)
-;;   (custom-set-faces
-;; '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264"))))))
-
 ;; Highlight the current line
 (global-hl-line-mode)
 
-;; Pretty dark theme :)
 (use-package jbeans-theme
-  :ensure t)
-(use-package color-theme-sanityinc-tomorrow
-  :ensure t)
-(use-package doom-themes
+  :defer t
   :ensure t)
 (use-package zerodark-theme
-  :ensure t
-  :config
-  (zerodark-setup-modeline-format))
+  :ensure t)
 
-;; To ensure theme etc are completely implemented
-;; When running in daemon mode (which is, all the time)
-(if (daemonp)
-    (add-hook 'after-make-frame-functions
-              (lambda (frame)
-                (select-frame frame)
-                (load-theme 'zerodark t)
+(defun setTheme (themeName)
+  "Set the theme to THEMENAME."
+  (interactive "sWhat theme do you want to use? ")
+  (if (display-graphic-p)
+      (load-theme (intern themeName) t)))
 
-                ;; (custom-set-faces
-                ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
+(defun setFont (fntName)
+  "Set the font to FNTNAME."
+  (interactive "sWhat font name do you want to set? ")
+  (set-face-attribute 'default nil
+                      :family fntName
+                      :height 130
+                      :weight 'normal
+                      :width 'normal))
 
-                ;; Font settings
-                (setq default-frame-alist '((font . "Source Code Pro For Powerline-12")
-                                            (alpha 95 95)))
-                (set-face-attribute 'default nil :height 130)
-
-                ;; Disable extra bells and whisles
-                (tool-bar-mode -1)
-                (scroll-bar-mode -1)
-                (blink-cursor-mode -1)
-                (menu-bar-mode -1))))
-
-
-(setq default-frame-alist '((font . "Source Code Pro For Powerline-12")
-                            (alpha 95 95)))
-(set-face-attribute 'default nil :height 130)
-
-;; ;; Again, to fix some stuff which doesn't work in non-daemon mode
-(when window-system
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
-
-  (load-theme 'zerodark t)
-
-  ;; (custom-set-faces
-  ;;  '(powerline-active1 ((t (:background "#eee8d5" :foreground "#215264")))))
-  (setq default-frame-alist '((font . "Source Code Pro For Powerline-12")
-                              (alpha 95 95)))
-  (set-face-attribute 'default nil :height 130)
+(defun disableBells ()
+  "Disable some graphical bells and whistles (literally)."
+  (interactive)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
   (blink-cursor-mode -1)
   (menu-bar-mode -1))
+
+(defun frameActions ()
+  "Do actions to set up appearance of frame."
+  (interactive)
+  (let ((myTheme "zerodark") (myFont "RobotoMono"))
+    ;; (disableBells)
+    (setTheme myTheme)
+    (setFont myFont)))
+
+(defun new-frame-setup (frame)
+  "Describe if FRAME is graphical."
+  (if (display-graphic-p frame)
+      (frameActions)
+    (message "not a window system")))
+
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+        (lambda (frame)
+            (select-frame frame)
+            (frameActions)))
+    (frameActions))
 
 (provide 'appearance)
 ;;; appearance.el ends here

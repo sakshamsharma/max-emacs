@@ -7,10 +7,12 @@
 
 (use-package slime
   :ensure t
+  :defer t
   :diminish slime-mode
   :config
   (use-package elisp-slime-nav
     :ensure t
+    :defer t
     :diminish elisp-slime-nav-mode
     :config
     (slime-setup '(slime-fancy))

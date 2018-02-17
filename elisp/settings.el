@@ -87,11 +87,16 @@
 (setq savehist-additional-variables '(kill-ring search-ring regexp-search-ring))
 (setq savehist-file "~/.emacs.d/savehist")
 
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+(blink-cursor-mode -1)
+(menu-bar-mode -1)
+
 ;; mouse
 (require 'mouse)
 (xterm-mouse-mode)
 
-(desktop-save-mode 1)
+;; (desktop-save-mode 1)
 (setq line-move-visual 1) ; Line wrap on word endings
 (visual-line-mode 1)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)

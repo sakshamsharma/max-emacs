@@ -17,6 +17,13 @@
 (use-package erc-init)
 (use-package erc-nick-colors)
 
+(use-package change-inner
+  :ensure t
+  :defer t
+  :config
+  (global-set-key (kbd "M-S-i") 'change-inner)
+  (global-set-key (kbd "M-S-o") 'change-outer))
+
 ;; Package specific configurations
 (use-package neotree-init)
 (use-package flycheck-init)

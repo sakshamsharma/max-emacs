@@ -7,6 +7,7 @@
 
 (use-package neotree
   :ensure t
+  :defer t
   :config
   (progn
     (setq-default neo-smart-open t)    ;  every time when the neotree window is

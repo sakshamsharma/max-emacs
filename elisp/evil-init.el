@@ -1,9 +1,7 @@
-;;; evil-init.el -- Org mode
+;;; evil-init.el -- My evil configuration.
 ;;; Commentary:
 
 ;;; Code:
-
-(require 'use-package)
 
 ;; Settings specific files
 (use-package functions)
@@ -24,7 +22,7 @@
 (use-package sp-init)
 
 (defun kill-cur-buf ()
-  "Calls kill on current buffer."
+  "Call kill on current buffer."
   (interactive)
   (kill-buffer (current-buffer)))
 
@@ -180,25 +178,18 @@
     (define-key evil-multiedit-insert-state-map (kbd "C-p") 'evil-multiedit-prev)
 
     ;; Allows you to invoke evil-multiedit with a regular expression
-    (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match)
-
-    )
-
-  (use-package evil-mc
-    :ensure t
-    :config
-    (evil-mc-mode 1)
-    :bind (("C->" . evil-mc-make-and-goto-next-match)
-           ("C-<" . evil-mc-make-and-goto-prev-match)))
+    (evil-ex-define-cmd "ie[dit]" 'evil-multiedit-ex-match))
 
   (use-package evil-numbers
     :ensure t
+    :defer t
     :config
     (nmap "C-a" 'evil-numbers/inc-at-pt)
     (nmap "C-z" 'evil-numbers/dec-at-pt))
 
   (use-package ranger
     :ensure t
+    :defer t
     :config
     (ranger-override-dired-mode t))
 
@@ -226,16 +217,10 @@
 
 ;; Language specific files
 (use-package slime-init)
-;;(use-package irony-init)
-;;(use-package web-init)
+(use-package irony-init)
 (use-package go-init)
-(use-package flix-init)
 (use-package haskell-init)
-;; (use-package proof)
-;; (use-package ocaml-init)
 (use-package scala-init)
-
-(evil-mc-mode 1)
 
 (provide 'evil-init)
 

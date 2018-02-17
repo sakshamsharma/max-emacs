@@ -7,6 +7,7 @@
 
 (use-package ensime
   :ensure t
+  :defer t
   :pin melpa-stable
   :config
   ;; For complex scala files
@@ -31,12 +32,14 @@
 
 (use-package scala-mode
   :ensure t
+  :defer t
   :pin melpa-stable
   :interpreter
   ("scala" . scala-mode))
 
 (use-package sbt-mode
   :ensure t
+  :defer t
   :pin melpa-stable
   :commands sbt-start sbt-command
   :config

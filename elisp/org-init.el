@@ -6,6 +6,7 @@
 (require 'use-package)
 
 (use-package org
+  :defer t
   :ensure t
   :config
   (define-key global-map "\C-cl" 'org-store-link)

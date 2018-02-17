@@ -30,6 +30,9 @@
 ;; Also defined inside settings of multi-term in misc-init.el
 (global-set-key "\M-o" 'other-window)
 
+(global-set-key (kbd "<f6>") 'previous-error)
+(global-set-key (kbd "<f7>") 'next-error)
+
 (add-hook 'term-mode-hook (lambda ()
                             ()))
 
