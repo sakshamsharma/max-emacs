@@ -9,6 +9,7 @@
 ;; company-mode
 (use-package company
   :ensure t
+  :defer 1
   :diminish company-mode
   :functions company-complete-common
   :config

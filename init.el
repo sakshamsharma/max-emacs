@@ -6,6 +6,8 @@
 
 (require 'package)
 
+(setq gc-cons-threshold 100000000)
+
 (setq
  package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                     ("org" . "http://orgmode.org/elpa/")
@@ -14,6 +16,10 @@
                     ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
 (add-to-list 'load-path "elisp/")
 (add-to-list 'load-path "lisp/")
 
@@ -21,9 +27,13 @@
   (require 'use-package))
 
 ;; (load-file "$HOME/.emacs.d/holy.el")
-(load-file "$HOME/.emacs.d/evil.el")
+;; (load-file "$HOME/.emacs.d/evil.el")
+(use-package evil-init
+  :load-path "elisp/")
 
 ;;(use-package exwm-init)
+
+(setq gc-cons-threshold 8000000)
 
 ;; Welcome message
 (setq initial-major-mode 'lisp-interaction-mode)

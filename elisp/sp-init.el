@@ -7,6 +7,7 @@
 
 (use-package smartparens
   :ensure t
+  :defer 1
   :diminish smartparens-mode
   :config
   (require 'smartparens-config)

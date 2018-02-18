@@ -38,7 +38,7 @@
     (company-auctex-init))
   (use-package latex-preview-pane
     :ensure t)
-  :bind (:map LaTex-mode-map ("C-<tab>" . TeX-complete-symbol)))
+  :bind (:map latex-mode-map ("C-<tab>" . TeX-complete-symbol)))
 
 ;; ========
 ;; doc-view

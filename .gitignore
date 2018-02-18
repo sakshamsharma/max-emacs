@@ -11,3 +11,4 @@ places
 /irony
 /semanticdb
 *.swp
+*.elc

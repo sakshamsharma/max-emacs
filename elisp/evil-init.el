@@ -58,9 +58,6 @@
   ;; Swap ; with :
   (nmap ";" 'evil-ex)
   (vmap ";" 'evil-ex)
-  ;; (nmap ":" 'evil-repeat-find-char)
-
-  (nmap "M-." 'nil)
 
   ;; Fix the ctrl-u scroll issue
   (nmap "C-u" 'evil-scroll-up)
@@ -85,8 +82,6 @@
   (nmap "<remap> <evil-previous-line>" 'evil-previous-visual-line)
   (mmap "<remap> <evil-next-line>" 'evil-next-visual-line)
   (mmap "<remap> <evil-previous-line>" 'evil-previous-visual-line)
-
-  ;; (find-function-on-key (kbd "M-."))
 
   ;; Make horizontal movement cross lines
   (setq-default evil-cross-lines t)
@@ -145,23 +140,20 @@
     :ensure t
     :config
     ;; Highlights all matches of the selection in the buffer.
-    (define-key evil-visual-state-map "R" 'evil-multiedit-match-all)
+    (vmap "R" 'evil-multiedit-match-all)
 
     ;; Match the word under cursor (i.e. make it an edit region). Consecutive
     ;; presses will incrementally add the next unmatched match.
-    (define-key evil-normal-state-map (kbd "M-d") 'evil-multiedit-match-and-next)
+    (nmap "M-d" 'evil-multiedit-match-and-next)
     ;; Match selected region.
-    (define-key evil-visual-state-map (kbd "M-d") 'evil-multiedit-match-and-next)
+    (vmap "M-d" 'evil-multiedit-match-and-next)
 
     ;; Same as M-d but in reverse.
-    (define-key evil-normal-state-map (kbd "M-D") 'evil-multiedit-match-and-prev)
-    (define-key evil-visual-state-map (kbd "M-D") 'evil-multiedit-match-and-prev)
-
-    ;; OPTIONAL: If you prefer to grab symbols rather than words, use
-    ;; `evil-multiedit-match-symbol-and-next` (or prev).
+    (nmap "M-D" 'evil-multiedit-match-and-prev)
+    (vmap "M-D" 'evil-multiedit-match-and-prev)
 
     ;; Restore the last group of multiedit regions.
-    (define-key evil-visual-state-map (kbd "C-M-D") 'evil-multiedit-restore)
+    (vmap "C-M-D" 'evil-multiedit-restore)
 
     ;; RET will toggle the region under the cursor
     (define-key evil-multiedit-state-map (kbd "RET") 'evil-multiedit-toggle-or-restrict-region)
@@ -191,30 +183,13 @@
     :config
     (ranger-override-dired-mode t))
 
-  (defun my-jump-to-tag ()
-    (interactive)
-    (evil-emacs-state)
-    (call-interactively (key-binding (kbd "M-.")))
-    (evil-change-to-previous-state (other-buffer))
-    (evil-change-to-previous-state (current-buffer)))
-
-  (define-key evil-normal-state-map (kbd "C-]") 'my-jump-to-tag)
-
   (eval-after-load 'evil-core
     '(evil-set-initial-state 'magit-popup-mode 'emacs))
-
-  ;; (eval-after-load 'evil-core
-  ;;   '(evil-set-initial-state 'neotree-mode 'evil))
-  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
-  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-
   (eval-after-load 'evil-core
     '(evil-set-initial-state 'dired-mode 'normal)))
 
 ;; Language specific files
-(use-package tex-init)
+;; (use-package tex-init)
 (use-package slime-init)
 (use-package irony-init)
 (use-package go-init)
