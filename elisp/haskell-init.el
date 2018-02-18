@@ -11,7 +11,9 @@
   :mode "\\.hs\\'"
   :config
   (use-package intero
-    :ensure t)
+    :ensure t
+    :config
+    (intero-global-mode 1))
   (setq haskell-stylish-on-save t))
 
 (provide 'haskell-init)
