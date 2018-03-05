@@ -59,6 +59,8 @@
   (nmap ";" 'evil-ex)
   (vmap ";" 'evil-ex)
 
+  (nmap "M-." 'nil)
+
   ;; Fix the ctrl-u scroll issue
   (nmap "C-u" 'evil-scroll-up)
   (vmap "C-u" 'evil-scroll-up)
@@ -193,6 +195,7 @@
 (use-package slime-init)
 (use-package irony-init)
 (use-package go-init)
+(use-package py-init)
 (use-package haskell-init)
 (use-package scala-init)
 

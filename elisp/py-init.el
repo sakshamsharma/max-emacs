@@ -5,11 +5,22 @@
 
 (require 'use-package)
 
-(use-package elpy
+;; (use-package elpy
+;;   :ensure t
+;;   :functions (elpy-enable)
+;;   :mode ("\\.py\\'" . python-mode)
+;;   :config
+;;   (elpy-enable))
+
+(use-package anaconda-mode
   :ensure t
   :mode ("\\.py\\'" . python-mode)
   :config
-  (elpy-enable))
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
+
+  (use-package company-anaconda
+    :ensure t))
 
 (provide 'py-init)
 ;;; py-init.el ends here

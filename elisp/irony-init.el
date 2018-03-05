@@ -41,14 +41,6 @@
 
   (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
-  (use-package semantic
-    :ensure t
-    :config
-    ;; (require 'semantic/bovine/gcc)
-    (add-to-list 'semantic-default-submodes 'global-semantic-stickyfunc-mode)
-    (global-semantic-idle-summary-mode 1)
-    (semantic-mode 1))
-
   (use-package clang-format
     :ensure t
     :config
