@@ -38,6 +38,8 @@
       erc-log-write-after-send t
       erc-log-write-after-insert t)
 
+(erc-log-mode)
+
 (define-minor-mode ncm-mode "" nil
   (:eval
    (let ((ops 0)

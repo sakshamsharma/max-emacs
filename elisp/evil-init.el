@@ -27,8 +27,13 @@
 
 (use-package evil
   :ensure t
+  :init
+  (setf evil-want-C-u-scroll t)
+  ;; (setf evil-want-fine-undo t)
+  (setf evil-want-abbrev-expand-on-insert-exit nil)
   :config
   (evil-mode 1)
+
 
   (defun nmap (keys fxn)
     "Maps KEYS to FXN in Normal Mode."
@@ -198,6 +203,8 @@
 (use-package py-init)
 (use-package haskell-init)
 (use-package scala-init)
+(use-package erc-init)
+(use-package web-init)
 
 (provide 'evil-init)
 
