@@ -10,10 +10,20 @@
   :ensure t
   :mode "\\.hs\\'"
   :config
+  (defvar haskell-font-lock-symbols)
+  (setq haskell-font-lock-symbols t)
   (use-package intero
     :ensure t
     :config
     (intero-global-mode 1))
+  (use-package flymake-hlint
+    :ensure t
+    :config
+    (add-hook 'haskell-mode-hook 'flymake-hlint-load))
+  (use-package hlint-refactor
+    :ensure t
+    :config
+    (add-hook 'haskell-mode-hook 'hlint-refactor-mode))
   (setq haskell-stylish-on-save t))
 
 (provide 'haskell-init)
