@@ -9,6 +9,7 @@
 (use-package haskell-mode
   :ensure t
   :mode "\\.hs\\'"
+  :bind (("C-c C-c C-l" . haskell-process-load-or-reload))
   :config
   (defvar haskell-font-lock-symbols)
   (setq haskell-font-lock-symbols t)

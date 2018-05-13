@@ -205,6 +205,7 @@
 (use-package scala-init)
 (use-package erc-init)
 (use-package web-init)
+(use-package py-init)
 
 (provide 'evil-init)
 

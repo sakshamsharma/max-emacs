@@ -7,6 +7,7 @@
 
 (use-package irony
   :ensure t
+  :pin melpa-stable
   :mode (("\\.cpp\\'" . c++-mode)
          ("\\.cc\\'"  . c++-mode)
          ("\\.hpp\\'" . c++-mode)
@@ -22,18 +23,21 @@
     (define-key irony-mode-map [remap completion-at-point]
       'irony-completion-at-point-async)
     (define-key irony-mode-map [remap complete-symbol]
-      'irony-completion-at-point-async))
+      'irony-completion-at-point-async)
+    (irony-cdb-autosetup-compile-options)
+    (company-mode))
   (add-hook 'irony-mode-hook 'my-irony-mode-hook)
-  (add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
 
   (use-package flycheck-irony
     :ensure t
+    :pin melpa-stable
     :config
     (eval-after-load 'flycheck
       '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
 
   (use-package company-irony-c-headers
     :ensure t
+    :pin melpa-stable
     :config
     (eval-after-load 'company
       '(add-to-list
