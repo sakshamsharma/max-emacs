@@ -198,7 +198,9 @@
 ;; Language specific files
 ;; (use-package tex-init)
 (use-package slime-init)
-(use-package irony-init)
+;; (use-package irony-init)
+;; (use-package ycmd-init)
+(use-package rtags-init)
 (use-package go-init)
 (use-package py-init)
 (use-package haskell-init)

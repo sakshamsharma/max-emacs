@@ -13,7 +13,7 @@
          ("\\.hpp\\'" . c++-mode)
          ("\\.hh\\'"  . c++-mode)
          ("\\.c\\'"   . c-mode)
-         ("\\.h\\'"   . c-mode))
+         ("\\.h\\'"   . c++-mode))
   :functions global-semantic-stickyfunc-mode
   :config
 
@@ -34,6 +34,14 @@
     :config
     (eval-after-load 'flycheck
       '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup)))
+
+  (use-package company-irony
+    :ensure t)
+
+  (use-package irony-eldoc
+    :ensure t
+    :init
+    (add-hook 'irony-mode-hook #'irony-eldoc))
 
   (use-package company-irony-c-headers
     :ensure t

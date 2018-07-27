@@ -10,9 +10,13 @@
   :functions (elpy-enable)
   :mode ("\\.py\\'" . python-mode)
   :config
-  (elpy-enable))
-  ;; :bind (:map python-mode-map (("M-." . elpy-goto-definition)
-  ;;                              ("M-,"))))
+  (elpy-enable)
+  (setq python-indent-offset 2)
+  :bind (:map python-mode-map (("M-." . elpy-goto-definition)
+                               ("M-," . pop-tag-mark))))
+
+(use-package cython-mode
+  :ensure t)
 
 ;; (use-package anaconda-mode
 ;;   :ensure t
