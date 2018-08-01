@@ -67,7 +67,7 @@
 (use-package multi-term
   :ensure t
   :config
-  (setq multi-term-program "/usr/bin/env zsh")
+  (setq multi-term-program nil)
   (add-hook 'term-mode-hook
             (lambda ()
               (setq term-buffer-maximum-size 10000)))
@@ -91,7 +91,6 @@
 (use-package undo-tree
   :ensure t
   :defer t)
-
 
 (provide 'misc-init)
 ;;; misc-init.el ends here

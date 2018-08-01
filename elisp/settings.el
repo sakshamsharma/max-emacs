@@ -118,5 +118,14 @@
 (setq require-final-newline nil)
 (setq mode-require-final-newline nil)
 
+(add-hook 'kill-buffer-query-functions
+          (lambda ()
+            (if (and (not (equal (buffer-name) "*scratch*"))
+                     (not (equal (buffer-name) "*Messages*")))
+                t
+              (message "Not allowed to kill %s, burying instead" (buffer-name))
+              (bury-buffer)
+              nil)))
+
 (provide 'settings)
 ;;; settings.el ends here
