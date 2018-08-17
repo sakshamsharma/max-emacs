@@ -41,7 +41,7 @@
 (defun frameActions ()
   "Do actions to set up appearance of frame."
   (interactive)
-  (let ((myTheme "zerodark") (myFont "RobotoMono"))
+  (let ((myTheme "zerodark") (myFont "Source Code Pro For Powerline"))
     ;; (disableBells)
     (setTheme myTheme)
     (setFont myFont)))
