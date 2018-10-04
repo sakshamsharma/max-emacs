@@ -104,6 +104,12 @@
 ;; Why did I not know of this earlier? This is for CamelCase
 (global-subword-mode)
 
+;; Super useful for large files. Displays function and namespace you are in.
+(which-function-mode 1)
+
+;; Useful for keeping line length in check.
+(column-number-mode)
+
 (setq scroll-preserve-screen-position t)
 ;;(setq scroll-preserve-screen-position 'always)
 

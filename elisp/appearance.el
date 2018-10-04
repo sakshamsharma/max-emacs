@@ -26,7 +26,7 @@
   (interactive "sWhat font name do you want to set? ")
   (set-face-attribute 'default nil
                       :family fntName
-                      :height 130
+                      :height 120
                       :weight 'normal
                       :width 'normal))
 
@@ -41,7 +41,7 @@
 (defun frameActions ()
   "Do actions to set up appearance of frame."
   (interactive)
-  (let ((myTheme "zerodark") (myFont "Source Code Pro For Powerline"))
+  (let ((myTheme "jbeans") (myFont "Source Code Pro For Powerline"))
     ;; (disableBells)
     (setTheme myTheme)
     (setFont myFont)))
