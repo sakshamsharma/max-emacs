@@ -14,6 +14,8 @@
   :ensure t)
 (use-package zerodark-theme
   :ensure t)
+(use-package darkokai-theme
+  :ensure t)
 
 (defun setTheme (themeName)
   "Set the theme to THEMENAME."

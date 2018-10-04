@@ -10,7 +10,7 @@
   :ensure t
   :diminish projectile-mode
   :config
-  (projectile-global-mode)
+  (projectile-mode)
   (setq projectile-completion-system 'helm
         projectile-enable-caching t
         projectile-switch-project-action 'helm-projectile)
