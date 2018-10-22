@@ -18,6 +18,8 @@
 
 (use-package cython-mode
   :ensure t
+  :config
+  (which-function-mode 0)
   :bind (:map cython-mode-map (("M-]" . xref-find-definitions)
                                ("M-," . pop-tag-mark))))
 
