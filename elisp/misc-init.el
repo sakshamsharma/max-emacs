@@ -81,6 +81,8 @@
       echo-keystrokes 0.1
       visible-bell t)
 
+(global-eldoc-mode -1)
+
 (use-package exec-path-from-shell
   :ensure t)
 
