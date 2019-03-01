@@ -44,7 +44,6 @@
   "Do actions to set up appearance of frame."
   (interactive)
   (let ((myTheme "jbeans") (myFont "Source Code Pro For Powerline"))
-    ;; (disableBells)
     (setTheme myTheme)
     (setFont myFont)))
 

@@ -7,6 +7,7 @@
 
 (use-package ethan-wspace
   :ensure t
+  :diminish ethan-wspace-mode
   :config
   (global-ethan-wspace-mode 1))
 

@@ -1,36 +1,30 @@
-;;; mode-line.el -- For spaceline and powerline
+;;; mode-line.el --- Mode-Line settings
 ;;; Commentary:
+;;; Contains settings related to mode-line
 
 ;;; Code:
 
-(require 'use-package)
+(setq-default mode-line-format
+              (list mode-line-front-space
+                    mode-line-client
+                    mode-line-modified
+                    mode-line-remote
+                    mode-line-frame-identification
+                    mode-line-buffer-identification
+                    "  "
+                    mode-line-position
+                    vc-mode
+                    mode-line-misc-info
+                    mode-line-modes
+                    " [["
+                    '(:eval (propertize server-name
+                                        'face '(:foreground "dodger blue"
+                                                            :height 0.9
+                                                            :weight normal)))
+                    "]] "
+                    mode-line-end-spaces))
 
-(use-package spaceline
-  :ensure t
-  :config
-  (use-package spaceline-config
-    :config
-    (setq powerline-default-separator 'wave)
-    (spaceline-define-segment line-column
-      "The current line and column numbers."
-      "l:%l c:%2c")
-
-    (spaceline-helm-mode)
-    (spaceline-toggle-battery-on)
-    (spaceline-toggle-minor-modes-on)
-    (spaceline-toggle-flycheck-info-on)
-    (spaceline-toggle-buffer-encoding-off)
-    (spaceline-toggle-buffer-encoding-abbrev-off)
-    (spaceline-toggle-buffer-size-off)
-
-    (spaceline-define-segment time
-      "The current time."
-      (format-time-string "%H:%M"))
-    (spaceline-define-segment date
-      "The current date."
-      (format-time-string "%h %d"))
-    (spaceline-toggle-time-on)
-    (spaceline-emacs-theme 'date 'time)))
+(setq auto-revert-check-vc-info t)
 
 (provide 'mode-line)
 ;;; mode-line.el ends here

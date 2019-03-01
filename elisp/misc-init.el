@@ -92,7 +92,13 @@
 
 (use-package undo-tree
   :ensure t
+  :diminish undo-tree-mode
   :defer t)
+
+(use-package diminish
+  :ensure t
+  :config
+  (diminish 'abbrev-mode))
 
 (provide 'misc-init)
 ;;; misc-init.el ends here

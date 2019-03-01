@@ -201,17 +201,21 @@
 ;; (use-package irony-init)
 ;; (use-package ycmd-init)
 ;; (use-package rtags-init)
-(use-package go-init)
+;; (use-package go-init)
 (use-package py-init)
-(use-package haskell-init)
-(use-package scala-init)
-(use-package erc-init)
-(use-package web-init)
+;; (use-package haskell-init)
+;; (use-package scala-init)
+;; (use-package erc-init)
+;; (use-package web-init)
 (use-package py-init)
 (use-package cpp-init)
+(use-package lua-mode
+  :ensure t)
 
 (use-package google-c-style)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
+
+(use-package mode-line)
 
 (provide 'evil-init)
 

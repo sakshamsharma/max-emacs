@@ -19,7 +19,7 @@
 
 (autoload 'zap-up-to-char "misc"
   "Kill up to, but not including ARGth occurrence of CHAR.
-  \(fn arg char)"
+  (fn arg char)"
   'interactive)
 (global-set-key "\M-z" 'zap-up-to-char)
 
@@ -51,9 +51,6 @@
                   week))
       (message "%s" file)
       (delete-file file))))
-
-(setq cua-enable-cua-keys nil)
-(cua-mode)
 
 ;; Vim style non-jumpy scrolling
 (setq scroll-margin 5

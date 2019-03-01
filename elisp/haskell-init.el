@@ -14,9 +14,7 @@
   (defvar haskell-font-lock-symbols)
   (setq haskell-font-lock-symbols t)
   (use-package intero
-    :ensure t
-    :config
-    (intero-global-mode 1))
+    :ensure t)
   (use-package flymake-hlint
     :ensure t
     :config
