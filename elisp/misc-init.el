@@ -19,14 +19,11 @@
   :mode "\\.nix\\'")
 
 ;; Sweet relative numbering
-(use-package nlinum-relative
-  :ensure t)
-  ;; :config
-  ;; (nlinum-relative-on)
-  ;; (add-hook 'prog-mode-hook 'nlinum-relative-mode)
-  ;; (setq nlinum-relative-redisplay-delay 0.5)   ;; delay
-  ;; (setq nlinum-relative-current-symbol "->") ;; or "" for current line
-  ;; (setq nlinum-relative-offset 1))
+(use-package linum-relative
+  :ensure t
+  :config
+  (setq linum-relative-backend 'display-line-numbers-mode)
+  :bind(("<f4>" . linum-relative-mode)))
 
 (use-package smbc
   :defer 10

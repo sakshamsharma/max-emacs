@@ -82,6 +82,12 @@
   (nmap "C-p" 'helm-projectile)
   (nmap "C-S-p" 'helm-projectile-recentf)
 
+  ;; Code folding keys
+  (nmap "za" 'hs-toggle-hiding)
+  (nmap "zM" 'hs-show-all-blocks)
+  (nmap "zo" 'hs-show-block)
+  (nmap "zc" 'hs-hide-block)
+
   (evil-ex-define-cmd "q[uit]" 'kill-cur-buf)
 
   ;; Make movement keys work like they should
@@ -207,7 +213,6 @@
 ;; (use-package scala-init)
 ;; (use-package erc-init)
 ;; (use-package web-init)
-(use-package py-init)
 (use-package cpp-init)
 (use-package lua-mode
   :ensure t)

@@ -17,6 +17,9 @@
   (setq company-minimum-prefix-length 2)
   (add-hook 'after-init-hook 'global-company-mode)
 
+  (use-package company-box
+    :ensure t)
+
   (defun complete-or-indent ()
     "If there is no completion, then ident."
     (interactive)

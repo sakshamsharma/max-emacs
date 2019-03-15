@@ -21,6 +21,7 @@
 (defun my-c++-mode-hook()
   "Set c++ vars."
   ;; (ggtags-mode 1)
+  (hs-minor-mode)
   (setq flycheck-gcc-language-standard "c++14")
   (setq flycheck-clang-language-standard "c++14")
   (c-set-offset 'inlambda 0))
@@ -31,7 +32,9 @@
   :commands lsp)
 (use-package lsp-ui
   :ensure t
-  :commands lsp-ui-mode)
+  :commands lsp-ui-mode
+  :config
+  (setq lsp-ui-sideline-enable nil))
 
 (use-package cquery
   :ensure t
