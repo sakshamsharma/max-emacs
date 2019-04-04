@@ -29,7 +29,10 @@
 
 (use-package lsp-mode
   :ensure t
-  :commands lsp)
+  :commands lsp
+  :config
+  (setq lsp-ui-sideline-enable nil))
+
 (use-package lsp-ui
   :ensure t
   :commands lsp-ui-mode
@@ -44,8 +47,7 @@
     :ensure t
     :config
     (push 'company-lsp company-backends))
-  (use-package helm-lsp
-    :load-path "./")
+  (use-package helm-lsp)
   (use-package helm-xref
     :ensure t
     :config
@@ -57,7 +59,6 @@
                     ".cquery")
                   projectile-project-root-files-top-down-recurring)))
 
-  (setq cquery-executable "/spare/local/saksham/m2/envs/clang40/bin/cquery")
   (setq cquery-extra-init-params '(:index (:comments 2) :cacheFormat "msgpack"))
   (setq cquery-extra-args '("--log-file=/tmp/cq.log"))
   (setq cquery-cache-dir "/spare/local/saksham/.cquery_cached_index"))
@@ -65,28 +66,38 @@
 (defun cquery//enable ()
   (interactive)
   (require 'cquery)
-  (add-hook 'c++-mode-hook #'lsp))
+  (add-hook 'c++-mode-hook #'lsp)
+  (setq xref-prompt-for-identifier '(not xref-find-definitions
+                                         xref-find-definitions-other-window
+                                         xref-find-definitions-other-frame
+                                         xref-find-references)))
 
 (defun ccls//enable ()
   (interactive)
   (require 'ccls)
-  (add-hook 'c++-mode-hook #'lsp))
+  (add-hook 'c++-mode-hook #'lsp)
+  (define-key c++-mode-map (kbd "C-c C-h") '(lambda () (interactive) (ccls-navigate "L")))
+  (define-key c++-mode-map (kbd "C-c C-j") '(lambda () (interactive) (ccls-navigate "D")))
+  (define-key c++-mode-map (kbd "C-c C-k") '(lambda () (interactive) (ccls-navigate "U")))
+  (define-key c++-mode-map (kbd "C-c C-l") '(lambda () (interactive) (ccls-navigate "R")))
+  (setq xref-prompt-for-identifier '(not xref-find-definitions
+                                         xref-find-definitions-other-window
+                                         xref-find-definitions-other-frame
+                                         xref-find-references)))
 
 (use-package ccls
-  :ensure t
-  :defer t
+  :after projectile
   :config
-  (setq ccls-executable "/spare/local/saksham/.conda/envs/clang60/bin/ccls")
   (setq ccls-args '("--init={\"cacheDirectory\":\"/spare/tmp/saksham/ccls\", \
                             \"index\": {\"threads\": 4}, \
-                            \"clang\": {\"resourceDir\": \"/spare/local/saksham/.conda/envs/clang60/lib/clang/6.0.1/\"}, \
+                            \"clang\": {\"resourceDir\": \"/spare/local/saksham/.conda/envs/clang70/lib/clang/7.0.0/\"}, \
                             \"completion\": {\"filterAndSort\": true}}"))
+
   (use-package company-lsp
     :ensure t
     :config
     (push 'company-lsp company-backends))
-  (use-package helm-lsp
-    :load-path "./")
+  (use-package helm-lsp)
   (use-package helm-xref
     :ensure t
     :config

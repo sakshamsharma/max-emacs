@@ -14,10 +14,32 @@
   (setq projectile-completion-system 'helm
         projectile-enable-caching t
         projectile-switch-project-action 'helm-projectile)
+
+  (setq projectile-project-root-files-functions
+        '(projectile-root-top-down-recurring projectile-root-bottom-up)
+        projectile-project-root-files-top-down-recurring
+        '("compile_commands.json"))
+
+  ;; fd is much faster than git ls-files.
+  (if (executable-find "fd")
+      (setq projectile-git-command
+            "fd . --print0 --no-ignore-vcs --color never")
+    (setq projectile-git-command
+          "git ls-files -zco --exclude-standard && repo forall -c 'git ls-files | sed \"s#\(.*\)#$REPO_PATH\/\1#g\"' | tr '\n' '\0 2>/dev/null || true"))
+
+  ;; Robust helm-projectile-ag
+  (defun robust-helm-projectile-ag (&optional options)
+    "Robust version of helm-projectile-ag."
+    (interactive)
+    (if (file-directory-p (concat (projectile-project-root) ".repo"))
+        (setq helm-ag-base-command "repo forall -c ag --nocolor --nogroup")
+      (setq helm-ag-base-command "ag --nocolor --nogroup"))
+    (helm-projectile-ag options))
+
   (helm-projectile-on)
   :bind  (("C-c C-p" . projectile-recentf)
           ("C-c C-f" . projectile-find-file)
-          ("C-c f"   . helm-projectile-ag )))
+          ("C-c f" . robust-helm-projectile-ag)))
 
 (provide 'projectile-init)
 ;;; projectile-init.el ends here

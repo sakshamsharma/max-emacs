@@ -13,6 +13,7 @@
 (setq-default kill-whole-line 1)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
+(setq-default fill-column 90)
 
 (setq tramp-default-method "ssh")
 (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))

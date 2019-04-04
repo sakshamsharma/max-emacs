@@ -34,7 +34,6 @@
   :config
   (evil-mode 1)
 
-
   (defun nmap (keys fxn)
     "Maps KEYS to FXN in Normal Mode."
     (define-key evil-normal-state-map (kbd keys) fxn))

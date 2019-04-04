@@ -14,7 +14,7 @@
                     "  "
                     mode-line-position
                     vc-mode
-                    mode-line-misc-info
+                    ;; mode-line-misc-info
                     mode-line-modes
                     " [["
                     '(:eval (propertize server-name

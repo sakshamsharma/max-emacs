@@ -9,12 +9,14 @@
 ;; Highlight the current line
 (global-hl-line-mode)
 
-(use-package jbeans-theme
+(use-package zerodark-theme
   :defer t
   :ensure t)
-(use-package zerodark-theme
-  :ensure t)
 (use-package darkokai-theme
+  :defer t
+  :ensure t)
+(use-package jbeans-theme
+  :defer t
   :ensure t)
 
 (defun setTheme (themeName)
