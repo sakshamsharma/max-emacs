@@ -64,6 +64,7 @@
   (setq cquery-cache-dir "/spare/local/saksham/.cquery_cached_index"))
 
 (defun cquery//enable ()
+  "Enables cquery for all c++ files."
   (interactive)
   (require 'cquery)
   (add-hook 'c++-mode-hook #'lsp)
@@ -73,6 +74,7 @@
                                          xref-find-references)))
 
 (defun ccls//enable ()
+  "Enables ccls for all c++ files."
   (interactive)
   (require 'ccls)
   (add-hook 'c++-mode-hook #'lsp)
@@ -86,13 +88,10 @@
                                          xref-find-references)))
 
 (use-package ccls
-  :after projectile
+  :defer t
+  :ensure t
   :config
-  (setq ccls-args '("--init={\"cacheDirectory\":\"/spare/tmp/saksham/ccls\", \
-                            \"index\": {\"threads\": 4}, \
-                            \"clang\": {\"resourceDir\": \"/spare/local/saksham/.conda/envs/clang70/lib/clang/7.0.0/\"}, \
-                            \"completion\": {\"filterAndSort\": true}}"))
-
+  (setq ccls-executable "/apps/stonefs1/saksham/bin/ccls-wrap")
   (use-package company-lsp
     :ensure t
     :config

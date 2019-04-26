@@ -30,7 +30,7 @@
   (interactive "sWhat font name do you want to set? ")
   (set-face-attribute 'default nil
                       :family fntName
-                      :height 120
+                      :height 110
                       :weight 'normal
                       :width 'normal))
 

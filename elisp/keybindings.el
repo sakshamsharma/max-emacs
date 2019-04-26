@@ -67,8 +67,6 @@
     (call-interactively #'eval-last-sexp)))
 (global-set-key (kbd "C-x C-e") #'my-eval)
 
-(global-set-key (kbd "C-M-y" 'eval-region))
-
 (global-set-key (kbd "C-a") 'back-to-indentation-or-beginning)
 
 (defun forward-or-backward-sexp (&optional arg)

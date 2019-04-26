@@ -103,7 +103,7 @@
 (global-subword-mode)
 
 ;; Super useful for large files. Displays function and namespace you are in.
-(which-function-mode 1)
+;; (which-function-mode 1)
 
 ;; Useful for keeping line length in check.
 (column-number-mode)
