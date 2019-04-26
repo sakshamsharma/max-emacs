@@ -28,17 +28,26 @@
           "git ls-files -zco --exclude-standard && repo forall -c 'git ls-files | sed \"s#\(.*\)#$REPO_PATH\/\1#g\"' | tr '\n' '\0 2>/dev/null || true"))
 
   ;; Robust helm-projectile-ag
-  (defun robust-helm-projectile-ag (&optional options)
-    "Robust version of helm-projectile-ag."
-    (interactive)
-    (if (file-directory-p (concat (projectile-project-root) ".repo"))
-        (setq helm-ag-base-command "repo forall -c ag --nocolor --nogroup")
-      (setq helm-ag-base-command "ag --nocolor --nogroup"))
-    (helm-projectile-ag options))
+  (if (executable-find "repo-ag")
+      (defun robust-helm-projectile-ag (&optional options)
+        "Robust version of helm-projectile-ag."
+        (interactive)
+        (if (file-directory-p (concat (projectile-project-root) ".repo"))
+            (setq helm-ag-base-command
+                  "repo forall -c repo-ag")
+          (setq helm-ag-base-command "ag --nocolor --nogroup"))
+        (helm-projectile-ag options))
+
+    (defun robust-helm-projectile-ag (&optional options)
+      "Same as regular helm-projectile-ag."
+      (interactive)
+      (setq helm-ag-base-command "ag --nocolor --nogroup")
+      (helm-projectile-ag options)))
 
   (helm-projectile-on)
   :bind  (("C-c C-p" . projectile-recentf)
           ("C-c C-f" . projectile-find-file)
+          ("C-c o" . projectile-find-other-file)
           ("C-c f" . robust-helm-projectile-ag)))
 
 (provide 'projectile-init)
