@@ -10,7 +10,8 @@
   :bind (("C-c C-g" . magit-status))
   :config
   (use-package diff-hl
-    :ensure t))
+    :ensure t)
+  (add-hook 'git-commit-mode-hook (lambda() (setq fill-column 76))))
 
 (provide 'git-init)
 ;;; git-init.el ends here

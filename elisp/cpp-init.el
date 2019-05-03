@@ -31,7 +31,10 @@
   :ensure t
   :commands lsp
   :config
-  (setq lsp-ui-sideline-enable nil))
+  (use-package lsp-treemacs
+    :ensure t)
+  (setq lsp-ui-sideline-mode t)
+  (setq lsp-ui-sideline-show-hover nil))
 
 (use-package lsp-ui
   :ensure t
@@ -92,6 +95,9 @@
   :ensure t
   :config
   (setq ccls-executable "/apps/stonefs1/saksham/bin/ccls-wrap")
+  (setq ccls-args '("--log-file=/tmp/ccls.log"))
+  (use-package yasnippet
+    :ensure t)
   (use-package company-lsp
     :ensure t
     :config

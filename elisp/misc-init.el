@@ -97,5 +97,8 @@
   :config
   (diminish 'abbrev-mode))
 
+(use-package treemacs
+  :ensure t)
+
 (provide 'misc-init)
 ;;; misc-init.el ends here
