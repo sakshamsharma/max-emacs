@@ -7,6 +7,7 @@
 
 (use-package cython-mode
   :ensure t
+  :defer 5
   :config
   (which-function-mode 0)
   :bind (:map cython-mode-map (("M-]" . xref-find-definitions)

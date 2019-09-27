@@ -40,6 +40,7 @@
 
 (use-package xelb
   :ensure t
+  :defer 10
   :config
   (use-package exwm
     :ensure t

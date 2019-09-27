@@ -7,9 +7,9 @@
 
 (use-package flycheck
   :ensure t
-  :defer 5
-  :diminish flycheck-mode
-  :config (global-flycheck-mode))
+  :defer 1
+  :init (global-flycheck-mode)
+  (setq flycheck-display-errors-delay .3))
 
 (provide 'flycheck-init)
 ;;; flycheck-init.el ends here

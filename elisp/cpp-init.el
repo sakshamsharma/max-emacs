@@ -33,14 +33,16 @@
   :config
   (use-package lsp-treemacs
     :ensure t)
-  (setq lsp-ui-sideline-mode t)
-  (setq lsp-ui-sideline-show-hover nil))
-
-(use-package lsp-ui
-  :ensure t
-  :commands lsp-ui-mode
-  :config
-  (setq lsp-ui-sideline-enable nil))
+  (use-package lsp-ui
+    :ensure t
+    :commands lsp-ui-mode
+    :config
+    (setq lsp-ui-doc-enable nil)
+    (setq lsp-ui-sideline-mode t)
+    (setq lsp-ui-sideline-show-hover nil)
+    (set-face-attribute 'lsp-face-highlight-textual nil
+                        :background 'unspecified :foreground 'unspecified :weight 'unspecified)
+    ))
 
 (use-package cquery
   :ensure t
@@ -108,6 +110,8 @@
     :config
     (setq xref-show-xrefs-function 'helm-xref-show-xrefs)))
 
+(use-package google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
 
 (provide 'cpp-init)
 ;;; cpp-init.el ends here

@@ -7,6 +7,7 @@
 
 (use-package avy
   :ensure t
+  :defer 5
   :bind
   (("C-;"     . avy-goto-char)
    ("C-'"     . avy-goto-char-timer)
@@ -16,6 +17,7 @@
 
 (use-package ace-window
   :ensure t
+  :defer 5
   :bind
   (("C-."     . ace-window))
   :config

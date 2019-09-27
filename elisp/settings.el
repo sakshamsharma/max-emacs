@@ -24,9 +24,6 @@
   'interactive)
 (global-set-key "\M-z" 'zap-up-to-char)
 
-(recentf-mode 1)
-(setq-default recent-save-file "~/.emacs.d/recentf")
-
 ;; Fix font size
 (set-face-attribute 'default nil :height 120)
 
@@ -58,10 +55,22 @@
       scroll-conservatively 9999
       scroll-step 1)
 
-;; Save last location in file
+;; Save last location in files.
 (setq save-place-file "~/.emacs.d/saveplace")
 (setq-default save-place t)
 (require 'saveplace)
+
+;; Save recently opened files.
+(defun per-server-recentf-file ()
+  "Avoids clobbering recentf files."
+  (progn
+    (defvar recentf-save-file)
+    (if (string= (daemonp) "server")
+        (setq recentf-save-file "~/.emacs.d/recentf")
+      (setq recentf-save-file (concat "~/.emacs.d/recentf-" (daemonp))))))
+(recentf-mode 1)
+(add-hook 'emacs-startup-hook 'per-server-recentf-file)
+
 
 ;; Show matching parenthesis
 (show-paren-mode t)
@@ -107,6 +116,9 @@
 
 ;; Useful for keeping line length in check.
 (column-number-mode)
+
+;; Useful if you're changing branches a lot.
+(global-auto-revert-mode 1)
 
 (setq scroll-preserve-screen-position t)
 ;;(setq scroll-preserve-screen-position 'always)

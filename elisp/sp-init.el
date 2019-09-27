@@ -1,5 +1,6 @@
-;; sp-init.el -- smartparens
-;;; Commentary: Thanks again to vikraman :)
+;;; sp-init.el -- smartparens
+;;; Commentary:
+;;; Thanks again to vikraman :)
 
 ;;; Code:
 
@@ -125,7 +126,7 @@ This predicate is only tested on \"insert\" action."
   ;;   (sp-local-pair "`" nil :actions nil))
 
   ;; lisp modes
-  (sp-with-modes sp--lisp-modes
+  (sp-with-modes sp-lisp-modes
     (sp-local-pair "(" nil :bind "C-(")))
 
 (provide 'sp-init)

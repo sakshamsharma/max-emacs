@@ -12,3 +12,9 @@ places
 /semanticdb
 *.swp
 *.elc
+recentf*
+tramp
+request/
+transient/
+.cache/
+.lsp-session-v1

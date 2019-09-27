@@ -150,6 +150,7 @@
 
   (use-package evil-multiedit
     :ensure t
+    :defer 5
     :config
     ;; Highlights all matches of the selection in the buffer.
     (vmap "R" 'evil-multiedit-match-all)
@@ -215,11 +216,6 @@
 (use-package cpp-init)
 (use-package lua-mode
   :ensure t)
-
-(use-package google-c-style)
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-
-(use-package mode-line)
 
 (provide 'evil-init)
 

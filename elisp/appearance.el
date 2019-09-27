@@ -18,6 +18,9 @@
 (use-package jbeans-theme
   :defer t
   :ensure t)
+(use-package doom-themes
+  :defer t
+  :ensure t)
 
 (defun setTheme (themeName)
   "Set the theme to THEMENAME."
@@ -45,7 +48,7 @@
 (defun frameActions ()
   "Do actions to set up appearance of frame."
   (interactive)
-  (let ((myTheme "jbeans") (myFont "Source Code Pro For Powerline"))
+  (let ((myTheme "doom-tomorrow-night") (myFont "Source Code Pro For Powerline"))
     (setTheme myTheme)
     (setFont myFont)))
 
@@ -61,6 +64,8 @@
             (select-frame frame)
             (frameActions)))
     (frameActions))
+
+(use-package mode-line)
 
 (provide 'appearance)
 ;;; appearance.el ends here
